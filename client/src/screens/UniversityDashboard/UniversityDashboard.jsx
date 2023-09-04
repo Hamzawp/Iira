@@ -2,56 +2,29 @@ import React from 'react'
 import './UniversityDashboard.css'
 import Sidebar from '../../components/Sidebar/Sidebar'
 import Navbar from '../../components/Navbar/Navbar'
+import { 
+  BxSmile,
+  BxDashboard,
+  BxShoppingBagAlt,
+  BxDoughnutChart,
+  BxCog,
+  BxLogOutCircle,
+  BxMenu,
+  BxSearch,
+  BxBell,
+  BxChevronRight,
+  BxCloudDownload,
+  BxCalendarCheck,
+  BxGroup,
+  BxDollarCircle,
+  BxFilter,
+} from 'boxicons';
+
+// You can now use these icons in your JSX components.
+
 
 export default function UniversityDashboard() {
-  // TOGGLE SIDEBAR
-// const menuBar = document.querySelector('#content nav .bx.bx-menu');
-// const sidebar = document.getElementById('sidebar');
-
-
-// const searchButton = document.querySelector('#content nav form .form-input button');
-// const searchButtonIcon = document.querySelector('#content nav form .form-input button .bx');
-// const searchForm = document.querySelector('#content nav form');
-
-// searchButton.addEventListener('click', function (e) {
-// 	if(window.innerWidth < 576) {
-// 		e.preventDefault();
-// 		searchForm.classNameList.toggle('show');
-// 		if(searchForm.classNameList.contains('show')) {
-// 			searchButtonIcon.classNameList.replace('bx-search', 'bx-x');
-// 		} else {
-// 			searchButtonIcon.classNameList.replace('bx-x', 'bx-search');
-// 		}
-// 	}
-// })
-
-
-// if(window.innerWidth < 768) {
-// 	sidebar.classNameList.add('hide');
-// } else if(window.innerWidth > 576) {
-// 	searchButtonIcon.classNameList.replace('bx-x', 'bx-search');
-// 	searchForm.classNameList.remove('show');
-// }
-
-// window.addEventListener('resize', function () {
-// 	if(this.innerWidth > 576) {
-// 		searchButtonIcon.classNameList.replace('bx-x', 'bx-search');
-// 		searchForm.classNameList.remove('show');
-// 	}
-// })
-
-// const switchMode = document.getElementById('switch-mode');
-
-// switchMode.addEventListener('change', function () {
-// 	if(this.checked) {
-// 		document.body.classNameList.add('dark');
-// 	} else {
-// 		document.body.classNameList.remove('dark');
-// 	}
-// })
-// menuBar.addEventListener('click', function () {
-// 	sidebar.classNameList.toggle('hide');
-// }
+  
   return (
     <div>
     <Sidebar />
@@ -66,7 +39,7 @@ export default function UniversityDashboard() {
               <li>
                 <a href="#">Dashboard</a>
               </li>
-              <li>{/*<i className="bx bx-chevron-right"></i> */}</li>
+              {/* <li> <BxChevronRight /> </li> */}
               <li>
                 <a className="active" href="#">Home</a>
               </li>

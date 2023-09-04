@@ -1,27 +1,41 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Navbar.css'
+import {AiOutlineBell,AiOutlineMenu} from 'react-icons/ai'
 
 export default function Navbar() {
+    let [turn,setTurn] = useState(true);
+    const handleSwitch = () => {
+        setTurn(!turn);
+        if(turn){
+            document.body.classList.remove('dark');
+        }
+        else{
+            document.body.classList.add('dark');
+        }
+    }
+
   return (
     //  NAVBAR 
     <nav>
-    <i class="bx bx-menu"></i>
-     <a href="#" class="nav-link">Categories</a> 
+    {/* <i className="bx bx-menu"></i> */}
+    <AiOutlineMenu className="nav-link" id="hammenu" />
+     {/* <a href="#" className="nav-link">Categories</a>  */}
     <form action="#">
-      <div class="form-input">
+      <div className="form-input">
         <input type="search" placeholder="Search..." />
-        <button type="submit" class="search-btn">
-          <i class="bx bx-search"></i>
+        <button type="submit" className="search-btn">
+          <i className="bx bx-search"></i>
         </button>
       </div>
     </form>
-    <input type="checkbox" id="switch-mode" hidden />
-    <label for="switch-mode" class="switch-mode"></label>
-    <a href="#" class="notification">
-      <i class="bx bxs-bell"></i>
-      <span class="num">5</span>
+    <input type="checkbox" onChange={handleSwitch} id="switch-mode" hidden />
+    <label for="switch-mode" className="switch-mode"></label>
+    <a href="#" className="notification">
+      {/* <i className="bx bxs-bell"></i> */}
+      <AiOutlineBell/>
+      <span className="num">5</span>
     </a>
-    <a href="#" class="profile">
+    <a href="#" className="profile">
       <img src="img/people.png" />
     </a>
   </nav>
