@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./ProjectCard.css";
+import {AiOutlineCheckCircle} from 'react-icons/ai'
 
 export default function ProjectCard() {
   return (
     <div>
       <div className="card">
-        <div className="top-section">
+        <div className="top-section" >
           <div className="border"></div>
           <div className="icons">
             <div className="logo">
@@ -57,7 +58,9 @@ export default function ProjectCard() {
         <div className="bottom-section">
           <span className="title">StockSocial</span>
           <div className="row row1">
-            <div className="item">
+          <p className="item big-text">Invest,connect and prosper together</p>
+          <div className="item big-text approval"><AiOutlineCheckCircle style={{"fontSize":"17px"}} />IIT Bombay</div>
+            {/* <div className="item">
               <span className="big-text">2626</span>
               <span className="regular-text">UI elements</span>
             </div>
@@ -68,7 +71,7 @@ export default function ProjectCard() {
             <div className="item">
               <span className="big-text">38,631</span>
               <span className="regular-text">Contributers</span>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

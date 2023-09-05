@@ -20,6 +20,10 @@
     flex-direction: column;
     background: linear-gradient(45deg, rgb(4, 159, 187) 0%, rgb(80, 246, 255) 100%);
     position: relative;
+    background-image: url("../../assets/stocksocial.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
   }
   
   .card .top-section .border {
@@ -78,22 +82,23 @@
   
   .card .top-section .icons .social-media {
     height: 100%;
-    padding: 8px 15px;
+    padding: 0px 15px 16px 15px;
+
     display: flex;
     gap: 7px;
   }
   
   .card .top-section .icons .social-media .svg {
     height: 100%;
-    fill: #1b233d;
-  }
-  
-  .card .top-section .icons .social-media .svg:hover {
     fill: white;
   }
   
+  .card .top-section .icons .social-media .svg:hover {
+    fill: grey;
+  }
+  
   .card .bottom-section {
-    margin-top: 15px;
+    margin-top: -5px;
     padding: 10px 5px;
   }
   
@@ -107,9 +112,9 @@
   }
   
   .card .bottom-section .row {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+    /* display: flex;
+    justify-content: space-between; */
+    margin-top: 2px;
   }
   
   .card .bottom-section .row .item {
@@ -125,13 +130,14 @@
   }
   
   .card .bottom-section .row .item .regular-text {
-    font-size: 9px;
+    font-size: 5px;
+    color: #1b233d !important;
   }
   
-  .card .bottom-section .row .item:nth-child(2) {
+  /* .card .bottom-section .row .item:nth-child(2) {
     border-left: 1px solid rgba(255, 255, 255, 0.126);
     border-right: 1px solid rgba(255, 255, 255, 0.126);
-  }
+  } */
 
 .projectdiv{
     display: grid;
@@ -149,3 +155,10 @@
 .projectdiv::-webkit-scrollbar-thumb {
     background-color: blue; /* Set the scrollbar thumb color to blue */
   }
+
+.approval{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 5px;
+}
