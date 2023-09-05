@@ -32,35 +32,35 @@ allSideMenu.forEach(item=> {
           <a href="#">
             {/* <i className="bx bxs-dashboard"></i> */}
             <BiSolidDashboard className = "custom-icons"/>
-            <span className="text">Dashboard</span>
+            <span className="text">{props.isSdbropen?"Dashboard":""}</span>
           </a>
         </li>
         <li>
           <a href="#">
             {/* <i className="bx bxs-shopping-bag-alt"></i> */}
             <BiSolidReport className = "custom-icons"/>
-            <span className="text">Report Link</span>
+            <span className="text">{props.isSdbropen?"Report Link":""}</span>
           </a>
         </li>
         <li>
           <a href="#">
             {/* <i className="bx bxs-doughnut-chart"></i> */}
             <BiHistory className = "custom-icons"/>
-            <span className="text">Report History</span>
+            <span className="text">{props.isSdbropen?"Report History":""}</span>
           </a>
         </li>
         <li>
           <a href="#">
             {/* <i className="bx bxs-message-dots"></i> */}
             <BiMessageAltDetail className = "custom-icons"/>
-            <span className="text">Message</span>
+            <span className="text">{props.isSdbropen?"Message":""}</span>
           </a>
         </li>
         <li>
           <a href="#">
             {/* <i className="bx bxs-group"></i> */}
             <AiOutlineTeam className = "custom-icons"/>
-            <span className="text">Team</span>
+            <span className="text">{props.isSdbropen?"Team":""}</span>
           </a>
         </li>
       </ul>
@@ -69,14 +69,14 @@ allSideMenu.forEach(item=> {
           <a href="#">
             {/* <i className="bx bxs-cog"></i> */}
             <FiSettings className = "custom-icons"/>
-            <span className="text">Settings</span>
+            <span className="text">{props.isSdbropen?"Settings":""}</span>
           </a>
         </li>
         <li>
           <a href="#" className="logout">
             {/* <i className="bx bxs-log-out-circle"></i> */}
             <BiLogOut className = "custom-icons"/>
-            <span className="text">Logout</span>
+            <span className="text">{props.isSdbropen?"Logout":""}</span>
           </a>
         </li>
       </ul>

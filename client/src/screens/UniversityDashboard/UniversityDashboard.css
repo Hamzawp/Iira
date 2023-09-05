@@ -221,6 +221,14 @@
 /* MAIN */
 /* CONTENT */
 
+/*my css*/
+.infodiv{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	/* padding: 5px; */
+}
+
 
 
 
