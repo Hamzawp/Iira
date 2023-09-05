@@ -1,7 +1,11 @@
 import React from 'react'
 import './Sidebar.css'
+import {BiSolidDashboard,BiSolidReport,BiHistory,BiMessageAltDetail,BiLogOut} from 'react-icons/bi'
+import {AiOutlineTeam} from 'react-icons/ai'
+import {FiSettings} from 'react-icons/fi'
 
-export default function Sidebar() {
+export default function Sidebar(props) {
+  
     const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
 
 allSideMenu.forEach(item=> {
@@ -15,16 +19,10 @@ allSideMenu.forEach(item=> {
 	})
 });
 
-// // TOGGLE SIDEBAR
-// const menuBar = document.querySelector('#content nav .bx.bx-menu');
-// const sidebar = document.getElementById('sidebar');
-
-// menuBar.addEventListener('click', function () {
-// 	sidebar.classList.toggle('hide');
-// })
 
   return (
-    <section id="sidebar">
+    // {isSdbropen?}
+    <section id="sidebar" className={props.isSdbropen?"":"hide"}>
       <a href="#" className="brand">
         <i className="bx bxs-smile"></i>
         <span className="text">Aztec</span>
@@ -32,31 +30,36 @@ allSideMenu.forEach(item=> {
       <ul className="side-menu top">
         <li className="active">
           <a href="#">
-            <i className="bx bxs-dashboard"></i>
+            {/* <i className="bx bxs-dashboard"></i> */}
+            <BiSolidDashboard className = "custom-icons"/>
             <span className="text">Dashboard</span>
           </a>
         </li>
         <li>
           <a href="#">
-            <i className="bx bxs-shopping-bag-alt"></i>
+            {/* <i className="bx bxs-shopping-bag-alt"></i> */}
+            <BiSolidReport className = "custom-icons"/>
             <span className="text">Report Link</span>
           </a>
         </li>
         <li>
           <a href="#">
-            <i className="bx bxs-doughnut-chart"></i>
+            {/* <i className="bx bxs-doughnut-chart"></i> */}
+            <BiHistory className = "custom-icons"/>
             <span className="text">Report History</span>
           </a>
         </li>
         <li>
           <a href="#">
-            <i className="bx bxs-message-dots"></i>
+            {/* <i className="bx bxs-message-dots"></i> */}
+            <BiMessageAltDetail className = "custom-icons"/>
             <span className="text">Message</span>
           </a>
         </li>
         <li>
           <a href="#">
-            <i className="bx bxs-group"></i>
+            {/* <i className="bx bxs-group"></i> */}
+            <AiOutlineTeam className = "custom-icons"/>
             <span className="text">Team</span>
           </a>
         </li>
@@ -64,13 +67,15 @@ allSideMenu.forEach(item=> {
       <ul className="side-menu">
         <li>
           <a href="#">
-            <i className="bx bxs-cog"></i>
+            {/* <i className="bx bxs-cog"></i> */}
+            <FiSettings className = "custom-icons"/>
             <span className="text">Settings</span>
           </a>
         </li>
         <li>
           <a href="#" className="logout">
-            <i className="bx bxs-log-out-circle"></i>
+            {/* <i className="bx bxs-log-out-circle"></i> */}
+            <BiLogOut className = "custom-icons"/>
             <span className="text">Logout</span>
           </a>
         </li>

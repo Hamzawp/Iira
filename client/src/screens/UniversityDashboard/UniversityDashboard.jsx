@@ -1,35 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './UniversityDashboard.css'
 import Sidebar from '../../components/Sidebar/Sidebar'
 import Navbar from '../../components/Navbar/Navbar'
-import { 
-  BxSmile,
-  BxDashboard,
-  BxShoppingBagAlt,
-  BxDoughnutChart,
-  BxCog,
-  BxLogOutCircle,
-  BxMenu,
-  BxSearch,
-  BxBell,
-  BxChevronRight,
-  BxCloudDownload,
-  BxCalendarCheck,
-  BxGroup,
-  BxDollarCircle,
-  BxFilter,
-} from 'boxicons';
 
 // You can now use these icons in your JSX components.
 
 
 export default function UniversityDashboard() {
-  
+  let [isSdbropen,setSdbropen] = useState(true);
+  function handleToggle(){
+    console.log("yoo");
+    setSdbropen(!isSdbropen);
+  }
+
   return (
     <div>
-    <Sidebar />
+    <Sidebar isSdbropen={isSdbropen}/>
     <section id="content">
-    <Navbar />
+    <Navbar onClick={handleToggle}/>
      {/* MAIN  */}
       <main>
         <div className="head-title">
