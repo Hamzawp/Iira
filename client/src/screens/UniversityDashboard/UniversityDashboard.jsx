@@ -108,8 +108,6 @@ export default function UniversityDashboard() {
               
                   <CsvBtn />
                    :
-                  
-                  
                   collegeList.map((college) => {
                     return (
                       <tr>
