@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./UniversityDashboard.css";
+import "./Dashboard.css";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Navbar from "../../components/Navbar/Navbar";
 import { FaUniversity } from "react-icons/fa";
@@ -34,7 +34,8 @@ export default function UniversityDashboard() {
     setSdbropen(!isSdbropen);
   }
 
-  function getCsvData(data) {
+  async function getCsvData(data) {
+    console.log(data);
     setisFileSelected(!isFileSelected);
     // console.log(data);
     // console.log("in getcsvdata funcn");
@@ -124,15 +125,15 @@ export default function UniversityDashboard() {
                   {collegeList.length > 0 &&
                     collegeList.map((college) => {
                       return (
-                        <tr key={college.name}>
+                        <tr key={college['College Name']}>
                           <td className="tddiv">
-                            <p>{college.name}</p>
+                            <p>{college['College Name']}</p>
                           </td>
-                          <td className="spoctd">{college.spoc}</td>
+                          <td className="spoctd">{college['SPOC']}</td>
                           <td>
-                            {/* <span className="status process">
-                              {college.projectsAdded}
-                            </span> */}
+                            <span className="status process">
+                            {college['Projects Added']}
+                            </span>
                           </td>
                         </tr>
                       );

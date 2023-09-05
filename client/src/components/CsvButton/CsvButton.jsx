@@ -34,12 +34,13 @@ export default function CsvButton(props) {
           // console.log(data);
         }
       }
+      onDataReceived(data);
       // setCSVData(data);
       // console.log(csvData)
     };
     reader.readAsText(file);
     // console.log(data);
-    onDataReceived(data);
+
   };
 
   return (
