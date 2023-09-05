@@ -5,8 +5,8 @@ import {RiFolderSettingsLine} from 'react-icons/ri'
 import {PiStudentBold} from 'react-icons/pi'
 import usericon from '../../assets/usericon.png'
 import CsvBtn from '../CsvButton/CsvButton'
-import './FacultyProjectReview.css'
-export default function FacultyProjectReview() {
+import './FacultyMyProjects.css'
+export default function FacultyMyProjects() {
 
     const facultyData = [
     // {
@@ -81,16 +81,16 @@ export default function FacultyProjectReview() {
           <main>
           <div className="head-title">
             <div className="left">
-              <h1>Projects Under Review</h1>
+              <h1>Projects Published</h1>
               <ul className="breadcrumb">
                 <li>
                   <a href="#">Thadomal Shahani Engineering College</a>
                 </li>
               </ul>
             </div>
-            <a href="#" className="btn-add">
+            {/* <a href="#" className="btn-add">
                <span className="text">Approve All ✔</span> 
-            </a>
+            </a> */}
           </div>
   
           <ul className="box-info-projRev">
@@ -134,8 +134,8 @@ export default function FacultyProjectReview() {
                   {project.project_desc}
                 </div>
                 <div className="card__indicator">
-                  <span className="card__indicator-amount"></span> Plagiarised |
-                  <span className="card__indicator-percentage">75%</span>
+                  <span className="card__indicator-amount"></span> Read | {''}
+                  <span className="card__indicator-percentage">75k</span>
                 </div>
                 <div className="card__progress">
                   <progress value="75" max="100"></progress>

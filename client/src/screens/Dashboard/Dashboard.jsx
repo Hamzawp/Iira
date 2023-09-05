@@ -7,7 +7,7 @@ import FacultyProfile from '../../components/Faculty/FacultyProfile'
 import FacultyRequests from '../../components/Faculty/FacultyRequests'
 import FacultyProjectReview from '../../components/Faculty/FacultyProjectReview'
 import FacultyAddPage from '../../components/Faculty/FacultyAddPage'
-
+import FacultyMyProjects from '../../components/Faculty/FacultyMyProjects'
 export default function Dashboard() {
 
   const [selectedRow, setSelectedRow] = useState(1);
@@ -33,6 +33,7 @@ export default function Dashboard() {
      {selectedRow === 2 && <> <FacultyProfile/> </>}
      {selectedRow === 3 && <> <FacultyRequests/> </>}
      {selectedRow === 4 && <> <FacultyProjectReview/> </>}
+     {selectedRow === 5 && <> <FacultyMyProjects/> </>}
      {selectedRow === 6 && <> <FacultyAddPage/> </>}
       
       {/*  MAIN  */}
