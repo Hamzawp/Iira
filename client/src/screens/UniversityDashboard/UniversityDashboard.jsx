@@ -5,6 +5,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import { FaUniversity } from "react-icons/fa";
 import { GiTeacher } from "react-icons/gi";
 import { AiFillProject } from "react-icons/ai";
+import CsvBtn from "../../components/CsvButton/CsvButton"
 
 // You can now use these icons in your JSX components.
 
@@ -15,16 +16,16 @@ export default function UniversityDashboard() {
   let [registeredFaculty, setregisteredFaculty] = useState(10);
   let [registeredProjects, setRegisteredProjects] = useState(248);
   let [collegeList, setCollegeList] = useState([
-    {
-      name: "Thadomal Shahani Engineering College",
-      spoc: "Ms Tasneem Mirza",
-      projectsAdded: 42,
-    },
-    {
-      name: "DJ Sanghvi",
-      spoc: "Ms Archana Patil",
-      projectsAdded: 78,
-    },
+    // {
+    //   name: "Thadomal Shahani Engineering College",
+    //   spoc: "Ms Tasneem Mirza",
+    //   projectsAdded: 42,
+    // },
+    // {
+    //   name: "DJ Sanghvi",
+    //   spoc: "Ms Archana Patil",
+    //   projectsAdded: 78,
+    // },
   ]);
 
   function handleToggle() {
@@ -103,13 +104,19 @@ export default function UniversityDashboard() {
                   </tr>
                 </thead>
                 <tbody>
-                  {!collegeList? "Upload csv file" :collegeList.map((college) => {
+                  {collegeList.length == 0 ? 
+              
+                  <CsvBtn />
+                   :
+                  
+                  
+                  collegeList.map((college) => {
                     return (
                       <tr>
-                        <td>
+                        <td className="tddiv">
                           <p>{college.name}</p>
                         </td>
-                        <td>{college.spoc}</td>
+                        <td className="spoctd">{college.spoc}</td>
                         <td>
                           <span className="status process">
                             {college.projectsAdded}

@@ -3,6 +3,7 @@ import './Sidebar.css'
 import {BiSolidDashboard,BiSolidReport,BiHistory,BiMessageAltDetail,BiLogOut} from 'react-icons/bi'
 import {AiOutlineTeam} from 'react-icons/ai'
 import {FiSettings} from 'react-icons/fi'
+import { Link } from 'react-router-dom'
 
 export default function Sidebar(props) {
   
@@ -39,7 +40,7 @@ allSideMenu.forEach(item=> {
           <a href="#">
             {/* <i className="bx bxs-shopping-bag-alt"></i> */}
             <BiSolidReport className = "custom-icons"/>
-            <span className="text">{props.isSdbropen?"Report Link":""}</span>
+            <span className="text"><Link to="/report">{props.isSdbropen?"Report Link":""}</Link></span>
           </a>
         </li>
         <li>
