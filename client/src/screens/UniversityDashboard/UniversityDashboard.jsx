@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./UniversityDashboard.css";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Navbar from "../../components/Navbar/Navbar";
 import { FaUniversity } from "react-icons/fa";
 import { GiTeacher } from "react-icons/gi";
 import { AiFillProject } from "react-icons/ai";
-import CsvBtn from "../../components/CsvButton/CsvButton"
+import CsvBtn from "../../components/CsvButton/CsvButton";
 
 // You can now use these icons in your JSX components.
 
@@ -27,11 +27,25 @@ export default function UniversityDashboard() {
     //   projectsAdded: 78,
     // },
   ]);
+  let [isFileSelected, setisFileSelected] = useState(true);
 
   function handleToggle() {
     console.log("yoo");
     setSdbropen(!isSdbropen);
   }
+
+  function getCsvData(data) {
+    setisFileSelected(!isFileSelected);
+    // console.log(data);
+    // console.log("in getcsvdata funcn");
+    // console.log("this is college list");
+    // console.log(collegeList);
+    setCollegeList(data);
+  }
+  useEffect(() => {
+    // This will log the updated collegeList when it changes
+    console.log(collegeList);
+  }, [collegeList]);
 
   return (
     <div>
@@ -104,25 +118,25 @@ export default function UniversityDashboard() {
                   </tr>
                 </thead>
                 <tbody>
-                  {collegeList.length == 0 ? 
-              
-                  <CsvBtn />
-                   :
-                  collegeList.map((college) => {
-                    return (
-                      <tr>
-                        <td className="tddiv">
-                          <p>{college.name}</p>
-                        </td>
-                        <td className="spoctd">{college.spoc}</td>
-                        <td>
-                          <span className="status process">
-                            {college.projectsAdded}
-                          </span>
-                        </td>
-                      </tr>
-                    );
-                  })}
+                  {collegeList.length == 0 && (
+                    <CsvBtn onDataReceived={getCsvData} />
+                  )}
+                  {collegeList.length > 0 &&
+                    collegeList.map((college) => {
+                      return (
+                        <tr key={college.name}>
+                          <td className="tddiv">
+                            <p>{college.name}</p>
+                          </td>
+                          <td className="spoctd">{college.spoc}</td>
+                          <td>
+                            {/* <span className="status process">
+                              {college.projectsAdded}
+                            </span> */}
+                          </td>
+                        </tr>
+                      );
+                    })}
                   {/*<tr>
                   <td>
                      <img src="img/people.png" /> 
