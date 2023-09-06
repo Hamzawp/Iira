@@ -134,7 +134,7 @@ export default function FacultyProjectReview() {
                   {project.project_desc}
                 </div>
                 <div className="card__indicator">
-                  <span className="card__indicator-amount"></span> Plagiarised |
+                  <span className="card__indicator-amount"></span> Plagiarised |{' '}
                   <span className="card__indicator-percentage">75%</span>
                 </div>
                 <div className="card__progress">
