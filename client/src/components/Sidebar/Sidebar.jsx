@@ -9,6 +9,11 @@ import {
 } from "react-icons/bi";
 import { AiOutlineTeam } from "react-icons/ai";
 import { FiSettings } from "react-icons/fi";
+// import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+// import FactCheckIcon from '@mui/icons-material/FactCheck';
+// import RateReviewIcon from '@mui/icons-material/RateReview';
+// import BackupTableIcon from '@mui/icons-material/BackupTable';
+// import GroupAddIcon from '@mui/icons-material/GroupAdd';
 
 export default function Sidebar(props) {
   const [activeMenuItem, setActiveMenuItem] = useState(1);

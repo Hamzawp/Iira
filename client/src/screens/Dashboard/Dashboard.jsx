@@ -3,6 +3,7 @@ import "./Dashboard.css";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Navbar from "../../components/Navbar/Navbar";
 import UniversityDashboard from "../../components/University/UniversityDashboard";
+import UniversityProfile from "../../components/University/UniversityProfile";
 
 import CsvBtn from "../../components/CsvButton/CsvButton";
 
@@ -23,7 +24,7 @@ export default function Dashboard() {
 
   return (
     <div>
-      <Sidebar isSdbropen={isSdbropen} />
+      <Sidebar isSdbropen={isSdbropen} onItemClick={handleSidebarItemClick} />
       <section id="content">
         <Navbar onClick={handleToggle} />
         {selectedRow === 1 && (
@@ -33,7 +34,7 @@ export default function Dashboard() {
         )}
         {selectedRow === 2 && (
           <>
-            hello
+            <UniversityProfile />
           </>
         )}  
       </section>

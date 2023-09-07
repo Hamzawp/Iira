@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mui/icons-material": "^5.14.8",
+    "@mui/styled-engine": "^5.14.8",
     "boxicons": "^2.1.4",
     "react": "^18.2.0",
     "react-csv-importer": "^0.8.1",

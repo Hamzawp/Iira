@@ -1,27 +1,26 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import {AiOutlineFundProjectionScreen} from 'react-icons/ai'
 import {FaChalkboardTeacher} from 'react-icons/fa'
 import {RiFolderSettingsLine} from 'react-icons/ri'
 import {PiStudentBold} from 'react-icons/pi'
 import usericon from '../../assets/usericon.png'
 import CsvBtn from '../CsvButton/CsvButton'
-import './FacultyAddPage.css'
-
-export default function FacultyAddPage() {
+import './UniversityDashboard.css'
+export default function UniversityProfile() {
 
   const facultyData = [
-  {
-    name: "Prof. Rahul Sharma",
-    department: "CSE",
-    underReviewProjects: 11,
-    totalProjects: 7,
-  },
-  {
-    name: "Prof. Priya Patel",
-    department: "IT",
-    underReviewProjects: 4,
-    totalProjects: 23,
-  },
+  // {
+  //   name: "Prof. Rahul Sharma",
+  //   department: "CSE",
+  //   underReviewProjects: 11,
+  //   totalProjects: 7,
+  // },
+  // {
+  //   name: "Prof. Priya Patel",
+  //   department: "IT",
+  //   underReviewProjects: 4,
+  //   totalProjects: 23,
+  // },
   // {
   //   name: "Prof. Abbas Rizvi",
   //   department: "AI&DS",
@@ -44,101 +43,99 @@ export default function FacultyAddPage() {
 let SPOC ="SPOC";
 
 const facultyDataLength = facultyData.length;
-let [studentList, setStudentList] = useState([
-  
-]);
-let [isFileSelected, setisFileSelected] = useState(true);
-
-async function getCsvData(data) {
-  console.log(data);
-  setisFileSelected(!isFileSelected);
-  setStudentList(data);
-}
-
-useEffect(() => {
-  // This will log the updated studentList when it changes
-  console.log(studentList);
-}, [studentList]);
-
 
   return (
     <div>
         <main>
         <div className="head-title">
           <div className="left">
-            <h1>Add Faculty Panel</h1>
+            <h1>Welcome, {SPOC}!</h1>
             <ul className="breadcrumb">
               <li>
                 <a href="#">Thadomal Shahani Engineering College</a>
               </li>
             </ul>
           </div>
-          <a href="#" className="btn-adds">
+          <a href="#" className="btn-add">
             {/*<i className="bx bxs-cloud-download"></i> */}
-             {/* <span className="texts" >
-              Add Faculty +
-             </span>  */}
-             <div>
-             {studentList.length == 0 ? (
-                  <CsvBtn  onDataReceived={getCsvData} />
-                  
-                ) : (
-                    <div className="generateCred">
-                        <button className="generatePass"> Generate Credentials</button>
-                    </div>
-                )}
-             </div>
-             
+             <span className="text">Add Faculty +</span> 
           </a>
         </div>
+
+        <ul className="box-info">
+          <li>
+            {/*<i className="bx bxs-calendar-check"></i> */}
+            <FaChalkboardTeacher size="3em" color="#4B49AC" />
+            <span className="text">
+              <h3>07</h3>
+              <p>Faculties</p>
+            </span>
+          </li>
+          <li>
+            {/*<i className="bx bxs-group"></i> */}
+            <RiFolderSettingsLine size="3em" style={{"color":"#4B49AC"}} />
+            <span className="text">
+              <h3>24</h3>
+              <p>Projects</p>
+            </span>
+          </li>
+          <li>
+            {/*<i className="bx bxs-dollar-circle"></i> */}
+            <PiStudentBold size="3em" color="#4B49AC"/>
+            <span className="text">
+              <h3>73</h3>
+              <p>Students</p>
+            </span>
+          </li>
+        </ul>
 
         <div className="table-data">
           <div className="order">
             <div className="head">
               <h3>Faculties</h3>
-              
+              {/*<i className="bx bx-search"></i> */}
+              {/*<i className="bx bx-filter"></i> */}
             </div>
-           
             <table>
               <thead>
                 <tr>
-                  <th style={{"width":"32%"}}>First Name</th>   
-                  <th style={{"width":"25%"}}>Last Name</th>
-                  <th style={{"width":"25%"}}>Email</th>
-                  <th style={{"width":"25%"}}>DOB</th>
+                  <th>Name of Faculty</th>
+                  <th>Department</th>
+                  <th>Under Review</th>
+                  <th>Total Projects</th>
                 </tr>
               </thead>
               <tbody>
-                {/* {facultyDataLength === 0 ? ( <CsvBtn onDataReceived={getCsvData}/>) :  */}
-                {studentList.length > 0 &&
-                      studentList.map((faculty, index) => {
-                        return(
-                        <tr  key={faculty["Faculty First Name"]}>
-                          <td style={{"width":"30%"}}>
-                            {/* <img src={usericon} alt="User Icon" /> */}
-                            {/* <p>{faculty.name}</p> */}
-                            <p>{faculty["Faculty First Name"]}</p>
+
+                {facultyDataLength === 0 ? ( <CsvBtn/>) : 
+                  (
+                    <>
+                      {facultyData.map((faculty, index) => (
+                        <tr key={index}>
+                          <td>
+                            <img src={usericon} alt="User Icon" />
+                            <p>{faculty.name}</p>
                           </td>
-                          {/* <td>{faculty.department}</td> */}
-                          <td style={{"width":"25%"}}>{faculty["Faculty Last Name"]}</td>
-                          <td  style={{"width":"25%"}}><span className="status pending">{faculty["Faculty Email"]}</span></td>
-                          <td style={{"width":"25%"}}>
-                            <span >
-                              {/* {faculty.underReviewProjects} */}
-                              {faculty["Faculty DOB"]}
+                          <td>{faculty.department}</td>
+                          <td>
+                            <span className="status pending">
+                              {faculty.underReviewProjects}
                             </span>
                           </td>
-                        
+                          <td>
+                            <span className="status process">
+                              {faculty.totalProjects}
+                            </span>
+                          </td>
                         </tr>
-                        );})}
-                   
+                      ))}
+                    </>
+                  )
+                }
               </tbody>
             </table>
-            
-
-           
           </div>
-          {/* <div className="todo">
+          <div className="todo">
             <div className="head">
               <h3>Ongoing Projects</h3>
             </div>
@@ -212,7 +209,7 @@ useEffect(() => {
                   </div>
               </li>
             </ul>
-          </div> */}
+          </div>
         </div>
         </main>
     </div>
