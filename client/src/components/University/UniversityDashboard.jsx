@@ -18,8 +18,13 @@ export default function UniversityDashboard(props) {
     },
     {
       collegeName:"DJ Sanghvi",
-      spoc:"Ms Aruna Patil",
-      email:"arunapl@tsec.edu"
+      spoc:"Mr Shreyas Joshi",
+      email:"sjoshi@dj.edu"
+    },
+    {
+      collegeName:"IIT Bombay",
+      spoc:"Ms Archana Kulkarni",
+      email:"akulkarni@iitb.gov"
     },
   ]);
   let [isFileSelected, setisFileSelected] = useState(true);
