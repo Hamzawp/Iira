@@ -223,6 +223,13 @@ export default function Sidebar(props) {
           </li> */}
         </ul>
       )}
+      {
+        role == "FACULTY" && (
+          <>
+            Yo
+          </>
+        )
+      }
       <ul className="side-menu">
         <li>
           <a href="#">

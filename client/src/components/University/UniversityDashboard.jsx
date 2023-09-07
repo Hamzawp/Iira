@@ -11,7 +11,16 @@ export default function UniversityDashboard(props) {
   let [registeredFaculty, setregisteredFaculty] = useState(10);
   let [registeredProjects, setRegisteredProjects] = useState(248);
   let [collegeList, setCollegeList] = useState([
-  
+    {
+      collegeName:"Thadomal Shahani Engineering College",
+      spoc:"Ms Aruna Patil",
+      email:"arunapl@tsec.edu"
+    },
+    {
+      collegeName:"DJ Sanghvi",
+      spoc:"Ms Aruna Patil",
+      email:"arunapl@tsec.edu"
+    },
   ]);
   let [isFileSelected, setisFileSelected] = useState(true);
 
@@ -94,21 +103,21 @@ export default function UniversityDashboard(props) {
                 </tr>
               </thead>
               <tbody>
-                {collegeList.length == 0 && (
+                {/* {collegeList.length == 0 && (
                   <CsvBtn onDataReceived={getCsvData} />
                   
-                )}
-                {collegeList.length > 0 &&
-                  collegeList.map((college) => {
+                )} */}
+                {/* {collegeList.length > 0 && */}
+                  {collegeList.map((college) => {
                     return (
-                      <tr key={college["College Name"]}>
-                        <td className="tddiv">
-                          <p>{college["College Name"]}</p>
+                      <tr key={college.collegeName}>
+                        <td className="tddiv" style={{maxWidth:"15vw",textAlign:"left"}}>
+                          <p>{college.collegeName}</p>
                         </td>
-                        <td className="spoctd">{college["SPOC"]}</td>
-                        <td>
+                        <td className="spoctd">{college.spoc}</td>
+                        <td style={{display:"flex"}}>
                           <span className="status process">
-                            {college["Projects Added"]}
+                            {college.email}
                           </span>
                         </td>
                       </tr>

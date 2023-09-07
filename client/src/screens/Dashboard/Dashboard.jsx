@@ -4,6 +4,8 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import Navbar from "../../components/Navbar/Navbar";
 import UniversityDashboard from "../../components/University/UniversityDashboard";
 import UniversityProfile from "../../components/University/UniversityProfile";
+import UniversityAddPage from "../../components/University/UniversityAddPage";
+import UniversityMyProjects from "../../components/University/UniversityMyProjects"
 
 import CsvBtn from "../../components/CsvButton/CsvButton";
 
@@ -36,7 +38,17 @@ export default function Dashboard() {
           <>
             <UniversityProfile />
           </>
+        )}
+        {selectedRow === 4 && (
+          <>
+            <UniversityAddPage />
+          </>
         )}  
+        {selectedRow === 5 && (
+          <>
+            <UniversityMyProjects />
+          </>
+        )}
       </section>
     </div>
   );

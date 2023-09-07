@@ -146,7 +146,7 @@
     justify-items: center;
     max-height: 293px;
     row-gap: 32px;
-    scrollbar-width: thin;
+    /* scrollbar-width: thin; */
 }
 .projectdiv::-webkit-scrollbar {
     width: 6px !important; /* Adjust the width as per your preference */
