@@ -1,13 +1,18 @@
 import React, { useState } from "react";
+import {useNavigate} from "react-router-dom";
+import axios from 'axios';
 import "./Login.css";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import ForgotPasswordPopup from "./ForgotPasswordPopup";
+import url from '../../../url';
+import jwt_decode from "jwt-decode";
 
 const options = ["University", "Faculty", "Student"];
 const defaultOption = options[0];
 
 const Login = () => {
+  const Navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showForgotPasswordPopup, setShowForgotPasswordPopup] = useState(false);
@@ -33,6 +38,26 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Add your login logic here using 'username' and 'password' states
+    const sendData = async () => {
+      try{
+        const response = await axios.post(`${url}/api/v1/college/SPOC/login`, {email: username, password: password});
+        // /api/v1/university/login
+        // /api/v1/college/college_faculty/login
+        // /api/v1/college/student/login
+        console.log(response);
+        var decoded = jwt_decode(response.data.token);
+ 
+        console.log(decoded.role);
+        
+          Navigate(`/${decoded.role}`);
+       
+        
+      }catch (error){
+        console.log(error);
+      }
+    }
+
+    sendData();
   };
 
   return (
@@ -67,7 +92,7 @@ const Login = () => {
               <div className="Inputdiv">
                 {/* <h5>Username</h5> */}
                 <input
-                  type="text"
+                  type="email"
                   className="input"
                   onFocus={handleFocus}
                   onBlur={handleBlur}
