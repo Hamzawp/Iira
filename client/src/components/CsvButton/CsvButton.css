@@ -1,0 +1,47 @@
+.csvBtn {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #4B49AC;
+    border: none;
+    color: #FFFFFF;
+    opacity: 0.9;
+    text-align: center;
+    font-size: 17px;
+    padding: 12px;
+    width: 100px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    position: absolute;
+    left: 40%;
+    top: 45%;
+   }
+
+   .csvBtn:hover{
+    opacity: 1;
+   }
+   
+   .csvBtn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+   }
+   
+   .csvBtn span:after {
+    content: '⇪';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -15px;
+    transition: 0.5s;
+   }
+   
+   .csvBtn:hover span {
+    padding-right: 15px;
+   }
+   
+   .csvBtn:hover span:after {
+    opacity: 1;
+    right: 0;
+   }
