@@ -34,23 +34,26 @@ export default function Dashboard() {
     <div>
      {roleUser === 'college_faculty' && 
       <>
-      <Sidebar isSdbropen={isSdbropen} onItemClick={handleSidebarItemClick}/>
-      <section id="content">
-      <Navbar onClick={handleToggle}/>
-      {/* MAIN  */}
-      {selectedRow === 1 && <> <FacultyDashboard/> </>}
-      {selectedRow === 2 && <> <FacultyProfile/> </>}
-      {selectedRow === 3 && <> <FacultyRequests/> </>}
-      {selectedRow === 4 && <> <FacultyProjectReview/> </>}
-      {selectedRow === 5 && <> <FacultyMyProjects/> </>}
-      {selectedRow === 6 && <> <FacultyAddPage/> </>}
-        
-        {/*  MAIN  */}
-      </section>
+        <Sidebar isSdbropen={isSdbropen} onItemClick={handleSidebarItemClick}/>
+
+        <section id="content">
+        <Navbar onClick={handleToggle}/>
+        {/* MAIN  */}
+        {selectedRow === 1 && <> <FacultyDashboard/> </>}
+        {selectedRow === 2 && <> <FacultyProfile/> </>}
+        {selectedRow === 3 && <> <FacultyRequests/> </>}
+        {selectedRow === 4 && <> <FacultyProjectReview/> </>}
+        {selectedRow === 5 && <> <FacultyMyProjects/> </>}
+        {selectedRow === 6 && <> <FacultyAddPage/> </>}
+          
+          {/*  MAIN  */}
+        </section>
+
       </>}
+      
       {roleUser === 'university' && 
       <>
-      <h1>Hi, University</h1>
+        <h1>Hi, University</h1>
       </>}
 
     
