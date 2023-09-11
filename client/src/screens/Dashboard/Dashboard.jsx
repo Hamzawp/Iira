@@ -24,9 +24,11 @@ export default function Dashboard() {
 
   let [isSdbropen,setSdbropen] = useState(true);
   function handleToggle(){
+
     console.log("yoo");
     setSdbropen(!isSdbropen);
   }
+
 
   
 
@@ -53,10 +55,39 @@ export default function Dashboard() {
       
       {roleUser === 'university' && 
       <>
-        <h1>Hi, University</h1>
+        <Sidebar isSdbropen={isSdbropen} onItemClick={handleSidebarItemClick} />
+      <section id="content">
+        <Navbar onClick={handleToggle} />
+        {selectedRow === 1 && (
+          <>
+            <UniversityDashboard />
+          </>
+        )}
+        {selectedRow === 2 && (
+          <>
+            <UniversityProfile />
+          </>
+        )}
+        {selectedRow === 3 && (
+          <>
+            <UniversityCollegeTab />
+          </>
+        )}
+        {selectedRow === 4 && (
+          <>
+            <UniversityAddPage />
+          </>
+        )}  
+        {selectedRow === 5 && (
+          <>
+            <UniversityMyProjects />
+          </>
+        )}
+      </section>
       </>}
 
     
     </div>
   )
+
 }

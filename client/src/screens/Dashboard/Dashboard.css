@@ -8,6 +8,7 @@
 	width: calc(100% - 60px);
 	left: 60px;
 }
+
 @media screen and (max-width: 768px) {
 	#sidebar {
 		width: 200px;
@@ -22,6 +23,7 @@
 		display: none;
 	}
 }
+
 @media screen and (max-width: 576px) {
 	#content nav form .form-input input {
 		display: none;
@@ -65,4 +67,5 @@
 	#content main .table-data .todo .todo-list {
 		min-width: 420px;
 	}
+
 }

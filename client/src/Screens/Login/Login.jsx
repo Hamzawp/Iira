@@ -1,26 +1,15 @@
 import React, { useState } from "react";
-
-import {useNavigate} from "react-router-dom";
-import axios from 'axios';
-
 import "./Login.css";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import ForgotPasswordPopup from "./ForgotPasswordPopup";
 
-import url from '../../../url';
-import jwt_decode from "jwt-decode";
-
 const options = ["University", "Faculty", "Student"];
 const defaultOption = options[0];
 
 const Login = () => {
-
-  const Navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [selectedOption, setSelectedOption] = useState('');
-
   const [showForgotPasswordPopup, setShowForgotPasswordPopup] = useState(false);
 
   const handleForgotPasswordClick = () => {
@@ -43,50 +32,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-
-    const sendData = async () => {
-     let endpoint = '';
-      try{
-
-        console.log(selectedOption);
-        switch (selectedOption.value) {
-          case 'University':
-             endpoint = "/api/v1/university/login";
-            break;
-          case 'Faculty':
-             endpoint = "/api/v1/college/college_faculty/login";
-            break;
-          case 'Student':
-             endpoint = "/api/v1/college/student/login";
-            break;
-          default:
-             endpoint = "/api/v1/";
-            break;
-        }
-        // console.log(endpoint);
-        // console.log('Sending request to:', `${url}${endpoint}`);
-        // console.log('Sending data:', { em  ail: username, password: password });
-
-        const response = await axios.post(`${url}${endpoint}`, {email: username, password: password});
-        // /api/v1/university/login
-        // /api/v1/college/college_faculty/login
-        // /api/v1/college/student/login
-        console.log(response);
-        localStorage.setItem('token', response.data.token);
-        Navigate('/');
-      }
-      catch (error){
-        console.log(error);
-      }
-    }
-
-    sendData();
-  };
-
-  const handleDropdownChange = (selectedValue) => {
-    setSelectedOption(selectedValue);
-
+    // Add your login logic here using 'username' and 'password' states
   };
 
   return (
@@ -111,9 +57,6 @@ const Login = () => {
                 options={options}
                 value={defaultOption}
                 placeholder="Select an option"
-
-                onChange={(selectedValue) => handleDropdownChange(selectedValue)}
-
               />
             </div>
 
@@ -124,9 +67,7 @@ const Login = () => {
               <div className="Inputdiv">
                 {/* <h5>Username</h5> */}
                 <input
-
-                  type="email"
-
+                  type="text"
                   className="input"
                   onFocus={handleFocus}
                   onBlur={handleBlur}
