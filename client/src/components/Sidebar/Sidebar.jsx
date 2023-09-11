@@ -1,4 +1,3 @@
-
 import React,{useState} from 'react'
 import './Sidebar.css'
 import {BiSolidDashboard,BiSolidReport,BiHistory,BiMessageAltDetail,BiLogOut} from 'react-icons/bi'
@@ -9,15 +8,19 @@ import FactCheckIcon from '@mui/icons-material/FactCheck';
 import RateReviewIcon from '@mui/icons-material/RateReview';
 import BackupTableIcon from '@mui/icons-material/BackupTable';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
-
+import jwt_decode from "jwt-decode";
 export default function Sidebar(props) {
   const [activeMenuItem, setActiveMenuItem] = useState(1);
-  const [role, setRole] = useState(localStorage.getItem("role"));
+  // const [role, setRole] = useState(localStorage.getItem("role"));
   const handleRowClick = (rowId) => {
     setActiveMenuItem(rowId);
     props.onItemClick(rowId); // Pass the rowId to the parent
   };
-
+  const token = localStorage.getItem("token");
+  var decoded = jwt_decode(token);
+  console.log(decoded.role);
+  const role = decoded.role;
+  // localStorage.setItem('role', 'UNIVERSITY');
   return (
     // {isSdbropen?}
     <section id="sidebar" className={props.isSdbropen ? "show" : "hide"}>
@@ -80,7 +83,7 @@ export default function Sidebar(props) {
       </ul>
       )}
 
-      {role == "UNIVERSITY" && (
+      {role == "university" && (
         <ul className="side-menu top">
           <li
             className={activeMenuItem === 1 ? "active" : ""}
