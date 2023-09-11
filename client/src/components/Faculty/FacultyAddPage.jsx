@@ -6,7 +6,7 @@ import {PiStudentBold} from 'react-icons/pi'
 import usericon from '../../assets/usericon.png'
 import CsvBtn from '../CsvButton/CsvButton'
 import './FacultyAddPage.css'
-
+import axios from 'axios';
 export default function FacultyAddPage() {
 
   const facultyData = [
@@ -55,6 +55,25 @@ async function getCsvData(data) {
   setStudentList(data);
 }
 
+const generateCredentials = async () => {
+  // Extract faculty emails from your facultyData array
+  const facultyEmails = studentList.map((faculty) => faculty.email);
+
+  try {
+    // Send a POST request to your Express endpoint to generate credentials
+    const response = await axios.post('/api/v1/college/college_faculty/addBulk', {
+      students: facultyEmails,
+      role: "student"
+    });
+
+    // Handle the response as needed, e.g., show a success message
+    console.log(response.data.message);
+  } catch (error) {
+    // Handle any errors that occur during the request
+    console.error(error);
+  }
+};
+
 useEffect(() => {
   // This will log the updated studentList when it changes
   console.log(studentList);
@@ -84,7 +103,7 @@ useEffect(() => {
                   
                 ) : (
                     <div className="generateCred">
-                        <button className="generatePass"> Generate Credentials</button>
+                        <button className="generatePass" onClick={generateCredentials}> Generate Credentials</button>
                     </div>
                 )}
              </div>
