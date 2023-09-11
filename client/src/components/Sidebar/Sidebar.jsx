@@ -10,8 +10,6 @@ import RateReviewIcon from '@mui/icons-material/RateReview';
 import BackupTableIcon from '@mui/icons-material/BackupTable';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 
-=======
-
 export default function Sidebar(props) {
   const [activeMenuItem, setActiveMenuItem] = useState(1);
   const [role, setRole] = useState(localStorage.getItem("role"));
@@ -29,7 +27,7 @@ export default function Sidebar(props) {
         <span className="text">Aztec</span>
       </a>
 
-      {role == "SPOC" && (
+      {role == "college_faculty" && (
        <ul className="side-menu top">
       <li className={activeMenuItem === 1 ? 'active' : ''} onClick={() => handleRowClick(1)}>
           <a href="#">
@@ -81,69 +79,7 @@ export default function Sidebar(props) {
         
       </ul>
       )}
-      {/* <ul className="side-menu top">
-        <li
-          className={activeMenuItem === 1 ? "active" : ""}
-          onClick={() => handleRowClick(1)}
-        >
-          <a href="#">
-            <BiSolidDashboard className="custom-icons" />
-            <span className="text">{props.isSdbropen ? "Dashboard" : ""}</span>
-          </a>
-        </li>
-        <li
-          className={activeMenuItem === 2 ? "active" : ""}
-          onClick={() => handleRowClick(2)}
-        >
-          <a href="#">
-            <BiSolidDashboard className="custom-icons" />
-            <span className="text">
-              {props.isSdbropen ? "User Profile" : ""}
-            </span>
-          </a>
-        </li>
-        <li
-          className={activeMenuItem === 3 ? "active" : ""}
-          onClick={() => handleRowClick(3)}
-        >
-          <a href="#">
-            <BiSolidReport className="custom-icons" />
-            <span className="text">
-              {props.isSdbropen ? "New Requests" : ""}
-            </span>
-          </a>
-        </li>
-        <li
-          className={activeMenuItem === 4 ? "active" : ""}
-          onClick={() => handleRowClick(4)}
-        >
-          <a href="#">
-            <BiSolidReport className="custom-icons" />
-            <span className="text">
-              {props.isSdbropen ? "Projects Review" : ""}
-            </span>
-          </a>
-        </li>
-        <li
-          className={activeMenuItem === 5 ? "active" : ""}
-          onClick={() => handleRowClick(5)}
-        >
-          <a href="#">
-            <BiHistory className="custom-icons" />
-            <span className="text">
-              {props.isSdbropen ? "My Projects" : ""}
-            </span>
-          </a>
-        </li>
-        <li className={activeMenuItem === 6 ? "active" : ""}>
-          <a href="#">
-            <BiMessageAltDetail className="custom-icons" />
-            <span className="text">
-              {props.isSdbropen ? "Add Faculty" : ""}
-            </span>
-          </a>
-        </li>
-      </ul> */}
+
       {role == "UNIVERSITY" && (
         <ul className="side-menu top">
           <li

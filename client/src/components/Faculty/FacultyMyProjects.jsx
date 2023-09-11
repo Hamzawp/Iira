@@ -96,7 +96,7 @@ export default function FacultyMyProjects() {
           <ul className="box-info-projRev">
           {projects.map((project, index) => (
             <li key={index}>
-              <div className="card">
+              <div className="card-fac">
                 <div className="card__wrapper">
                   <div className="card___wrapper-acounts">
                     <div className="card__score">+3</div>

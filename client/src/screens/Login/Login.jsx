@@ -48,8 +48,9 @@ const Login = () => {
     const sendData = async () => {
      let endpoint = '';
       try{
-
-        console.log(selectedOption);
+        console.log(selectedOption.value)
+        // console.log(selectedOption);
+        // console.log(selectedOption)
         switch (selectedOption.value) {
           case 'University':
              endpoint = "/api/v1/university/login";
@@ -64,9 +65,9 @@ const Login = () => {
              endpoint = "/api/v1/";
             break;
         }
-        // console.log(endpoint);
-        // console.log('Sending request to:', `${url}${endpoint}`);
-        // console.log('Sending data:', { em  ail: username, password: password });
+        console.log(endpoint);
+        console.log('Sending request to:', `${url}${endpoint}`);
+        console.log('Sending data:', { email: username, password: password });
 
         const response = await axios.post(`${url}${endpoint}`, {email: username, password: password});
         // /api/v1/university/login
@@ -86,7 +87,7 @@ const Login = () => {
 
   const handleDropdownChange = (selectedValue) => {
     setSelectedOption(selectedValue);
-
+    // console.log(selectedOption)
   };
 
   return (
