@@ -9,7 +9,9 @@ router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
     const faculty = await prisma.user.findUnique({
-      where: { email, role: "faculty" },
+
+      where: { email, role: "college_faculty" },
+
     });
     if (!faculty) {
       return res.status(404).json({ error: "No such Faculty exists" });

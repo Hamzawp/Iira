@@ -28,3 +28,7 @@ router.post("/login", async (req, res) => {
       .json({ error: "Internal Server Error", message: error.message });
   }
 });
+
+
+module.exports = router;
+

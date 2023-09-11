@@ -1,32 +1,61 @@
-import React, { useEffect, useState } from "react";
-import "./Dashboard.css";
-import Sidebar from "../../components/Sidebar/Sidebar";
-import Navbar from "../../components/Navbar/Navbar";
-import UniversityDashboard from "../../components/University/UniversityDashboard";
-import UniversityProfile from "../../components/University/UniversityProfile";
-import UniversityAddPage from "../../components/University/UniversityAddPage";
-import UniversityMyProjects from "../../components/University/UniversityMyProjects"
-import CsvBtn from "../../components/CsvButton/CsvButton";
-import UniversityCollegeTab from "../../components/University/UniversityCollegeTab";
-
-// You can now use these icons in your JSX components.
+import React, { useState } from 'react'
+import './Dashboard.css'
+import Sidebar from '../../components/Sidebar/Sidebar'
+import Navbar from '../../components/Navbar/Navbar'
+import FacultyDashboard from '../../components/Faculty/FacultyDashboard'
+import FacultyProfile from '../../components/Faculty/FacultyProfile'
+import FacultyRequests from '../../components/Faculty/FacultyRequests'
+import FacultyProjectReview from '../../components/Faculty/FacultyProjectReview'
+import FacultyAddPage from '../../components/Faculty/FacultyAddPage'
+import FacultyMyProjects from '../../components/Faculty/FacultyMyProjects'
+import jwt_decode from "jwt-decode";
 
 export default function Dashboard() {
-  let [isSdbropen, setSdbropen] = useState(true);
-  const [selectedRow, setSelectedRow] = useState(1);
 
-  function handleToggle() {
+  const token = localStorage.getItem('token');
+  var decoded = jwt_decode(token);
+  console.log(decoded.role);
+  const roleUser = decoded.role;
+  
+  const [selectedRow, setSelectedRow] = useState(1);
+  const handleSidebarItemClick = (rowId) => {
+    setSelectedRow(rowId);
+  };
+
+  let [isSdbropen,setSdbropen] = useState(true);
+  function handleToggle(){
+
     console.log("yoo");
     setSdbropen(!isSdbropen);
   }
 
-  const handleSidebarItemClick = (rowId) => {
-    setSelectedRow(rowId); // Update the selectedRow state
-  };
+
+  
 
   return (
     <div>
-      <Sidebar isSdbropen={isSdbropen} onItemClick={handleSidebarItemClick} />
+     {roleUser === 'college_faculty' && 
+      <>
+        <Sidebar isSdbropen={isSdbropen} onItemClick={handleSidebarItemClick}/>
+
+        <section id="content">
+        <Navbar onClick={handleToggle}/>
+        {/* MAIN  */}
+        {selectedRow === 1 && <> <FacultyDashboard/> </>}
+        {selectedRow === 2 && <> <FacultyProfile/> </>}
+        {selectedRow === 3 && <> <FacultyRequests/> </>}
+        {selectedRow === 4 && <> <FacultyProjectReview/> </>}
+        {selectedRow === 5 && <> <FacultyMyProjects/> </>}
+        {selectedRow === 6 && <> <FacultyAddPage/> </>}
+          
+          {/*  MAIN  */}
+        </section>
+
+      </>}
+      
+      {roleUser === 'university' && 
+      <>
+        <Sidebar isSdbropen={isSdbropen} onItemClick={handleSidebarItemClick} />
       <section id="content">
         <Navbar onClick={handleToggle} />
         {selectedRow === 1 && (
@@ -55,6 +84,10 @@ export default function Dashboard() {
           </>
         )}
       </section>
+      </>}
+
+    
     </div>
-  );
+  )
+
 }

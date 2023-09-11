@@ -9,7 +9,9 @@ import {
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import UniversityDashboard from './screens/Dashboard/Dashboard'
+
+import Dashboard from './screens/Dashboard/Dashboard'
+
 import Login from './screens/Login/Login';
 
 const router = createBrowserRouter([
@@ -19,7 +21,9 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <UniversityDashboard />,
+
+    element: <Dashboard />,
+
   },
 ]);
 
