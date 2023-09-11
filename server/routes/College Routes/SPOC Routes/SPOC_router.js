@@ -9,7 +9,7 @@ router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
     const spoc = await prisma.user.findUnique({
-      where: { email },
+      where: { email, role: "SPOC" },
     });
     if (!spoc) {
       return res.status(404).json({ error: "No such SPOC exists" });

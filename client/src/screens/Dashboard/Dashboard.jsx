@@ -8,14 +8,18 @@ import FacultyRequests from '../../components/Faculty/FacultyRequests'
 import FacultyProjectReview from '../../components/Faculty/FacultyProjectReview'
 import FacultyAddPage from '../../components/Faculty/FacultyAddPage'
 import FacultyMyProjects from '../../components/Faculty/FacultyMyProjects'
-import { useParams } from 'react-router-dom';
+import jwt_decode from "jwt-decode";
 
 export default function Dashboard() {
-  const { role } = useParams();
-console.log(role);
+
+  const token = localStorage.getItem('token');
+  var decoded = jwt_decode(token);
+  console.log(decoded.role);
+  const roleUser = decoded.role;
+  
   const [selectedRow, setSelectedRow] = useState(1);
   const handleSidebarItemClick = (rowId) => {
-    setSelectedRow(rowId); // Update the selectedRow state
+    setSelectedRow(rowId);
   };
 
   let [isSdbropen,setSdbropen] = useState(true);
@@ -28,7 +32,7 @@ console.log(role);
 
   return (
     <div>
-     {role === 'SPOC' && 
+     {roleUser === 'college_faculty' && 
       <>
       <Sidebar isSdbropen={isSdbropen} onItemClick={handleSidebarItemClick}/>
       <section id="content">
@@ -44,7 +48,7 @@ console.log(role);
         {/*  MAIN  */}
       </section>
       </>}
-      {role === 'university' && 
+      {roleUser === 'university' && 
       <>
       <h1>Hi, University</h1>
       </>}

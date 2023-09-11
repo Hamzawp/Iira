@@ -15,6 +15,7 @@ const Login = () => {
   const Navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [selectedOption, setSelectedOption] = useState('');
   const [showForgotPasswordPopup, setShowForgotPasswordPopup] = useState(false);
 
   const handleForgotPasswordClick = () => {
@@ -37,27 +38,48 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your login logic here using 'username' and 'password' states
+
     const sendData = async () => {
+     let endpoint = '';
       try{
-        const response = await axios.post(`${url}/api/v1/college/SPOC/login`, {email: username, password: password});
+
+        console.log(selectedOption);
+        switch (selectedOption.value) {
+          case 'University':
+             endpoint = "/api/v1/university/login";
+            break;
+          case 'Faculty':
+             endpoint = "/api/v1/college/college_faculty/login";
+            break;
+          case 'Student':
+             endpoint = "/api/v1/college/student/login";
+            break;
+          default:
+             endpoint = "/api/v1/";
+            break;
+        }
+        // console.log(endpoint);
+        // console.log('Sending request to:', `${url}${endpoint}`);
+        // console.log('Sending data:', { em  ail: username, password: password });
+
+        const response = await axios.post(`${url}${endpoint}`, {email: username, password: password});
         // /api/v1/university/login
         // /api/v1/college/college_faculty/login
         // /api/v1/college/student/login
         console.log(response);
-        var decoded = jwt_decode(response.data.token);
- 
-        console.log(decoded.role);
-        
-          Navigate(`/${decoded.role}`);
-       
-        
-      }catch (error){
+        localStorage.setItem('token', response.data.token);
+        Navigate('/');
+      }
+      catch (error){
         console.log(error);
       }
     }
 
     sendData();
+  };
+
+  const handleDropdownChange = (selectedValue) => {
+    setSelectedOption(selectedValue);
   };
 
   return (
@@ -82,6 +104,7 @@ const Login = () => {
                 options={options}
                 value={defaultOption}
                 placeholder="Select an option"
+                onChange={(selectedValue) => handleDropdownChange(selectedValue)}
               />
             </div>
 

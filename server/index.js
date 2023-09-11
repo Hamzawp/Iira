@@ -9,7 +9,9 @@ app.use(require("cors")());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/v1/college", require("./routes/College Routes/routes"));
-app.use("/api/v1/university", require("./routes/University Routes/routes"));
+app.use(
+  "/api/v1/university", 
+    require("./routes/University Routes/University_router"));
 
 const port = process.env.PORT || 8000;
 app.listen(port, async () =>
