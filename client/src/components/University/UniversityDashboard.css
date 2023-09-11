@@ -246,6 +246,15 @@
 .projectdiv::-webkit-scrollbar-thumb {
     background-color: var(--blue); /* Set the scrollbar thumb color to blue */
   }
+::-webkit-scrollbar {
+    width:4px !important; /* Adjust the width as per your preference */
+    color: var(--blue) !important;
+  }
+  
+::-webkit-scrollbar-thumb {
+    background-color: var(--blue); /* Set the scrollbar thumb color to blue */
+  }
+
 
 
 
