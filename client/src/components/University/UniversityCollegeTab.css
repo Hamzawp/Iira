@@ -1,0 +1,163 @@
+.table-data-pg {
+	display: flex;
+	flex-wrap: wrap;
+	grid-gap: 24px;
+	/* margin-top: 24px; */
+	width: 100%;
+	color: var(--dark);
+}
+.table-data-pg > div {
+	border-radius: 20px;
+	/* background: var(--light); */
+	padding: 24px;
+	overflow-x: auto;
+}
+.table-data-pg .head {
+	display: flex;
+	align-items: center;
+	grid-gap: 16px;
+	margin-bottom: 24px;
+}
+.table-data-pg .head h3 {
+	margin-right: auto;
+	font-size: 24px;
+	font-weight: 600;
+}
+.table-data-pg .head .bx {
+	cursor: pointer;
+}
+
+.table-data-pg .order {
+	flex-grow: 1;
+	flex-basis: 500px;
+}
+.table-data-pg .order table {
+	width: 100%;
+	border-collapse: collapse;
+}
+.table-data-pg .order table th {
+	padding-bottom: 12px;
+    padding-left: 12px;
+	font-size: 15px;
+	text-align: left;
+	border-bottom: 1px solid var(--grey);
+}
+.table-data-pg .order table td {
+	padding: 16px 0;
+}
+.table-data-pg .order table tr td:first-child {
+	display: flex;
+	align-items: center;
+	grid-gap: 12px;
+	padding-left: 6px;
+}
+.table-data-pg .order table td img {
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+.table-data-pg .order table tbody tr{
+    padding: 20px !important;
+    transition: background 0.1s ;
+}
+.table-data-pg .order table tbody tr:hover {
+	background: var(--light);
+    cursor: pointer;
+}
+.table-data-pg .order table tr td .status {
+	font-size: 10px;
+	padding: 6px 16px;
+	color: var(--light);
+	border-radius: 20px;
+	font-weight: 700;
+}
+.table-data-pg .order table tr td .status.completed {
+	background: var(--blue);
+}
+.table-data-pg .order table tr td .status.process {
+	background: var(--yellow);
+}
+.table-data-pg .order table tr td .status.pending {
+	background: var(--orange);
+}
+
+
+.table-data-pg .todo {
+	flex-grow: 1;
+	flex-basis: 300px;
+}
+.table-data-pg .todo .todo-list {
+	width: 100%;
+}
+.table-data-pg .todo .todo-list li {
+	width: 100%;
+	margin-bottom: 16px;
+	background: var(--grey);
+	border-radius: 10px;
+	padding: 14px 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.table-data-pg .todo .todo-list li .bx {
+	cursor: pointer;
+}
+.table-data-pg .todo .todo-list li.completed {
+	border-left: 10px solid var(--blue);
+}
+.table-data-pg .todo .todo-list li.not-completed {
+	border-left: 10px solid var(--orange);
+}
+.table-data-pg .todo .todo-list li:last-child {
+	margin-bottom: 0;
+}
+
+#collegeTable{
+    transition: width 0.5s;
+}
+
+/* right tab css */
+.right-tab{
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    /* background-color: red; */
+    background: var(--light);
+    font-family: var(--lato);
+    width: 0%;
+    transition: width 0.5s;
+    color: var(--dark);
+	display: flex;
+	align-items: center;
+	row-gap: 25px;
+	flex-direction: column;
+	padding-top: 10.2vh;
+}
+
+.right-tab-clicked{
+    height: 100vh;
+    width: 30%;
+}
+
+.collegeName{
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+    /* padding: 0px 5px; */
+    padding-right: 10px;
+	column-gap: 17px;
+}
+.collegeName h2{
+	text-align: left;
+	padding: 0px 15px;
+	white-space: nowrap;
+}
+.crossSvg:hover{
+	transform: rotate(90deg);
+}
+.collegeImg{
+	border-radius: 15px;
+    width: 94%;
+}

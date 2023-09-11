@@ -6,8 +6,8 @@ import UniversityDashboard from "../../components/University/UniversityDashboard
 import UniversityProfile from "../../components/University/UniversityProfile";
 import UniversityAddPage from "../../components/University/UniversityAddPage";
 import UniversityMyProjects from "../../components/University/UniversityMyProjects"
-
 import CsvBtn from "../../components/CsvButton/CsvButton";
+import UniversityCollegeTab from "../../components/University/UniversityCollegeTab";
 
 // You can now use these icons in your JSX components.
 
@@ -37,6 +37,11 @@ export default function Dashboard() {
         {selectedRow === 2 && (
           <>
             <UniversityProfile />
+          </>
+        )}
+        {selectedRow === 3 && (
+          <>
+            <UniversityCollegeTab />
           </>
         )}
         {selectedRow === 4 && (
