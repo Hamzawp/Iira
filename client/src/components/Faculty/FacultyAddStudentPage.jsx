@@ -5,9 +5,12 @@ import {RiFolderSettingsLine} from 'react-icons/ri'
 import {PiStudentBold} from 'react-icons/pi'
 import usericon from '../../assets/usericon.png'
 import CsvBtn from '../CsvButton/CsvButton'
-import './FacultyDashboard.css'
+import './FacultyAddPage.css'
+import axios from 'axios';
+import jwt_decode from "jwt-decode";
+export default function FacultyAddPage() {
 
-export default function FacultyDashboard(props) {
+const token = localStorage.getItem("token");
 
   const facultyData = [
   {
@@ -55,6 +58,31 @@ async function getCsvData(data) {
   setStudentList(data);
 }
 
+const generateCredentials = async () => {
+  const facultyDetails = studentList.map((faculty) => {
+    return{
+    first_name: faculty['Faculty First Name'],
+    last_name: faculty['Faculty Last Name'],
+    email: faculty['Faculty Email'],
+    dob: faculty['Faculty DOB']
+  }
+  });
+   console.log("Faculty Details: ", facultyDetails);
+  try {
+    // Send a POST request to your Express endpoint to generate credentials
+    const response = await axios.post('/api/v1/college/SPOC/addBulk', {
+      students: facultyDetails,
+      role: "college_faculty"
+    }, { headers: { authToken: token,}});
+
+    // Handle the response as needed, e.g., show a success message
+    console.log(response.data.message);
+  } catch (error) {
+    // Handle any errors that occur during the request
+    console.error(error);
+  }
+};
+
 useEffect(() => {
   // This will log the updated studentList when it changes
   console.log(studentList);
@@ -66,91 +94,69 @@ useEffect(() => {
         <main>
         <div className="head-title">
           <div className="left">
-            <h1>Welcome, {props.role}!</h1>
+            <h1>Add Student Panel</h1>
             <ul className="breadcrumb">
               <li>
                 <a href="#">Thadomal Shahani Engineering College</a>
               </li>
             </ul>
           </div>
-          <a href="#" className="btn-add">
+          <a href="#" className="btn-adds">
             {/*<i className="bx bxs-cloud-download"></i> */}
-             <span className="text" >
+             {/* <span className="texts" >
               Add Faculty +
-             </span> 
+             </span>  */}
+             <div>
+             {studentList.length == 0 ? (
+                  <CsvBtn  onDataReceived={getCsvData} />
+                  
+                ) : (
+                    <div className="generateCred">
+                        <button className="generatePass" onClick={generateCredentials}> Generate Credentials</button>
+                    </div>
+                )}
+             </div>
+             
           </a>
         </div>
-
-        <ul className="box-info">
-          <li>
-            {/*<i className="bx bxs-calendar-check"></i> */}
-            <FaChalkboardTeacher size="3em" color="#4B49AC" />
-            <span className="text">
-              <h3>07</h3>
-              <p>Faculties</p>
-            </span>
-          </li>
-          <li>
-            {/*<i className="bx bxs-group"></i> */}
-            <RiFolderSettingsLine size="3em" style={{"color":"#4B49AC"}} />
-            <span className="text">
-              <h3>24</h3>
-              <p>Projects</p>
-            </span>
-          </li>
-          <li>
-            {/*<i className="bx bxs-dollar-circle"></i> */}
-            <PiStudentBold size="3em" color="#4B49AC"/>
-            <span className="text">
-              <h3>73</h3>
-              <p>Students</p>
-            </span>
-          </li>
-        </ul>
 
         <div className="table-data">
           <div className="order">
             <div className="head">
               <h3>Faculties</h3>
-              {studentList.length == 0 && (
-                  <CsvBtn  onDataReceived={getCsvData} />
-                  
-                ) }
+              
             </div>
            
             <table>
               <thead>
                 <tr>
-                  <th>Name of Faculty</th>
-                  <th>Department</th>
-                  <th>Under Review</th>
-                  <th>Total Projects</th>
+                  <th style={{"width":"32%"}}>First Name</th>   
+                  <th style={{"width":"25%"}}>Last Name</th>
+                  <th style={{"width":"25%"}}>Email</th>
+                  <th style={{"width":"25%"}}>DOB</th>
                 </tr>
               </thead>
               <tbody>
-                {facultyDataLength === 0 ? ( <CsvBtn onDataReceived={getCsvData}/>) : 
-               
-                facultyData.map((faculty, index) => {
+                {/* {facultyDataLength === 0 ? ( <CsvBtn onDataReceived={getCsvData}/>) :  */}
+                {studentList.length > 0 &&
+                      studentList.map((faculty, index) => {
                         return(
-                        <tr  key={index}>
-                          <td>
-                            <img src={usericon} alt="User Icon" />
+                        <tr  key={faculty["Faculty First Name"]}>
+                          <td style={{"width":"30%"}}>
+                            {/* <img src={usericon} alt="User Icon" /> */}
                             {/* <p>{faculty.name}</p> */}
-                            <p>{faculty.name}</p>
+                            <p>{faculty["Faculty First Name"]}</p>
                           </td>
-                          <td>{faculty.department}</td>
-                          {/* <td>{faculty["Faculty Department"]}</td> */}
-                          <td>
-                            <span className="status pending">
-                              {faculty.underReviewProjects}
-                              {/* {faculty["Faculty Email"]} */}
+                          {/* <td>{faculty.department}</td> */}
+                          <td style={{"width":"25%"}}>{faculty["Faculty Last Name"]}</td>
+                          <td  style={{"width":"25%"}}><span className="status pending">{faculty["Faculty Email"]}</span></td>
+                          <td style={{"width":"25%"}}>
+                            <span >
+                              {/* {faculty.underReviewProjects} */}
+                              {faculty["Faculty DOB"]}
                             </span>
                           </td>
-                          <td>
-                            <span className="status process">
-                              {faculty.totalProjects}
-                            </span>
-                          </td>
+                        
                         </tr>
                         );})}
                    
@@ -160,7 +166,7 @@ useEffect(() => {
 
            
           </div>
-          <div className="todo">
+          {/* <div className="todo">
             <div className="head">
               <h3>Ongoing Projects</h3>
             </div>
@@ -234,7 +240,7 @@ useEffect(() => {
                   </div>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
         </main>
     </div>
