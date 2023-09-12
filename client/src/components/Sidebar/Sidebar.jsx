@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import {useNavigate} from "react-router-dom"
 import './Sidebar.css'
 import {BiSolidDashboard,BiSolidReport,BiHistory,BiMessageAltDetail,BiLogOut} from 'react-icons/bi'
 import {AiOutlineTeam} from 'react-icons/ai'
@@ -27,6 +28,12 @@ export default function Sidebar(props) {
   const role = decoded.role;
   localStorage.setItem("role",role)
 
+  const Navigate = useNavigate();
+
+  const logoutUser = () => {
+    localStorage.clear();
+    Navigate("/login");
+  }
   // localStorage.setItem('role', 'UNIVERSITY');
   return (
     // {isSdbropen?}
@@ -288,7 +295,7 @@ export default function Sidebar(props) {
           </a>
         </li>
         <li>
-          <a href="#" className="logout">
+          <a href="#" className="logout" onClick={logoutUser}>
 
             <BiLogOut className="custom-icons" />
             <span className="text">{props.isSdbropen ? "Logout" : ""}</span>
