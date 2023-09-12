@@ -104,7 +104,7 @@ export default function UniversityAddPage() {
       <main>
         <div className="head-title">
           <div className="left">
-            <h1>Add SPOC Panel</h1>
+            <h1>Add COLLEGE-SPOC Panel</h1>
             <ul className="breadcrumb">
               <li>
                 <a href="#">University of Jharkhand</a>

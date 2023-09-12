@@ -22,6 +22,25 @@ export default function UniversityCollegeTab() {
       email: "akulkarni@iitb.gov",
     },
   ]);
+
+// Get all the colleges name and spocs 
+  useEffect(() => {
+    const fetchData = async () => {
+      try{
+      const response = await axios.get(`${url}/api/v1/auth/getOne/${id}`);
+      if(response){
+        console.log(response.data);
+        // setEmail(response.data.email);
+        // setFirstName(response.data.first_name);
+        // setLastName(response.data.last_name);
+      }
+    }catch(error){
+      console.error(error);
+    }
+
+  }
+  fetchData();
+  }, [])
   let [rightBar, setRightBar] = useState(false);
 
   function handleRightBar() {
@@ -84,7 +103,7 @@ export default function UniversityCollegeTab() {
                     </td>
                     <td className="spoctd">{college.spoc}</td>
                     <td style={{ display: "flex" }}>
-                      <span className="status process">{college.email}</span>
+                      <span className="status pending">{college.email}</span>
                     </td>
                   </tr>
                 );
