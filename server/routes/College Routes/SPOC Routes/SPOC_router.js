@@ -3,6 +3,7 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 const jwt = require("jsonwebtoken");
 const { sendCollegeEmail } = require("../../../utils/EmailHandler");
+const { checkForSPOC } = require("../../../middlewares/authMiddle");
 
 // SPOC login
 router.post("/login", async (req, res) => {
@@ -31,7 +32,7 @@ router.post("/login", async (req, res) => {
 });
 
 // Add Student to College One by One
-router.post("/addOne", async (req, res) => {
+router.post("/addOne", checkForSPOC, async (req, res) => {
   try {
     const { email, first_name, last_name, dob, role } = req.body;
     const password = (Math.random() + 1).toString(36).substring(7);
@@ -56,22 +57,26 @@ router.post("/addOne", async (req, res) => {
 });
 
 // Add Student to College in Bulk
-router.post("/addBulk", async (req, res) => {
+router.post("/addBulk", checkForSPOC, async (req, res) => {
   try {
-    const { students, role } = req.body;
-    const studentsWithPassword = students.map((student) => ({
+    // console.log(req.user);
+    const { users, role } = req.body;
+    console.log(users, role);
+    const usersWithPassword = users.map((student) => ({
       ...student,
       password: (Math.random() + 1).toString(36).substring(7),
       role,
+      dob: new Date(),
+      college_id: req.user.college_id,
     }));
-    const createdStudents = await prisma.user.createMany({
-      data: studentsWithPassword,
+    const createdusers = await prisma.user.createMany({
+      data: usersWithPassword,
     });
-    // console.log(createdStudents);
-    await studentsWithPassword.forEach(
+
+    await usersWithPassword.forEach(
       async (student) => await sendCollegeEmail(student)
     );
-    res.status(200).json({ msg: "Emails sent to students" });
+    res.status(200).json({ msg: "Emails sent to users" });
   } catch (error) {
     console.log(error);
     res
