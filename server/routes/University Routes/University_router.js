@@ -115,4 +115,27 @@ router.post("/addBulk", checkForUniversityFaculty, async (req, res) => {
   }
 });
 
+router.get("/allColleges", checkForUniversityFaculty, async (req, res) => {
+  try {
+    // console.log(req.user);
+    const colleges = await prisma.colleges.findMany({
+      where: { university_id: req.user.university_id },
+    });
+    for (let i = 0; i < colleges.length; i++) {
+      // console.log(colleges[i].college_id);
+      colleges[i].spoc = await prisma.user.findFirst({
+        where: { college_id: Number(colleges[i].college_id), role: "SPOC" },
+      });
+    }
+    // console.log(colleges);
+    const university = await prisma.universities.findUnique({
+      where: { uni_id: req.user.university_id },
+    });
+    res.json({ colleges, ...university });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "Internal Server Error", message: err });
+  }
+});
+
 module.exports = router;
