@@ -18,8 +18,9 @@ export default function Sidebar(props) {
   };
   const token = localStorage.getItem("token");
   var decoded = jwt_decode(token);
-  console.log(decoded.role);
+  // console.log(decoded.role);
   const role = decoded.role;
+  localStorage.setItem("role",role)
   // localStorage.setItem('role', 'UNIVERSITY');
   return (
     // {isSdbropen?}
@@ -150,6 +151,65 @@ export default function Sidebar(props) {
         role == "FACULTY" && (
           <>
             Yo
+          </>
+        )
+      }
+      {
+        role == "student" && (
+          <>
+          <ul className="side-menu top">
+          <li
+            className={activeMenuItem === 1 ? "active" : ""}
+            onClick={() => handleRowClick(1)}
+          >
+            <a href="#">
+              <BiSolidDashboard className="custom-icons" />
+              <span className="text">
+                {props.isSdbropen ? "Home" : ""}
+              </span>
+            </a>
+          </li>
+          <li
+            className={activeMenuItem === 2 ? "active" : ""}
+            onClick={() => handleRowClick(2)}
+          >
+            <a href="#">
+              <BiSolidDashboard className="custom-icons" />
+              <span className="text">
+                {props.isSdbropen ? "Profile" : ""}
+              </span>
+            </a>
+          </li>
+          <li
+            className={activeMenuItem === 3 ? "active" : ""}
+            onClick={() => handleRowClick(3)}
+          >
+            <a href="#">
+              <BiSolidReport className="custom-icons" />
+              <span className="text">{props.isSdbropen ? "Add Project" : ""}</span>
+            </a>
+          </li>
+          <li
+            className={activeMenuItem === 4 ? "active" : ""}
+            onClick={() => handleRowClick(4)}
+          >
+            <a href="#">
+              <BiSolidReport className="custom-icons" />
+              <span className="text">
+                {props.isSdbropen ? "Add Colleges" : ""}
+              </span>
+            </a>
+          </li>
+          <li
+            className={activeMenuItem === 5 ? "active" : ""}
+            onClick={() => handleRowClick(5)}
+          >
+            <a href="#">
+              <BiHistory className="custom-icons" />
+              <span className="text">{props.isSdbropen ? "Projects" : ""}</span>
+            </a>
+          </li>
+        </ul>
           </>
         )
       }
