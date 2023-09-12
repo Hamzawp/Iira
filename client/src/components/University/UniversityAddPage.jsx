@@ -111,7 +111,7 @@ export default function UniversityAddPage() {
               </li>
             </ul>
           </div>
-          <a href="#" className="btn-adds">
+          <a href="#" className="btn-adds" style={{"display":"flex", "flex-direction": "row", "alignItems":"center", "columnGap":"1rem"}}>
             <div>
               {studentList.length == 0 ? (
                 <CsvBtn onDataReceived={getCsvData} />
@@ -123,6 +123,10 @@ export default function UniversityAddPage() {
                 </div>
               )}
             </div>
+            <a href="#" className="btn-download">
+            {/*<i className="bx bxs-cloud-download"></i> */}
+            <span className="text">Add College +</span>
+          </a>
           </a>
         </div>
 
