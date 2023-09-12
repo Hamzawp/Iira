@@ -55,10 +55,10 @@ export default function StudentProfile() {
               </li>
             </ul>
           </div>
-          <a href="#" className="btn-add">
-            {/*<i className="bx bxs-cloud-download"></i> */}
+          {/* <a href="#" className="btn-add">
+          
             <span className="text">Add Faculty +</span>
-          </a>
+          </a> */}
         </div>
 
         <ul className="box-info">

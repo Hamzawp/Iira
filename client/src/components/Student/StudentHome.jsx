@@ -55,7 +55,7 @@ export default function StudentHome() {
                 autocomplete="off"
                 title="Search"
                 role="combobox"
-                placeholder="Search Google"
+                placeholder="Search GradFolio"
               />
             </div>
 
