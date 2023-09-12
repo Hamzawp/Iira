@@ -21,6 +21,9 @@ import {AiOutlineFundProjectionScreen} from 'react-icons/ai'
 import {FaChalkboardTeacher} from 'react-icons/fa'
 import {RiFolderSettingsLine} from 'react-icons/ri'
 import {PiStudentBold} from 'react-icons/pi'
+import StudentProfile from "../../components/Student/StudentProfile";
+import StudentMyProjects from "../../components/Student/StudentMyProjects";
+import StudentUploadProject from "../../components/Student/StudentUploadProject";
 
 
 
@@ -228,22 +231,17 @@ export default function Dashboard() {
             )}
             {selectedRow === 2 && (
               <>
-                <StudentDashboard />
+                <StudentProfile />
               </>
             )}
             {selectedRow === 3 && (
               <>
-                <UniversityCollegeTab />
+                <StudentUploadProject />
               </>
             )}
             {selectedRow === 4 && (
               <>
-                <UniversityAddPage />
-              </>
-            )}
-            {selectedRow === 5 && (
-              <>
-                <UniversityMyProjects />
+                <StudentMyProjects />
               </>
             )}
           </section>

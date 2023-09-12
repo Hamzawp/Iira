@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import ForgotPasswordPopup from "./ForgotPasswordPopup";
@@ -130,7 +130,7 @@ const Login = () => {
               <p>Enter your credentials to access your account.</p>
 
               <div className="input-container">
-                <div className="dropDownDiv" >
+                <div className="dropDownDiv">
                   <Dropdown
                     options={options}
                     value={defaultOption}
@@ -163,7 +163,7 @@ const Login = () => {
                     onFocus={handleFocus}
                     onBlur={handleBlur}
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}  
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                   <i onClick={togglePasswordVisiblity}>{eye}</i>{" "}
                 </div>
@@ -184,10 +184,6 @@ const Login = () => {
               <div className="inputSubmitDiv">
                 <input type="submit" className="login-btn" value="LOGIN" />
               </div>
-              
-              
-
-              
             </div>
           </form>
         </section>

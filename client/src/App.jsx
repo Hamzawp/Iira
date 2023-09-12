@@ -11,7 +11,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 import Dashboard from './screens/Dashboard/Dashboard'
-
+import Reset from './Screens/Reset/Reset';
 import Login from './screens/Login/Login';
 import Reset from './screens/Reset/Reset';
 
@@ -23,9 +23,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
-
     element: <Dashboard />,
-
+  },
+  {
+    path: "/reset",
+    element: <Reset />,
   },
   {
     path: "/registration/:id",
