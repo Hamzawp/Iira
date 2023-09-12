@@ -14,10 +14,10 @@ import UniversityCollegeTab from "../../components/University/UniversityCollegeT
 import UniversityAddPage from "../../components/University/UniversityAddPage";
 import UniversityMyProjects from "../../components/University/UniversityMyProjects";
 import UniversityProfile from "../../components/University/UniversityProfile";
-import {AiOutlineFundProjectionScreen} from 'react-icons/ai'
-import {FaChalkboardTeacher} from 'react-icons/fa'
-import {RiFolderSettingsLine} from 'react-icons/ri'
-import {PiStudentBold} from 'react-icons/pi'
+import { AiOutlineFundProjectionScreen } from "react-icons/ai";
+import { FaChalkboardTeacher } from "react-icons/fa";
+import { RiFolderSettingsLine } from "react-icons/ri";
+import { PiStudentBold } from "react-icons/pi";
 import StudentHome from "../../components/Student/StudentHome";
 import StudentDashboard from "../../components/Student/StudentDashboard";
 
@@ -129,7 +129,7 @@ export default function Dashboard() {
       )}
       {roleUser === "student" && (
         <>
-        <Sidebar
+          <Sidebar
             isSdbropen={isSdbropen}
             onItemClick={handleSidebarItemClick}
           />
