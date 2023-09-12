@@ -22,7 +22,6 @@ exports.sendCollegeEmail = async (user) => {
             <li>First Name: ${user.first_name}</li>
             <li>Last Name: ${user.last_name}</li>
             <li>Email: ${user.email}</li>
-            <li>DOB: ${user.dob}</li>
             <li>Role: ${user.role}</li>
             <li>Password: ${user.password}</li>
         </ul>
