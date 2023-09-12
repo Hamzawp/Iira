@@ -1,7 +1,10 @@
 const nodemailer = require("nodemailer");
-
+const { PrismaClient } = require("@prisma/client");
+const prisma = new PrismaClient();
 exports.sendCollegeEmail = async (user) => {
+
   try {
+    const college = prisma.colleges.findUnique({where:{college_id: user.id}})
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -13,9 +16,9 @@ exports.sendCollegeEmail = async (user) => {
     const mailOptions = {
       from: process.env.EMAIL_USERNAME,
       to: user.email,
-      subject: "Welcome to the College",
+      subject: `Welcome to ${college.college_name}`,
       html: `
-        <h1>Welcome ${user.first_name}</h1>
+        <h1>Welcome ${user.first_name},</h1>
         <p>You have been registered as a ${user.role} in our college.</p>
         <p>Here are your details:</p>
         <ul>
@@ -29,7 +32,7 @@ exports.sendCollegeEmail = async (user) => {
         <p>Thank you for joining us.</p>
 
         <p>Regards,</p>
-        <p>College</p>
+        <p>${college.college_name}</p>
       `,
     };
 
@@ -53,9 +56,9 @@ exports.sendUniversityEmail = async (user) => {
     const mailOptions = {
       from: process.env.EMAIL_USERNAME,
       to: user.email,
-      subject: "Welcome to the University",
+      subject: `Appointed as SPOC at ${user.college_name}`,
       html: `
-        <h1>Welcome ${user.first_name} and Congrats We have added you college ${user.college_name}</h1>
+        <h1>Welcome ${user.first_name},</h1>
         <p>You have been registered as a ${user.role} in our college.</p>
         <p>Here are your details:</p>
         <ul>
@@ -69,7 +72,7 @@ exports.sendUniversityEmail = async (user) => {
         <p>Thank you for joining us.</p>
 
         <p>Regards,</p>
-        <p>University</p>
+        <p>${user.college_name}</p>
       `,
     };
 

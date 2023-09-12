@@ -89,7 +89,7 @@ router.post("/addBulk", checkForUniversityFaculty, async (req, res) => {
 
       // console.log(college);
 
-      await prisma.user.create({
+      const user = await prisma.user.create({
         data: {
           email: spocsWithPassword[i].email,
           first_name: spocsWithPassword[i].first_name,
@@ -102,7 +102,7 @@ router.post("/addBulk", checkForUniversityFaculty, async (req, res) => {
       });
 
       sendUniversityEmail({
-        ...spocsWithPassword[i],
+        ...user,
         college_name: college.college_name,
       });
     }
