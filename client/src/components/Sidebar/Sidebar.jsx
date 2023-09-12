@@ -3,6 +3,8 @@ import './Sidebar.css'
 import {BiSolidDashboard,BiSolidReport,BiHistory,BiMessageAltDetail,BiLogOut} from 'react-icons/bi'
 import {AiOutlineTeam} from 'react-icons/ai'
 import {FiSettings} from 'react-icons/fi'
+import {RiUserAddFill} from 'react-icons/ri'
+import {HiUserGroup} from 'react-icons/hi'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
 import RateReviewIcon from '@mui/icons-material/RateReview';
@@ -201,7 +203,7 @@ export default function Sidebar(props) {
           <a href="#">
             {/* <i className="bx bxs-message-dots"></i> */}
             {/* <BiMessageAltDetail className = "custom-icons"/> */}
-            <GroupAddIcon className="custom-icons"/>
+            <RiUserAddFill className="custom-icons"/>
             <span className="text">{props.isSdbropen ? "Add Student": ''}</span>
           </a>
         </li>

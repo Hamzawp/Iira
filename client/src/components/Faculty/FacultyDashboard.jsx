@@ -112,10 +112,10 @@ useEffect(() => {
           <div className="order">
             <div className="head">
               <h3>Faculties</h3>
-              {studentList.length == 0 && (
+              {/* {studentList.length == 0 && (
                   <CsvBtn  onDataReceived={getCsvData} />
                   
-                ) }
+                ) } */}
             </div>
            
             <table>
