@@ -78,10 +78,17 @@ export default function FacultyAddPage() {
       );
 
       // Handle the response as needed, e.g., show a success message
-      console.log(response.data.message);
+      console.log(response.data.msg);
+      if(response.status === 200){
+        alert("Email Sent successfully");
+        setStudentList([]);
+      }
+      
     } catch (error) {
       // Handle any errors that occur during the request
       console.error(error);
+      alert("Something went wrong");
+        setStudentList([]);
     }
   };
 
