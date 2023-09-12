@@ -37,8 +37,10 @@ nav .bx.bx-menu {
 	color: var(--dark);
 }
 nav .nav-link {
-	font-size: 16px;
+	font-size: 28px;
 	transition: .3s ease;
+	cursor: pointer;
+	color: var(--dark);
 }
 nav .nav-link:hover {
 	color: var(--blue);

@@ -22,6 +22,8 @@ import {FaChalkboardTeacher} from 'react-icons/fa'
 import {RiFolderSettingsLine} from 'react-icons/ri'
 import {PiStudentBold} from 'react-icons/pi'
 
+
+
 export default function Dashboard() {
   const token = localStorage.getItem("token");
   var decoded = jwt_decode(token);
@@ -136,13 +138,14 @@ export default function Dashboard() {
         </>
       )}
 
-
       {roleUser === "college_faculty" && (
+
         <>
           <Sidebar
             isSdbropen={isSdbropen}
             onItemClick={handleSidebarItemClick}
           />
+
 
           <section id="content">
             <Navbar onClick={handleToggle} />
@@ -151,28 +154,36 @@ export default function Dashboard() {
               <>
                 {" "}
                 <FacultyDashboard role={"Faculty"}/>{" "}
+
               </>
             )}
             {selectedRow === 2 && (
               <>
+
                 {" "}
                 <FacultyProfile />{" "}
+
               </>
             )}
             {selectedRow === 3 && (
               <>
+
                 {" "}
                 <FacultyRequests />{" "}
+
               </>
             )}
             {selectedRow === 4 && (
               <>
+
                 {" "}
                 <FacultyProjectReview />{" "}
+
               </>
             )}
             {selectedRow === 5 && (
               <>
+
                 {" "}
                 <FacultyMyProjects />{" "}
               </>
@@ -185,6 +196,7 @@ export default function Dashboard() {
             )}
 
             {/*  MAIN  */}
+
           </section>
         </>
       )}

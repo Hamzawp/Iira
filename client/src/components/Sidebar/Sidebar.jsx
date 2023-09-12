@@ -22,8 +22,11 @@ export default function Sidebar(props) {
   };
   const token = localStorage.getItem("token");
   var decoded = jwt_decode(token);
-  console.log(decoded.role);
+
+  // console.log(decoded.role);
   const role = decoded.role;
+  localStorage.setItem("role",role)
+
   // localStorage.setItem('role', 'UNIVERSITY');
   return (
     // {isSdbropen?}
@@ -216,8 +219,6 @@ export default function Sidebar(props) {
         )
       }
 
-
-
       {
         role == "student" && (
           <>
@@ -277,7 +278,6 @@ export default function Sidebar(props) {
           </>
         )
       }
-
 
       <ul className="side-menu">
         <li>
