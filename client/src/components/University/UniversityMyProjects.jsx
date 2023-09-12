@@ -85,7 +85,7 @@ export default function FacultyMyProjects() {
               <h1>Projects Published</h1>
               <ul className="breadcrumb">
                 <li>
-                  <a href="#">Thadomal Shahani Engineering College</a>
+                  <a href="#">University of Southern California</a>
                 </li>
               </ul>
             </div>

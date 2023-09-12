@@ -134,10 +134,12 @@
 
 #content main .table-data .order {
 	flex-grow: 1;
+	/* max-height: 350px; */
 	flex-basis: 500px;
 }
 #content main .table-data .order table {
 	width: 100%;
+	/* max-height: 350px; */
 	border-collapse: collapse;
 }
 #content main .table-data .order table th {

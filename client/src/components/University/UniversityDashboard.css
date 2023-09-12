@@ -130,10 +130,12 @@
 
 #content main .table-data .order {
 	flex-grow: 1;
+	max-height: 400px !important;
 	flex-basis: 500px;
 }
 #content main .table-data .order table {
 	width: 100%;
+	
 	border-collapse: collapse;
 }
 #content main .table-data .order table th {
