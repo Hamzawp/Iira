@@ -2,36 +2,47 @@ import React, { useEffect, useState } from "react";
 import { FaUniversity } from "react-icons/fa";
 import { GiTeacher } from "react-icons/gi";
 import { AiFillProject } from "react-icons/ai";
-import {HiMiniBuildingLibrary} from "react-icons/hi2"
-import {RiFolderSettingsLine} from "react-icons/ri"
-import {PiStudentBold} from "react-icons/pi"
+import { HiMiniBuildingLibrary } from "react-icons/hi2";
+import { RiFolderSettingsLine } from "react-icons/ri";
+import { PiStudentBold } from "react-icons/pi";
 import CsvBtn from "../CsvButton/CsvButton";
 import ProjectCard from "../ProjectCard/ProjectCard";
-import './UniversityDashboard.css'
+import axios from "axios";
+import url from "../../../url";
+import "./UniversityDashboard.css";
 export default function UniversityDashboard(props) {
   let [uniName, setUniName] = useState("University of Jharkhand");
   let [registeredColl, setregisteredColl] = useState(94);
   let [registeredFaculty, setregisteredFaculty] = useState(10);
   let [registeredProjects, setRegisteredProjects] = useState(248);
-  let [collegeList, setCollegeList] = useState([
-    {
-      collegeName:"Thadomal Shahani Engineering College",
-      spoc:"Ms Aruna Patil",
-      email:"arunapl@tsec.edu"
-    },
-    {
-      collegeName:"DJ Sanghvi",
-      spoc:"Mr Shreyas Joshi",
-      email:"sjoshi@dj.edu"
-    },
-    {
-      collegeName:"IIT Bombay",
-      spoc:"Ms Archana Kulkarni",
-      email:"akulkarni@iitb.gov"
-    },
-  ]);
+  let [collegeList, setCollegeList] = useState([]);
   let [isFileSelected, setisFileSelected] = useState(true);
+  const [uni_name, setUni_name] = useState("");
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const config = {
+          headers: {
+            authtoken: localStorage.getItem("token"),
+          },
+        };
+        const response = await axios.get(
+          `${url}/api/v1/university/allColleges`,
+          config
+        );
+        console.log(response.data);
+        setCollegeList(response.data.colleges);
+        setUni_name(response.data.uni_name);
+      } catch (err) {
+        console.log(err);
+        alert("Something went wrong");
+      }
+    };
+    fetchData();
+  }, []);
+
+  console.log(collegeList);
   async function getCsvData(data) {
     console.log(data);
     setisFileSelected(!isFileSelected);
@@ -41,18 +52,18 @@ export default function UniversityDashboard(props) {
   useEffect(() => {
     // This will log the updated collegeList when it changes
     console.log(collegeList);
-  }, [collegeList]);    
-  
+  }, [collegeList]);
+
   return (
     <div>
       {/* MAIN  */}
       <main>
         <div className="head-title">
           <div className="left">
-            <h1>Welcome, {uniName}</h1>
+            <h1>Welcome, {uni_name}</h1>
             <ul className="breadcrumb">
               <li>
-                <a href="#">University of Jharkand</a>
+                <a href="#">{uni_name}</a>
               </li>
             </ul>
           </div>
@@ -73,7 +84,7 @@ export default function UniversityDashboard(props) {
           </li>
           <li>
             {/*<i className="bx bxs-group"></i> */}
-            <RiFolderSettingsLine size="3em" style={{"color":"#4B49AC"}} />
+            <RiFolderSettingsLine size="3em" style={{ color: "#4B49AC" }} />
             <span className="text">
               <h3>24</h3>
               <p>Projects</p>
@@ -81,7 +92,7 @@ export default function UniversityDashboard(props) {
           </li>
           <li>
             {/*<i className="bx bxs-dollar-circle"></i> */}
-            <PiStudentBold size="3em" color="#4B49AC"/>
+            <PiStudentBold size="3em" color="#4B49AC" />
             <span className="text">
               <h3>73</h3>
               <p>Students</p>
@@ -110,21 +121,24 @@ export default function UniversityDashboard(props) {
                   
                 )} */}
                 {/* {collegeList.length > 0 && */}
-                  {collegeList.map((college) => {
-                    return (
-                      <tr key={college.collegeName}>
-                        <td className="tddiv" style={{maxWidth:"15vw",textAlign:"left"}}>
-                          <p>{college.collegeName}</p>
-                        </td>
-                        <td className="spoctd">{college.spoc}</td>
-                        <td style={{display:"flex"}}>
-                          <span className="status pending">
-                            {college.email}
-                          </span>
-                        </td>
-                      </tr>
-                    );
-                  })}
+                {collegeList.map((college) => {
+                  return (
+                    <tr key={college.college_name}>
+                      <td
+                        className="tddiv"
+                        style={{ maxWidth: "15vw", textAlign: "left" }}
+                      >
+                        <p>{college.college_name}</p>
+                      </td>
+                      <td className="spoctd">{`${college.spoc.first_name} ${college.spoc.last_name}`}</td>
+                      <td style={{ display: "flex" }}>
+                        <span className="status process">
+                          {college.spoc.email}
+                        </span>
+                      </td>
+                    </tr>
+                  );
+                })}
                 {/*<tr>
                   <td>
                      <img src="img/people.png" /> 
@@ -138,17 +152,17 @@ export default function UniversityDashboard(props) {
           </div>
           <div className="todo">
             <div className="head">
-              <h3 style={{"marginLeft": "20px"}}>Recent Projects</h3>
+              <h3 style={{ marginLeft: "20px" }}>Recent Projects</h3>
               {/*<i className="bx bx-plus"></i> */}
               {/*<i className="bx bx-filter"></i> */}
             </div>
             <div className="projectdiv">
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
+              <ProjectCard />
+              <ProjectCard />
+              <ProjectCard />
+              <ProjectCard />
+              <ProjectCard />
+              <ProjectCard />
             </div>
           </div>
         </div>

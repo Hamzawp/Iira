@@ -17,7 +17,7 @@ const Login = () => {
   const Navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState("University");
 
   const [showForgotPasswordPopup, setShowForgotPasswordPopup] = useState(false);
 
@@ -45,10 +45,10 @@ const Login = () => {
     const sendData = async () => {
       let endpoint = "";
       try {
-        console.log(selectedOption.value);
+        console.log(selectedOption);
         // console.log(selectedOption);
         // console.log(selectedOption)
-        switch (selectedOption.value) {
+        switch (selectedOption) {
           case "University":
             endpoint = "/api/v1/university/login";
             break;
@@ -60,7 +60,7 @@ const Login = () => {
             break;
           case "Student":
             endpoint = "/api/v1/college/student/login";
-            break;  
+            break;
           case "Guest-User":
             endpoint = "/api/v1/college/student/login";
             break;
@@ -81,12 +81,10 @@ const Login = () => {
         // /api/v1/college/student/login
         console.log(response);
 
-        localStorage.setItem('token', response.data.token);
-        
-        Navigate('/');
-      }
-      catch (error){
+        localStorage.setItem("token", response.data.token);
 
+        Navigate("/");
+      } catch (error) {
         console.log(error);
       }
     };
@@ -94,10 +92,8 @@ const Login = () => {
     sendData();
   };
 
-  const handleDropdownChange = (selectedValue) => {
-    setSelectedOption(selectedValue);
-    console.log(selectedOption)
-  };
+  console.log(selectedOption);
+
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
@@ -135,9 +131,7 @@ const Login = () => {
                     options={options}
                     value={defaultOption}
                     placeholder="Select an option"
-                    onChange={(selectedValue) =>
-                      handleDropdownChange(selectedValue)
-                    }
+                    onChange={(e) => setSelectedOption(e.value)}
                   />
                 </div>
                 <div className="form-group">

@@ -3,25 +3,11 @@ import "./UniversityCollegeTab.css";
 import { RxCross2 } from "react-icons/rx";
 import { BiLinkExternal } from "react-icons/bi";
 import ProjectCard from "../ProjectCard/ProjectCard";
+import axios from "axios";
+import url from "../../../url";
 // import {tsec} from '../../assets/tsec.webp'
 export default function UniversityCollegeTab() {
-  let [collegeList, setCollegeList] = useState([
-    {
-      collegeName: "Thadomal Shahani Engineering College",
-      spoc: "Ms Aruna Patil",
-      email: "arunapl@tsec.edu",
-    },
-    {
-      collegeName: "DJ Sanghvi",
-      spoc: "Mr Shreyas Joshi",
-      email: "sjoshi@dj.edu",
-    },
-    {
-      collegeName: "IIT Bombay",
-      spoc: "Ms Archana Kulkarni",
-      email: "akulkarni@iitb.gov",
-    },
-  ]);
+  let [collegeList, setCollegeList] = useState([]);
 
 // Get all the colleges name and spocs 
   useEffect(() => {
@@ -42,6 +28,33 @@ export default function UniversityCollegeTab() {
   fetchData();
   }, [])
   let [rightBar, setRightBar] = useState(false);
+  const [uni_name, setUni_name] = useState("University of Jharkhand");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const config = {
+          headers: {
+            authtoken: localStorage.getItem("token"),
+          },
+        };
+        const response = await axios.get(
+          `${url}/api/v1/university/allColleges`,
+          config
+        );
+        console.log("response.data", response.data);
+        setCollegeList(response.data.colleges);
+        setUni_name(response.data.uni_name);
+      } catch (err) {
+        console.log(err);
+        alert("Something went wrong");
+      }
+    };
+    fetchData();
+  }, []);
+
+  console.log(collegeList, "collegeList");
+  console.log(uni_name, "uni_name");
 
   function handleRightBar() {
     let table = document.getElementById("collegeTable");
@@ -62,22 +75,22 @@ export default function UniversityCollegeTab() {
     <div>
       <div className="table-data-pg">
         <div className="order">
-        <div className="head-title">
-          <div className="left">
-            <h1>Colleges Registered</h1>
-            <ul className="breadcrumb">
-              <li>
-                <a href="#">University of Jharkand</a>
-              </li>
-            </ul>
+          <div className="head-title">
+            <div className="left">
+              <h1>Colleges Registered</h1>
+              <ul className="breadcrumb">
+                <li>
+                  <a href="#">{uni_name}</a>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
           <table id="collegeTable">
             <thead>
               <tr>
                 <th>College Name</th>
                 <th>SPOC</th>
-                <th>Projects Added</th>
+                <th>Email</th>
               </tr>
             </thead>
             <tbody>
@@ -89,7 +102,7 @@ export default function UniversityCollegeTab() {
               {collegeList.map((college) => {
                 return (
                   <tr
-                    key={college.collegeName}
+                    key={college.college_id}
                     style={{ borderRadius: "10px" }}
                     onClick={handleRightBar}
                   >
@@ -98,12 +111,14 @@ export default function UniversityCollegeTab() {
                       style={{ maxWidth: "15vw", textAlign: "left" }}
                     >
                       <p style={{ padding: "15px", whiteSpace: "nowrap" }}>
-                        {college.collegeName}
+                        {college.college_name}
                       </p>
                     </td>
-                    <td className="spoctd">{college.spoc}</td>
+                    <td className="spoctd">{`${college.spoc.first_name} ${college.spoc.last_name}`}</td>
                     <td style={{ display: "flex" }}>
-                      <span className="status pending">{college.email}</span>
+                      <span className="status process">
+                        {college.spoc.email}
+                      </span>
                     </td>
                   </tr>
                 );
@@ -149,10 +164,12 @@ export default function UniversityCollegeTab() {
                   <BiLinkExternal className="visitCollege" />
                 </div>
               </div>
-              <hr className="custom-hr"/>
+              <hr className="custom-hr" />
               <div className="todo">
                 <div className="head">
-                  <h3 style={{ textAlign:"left",marginLeft:"8px" }}>Recent Projects</h3>
+                  <h3 style={{ textAlign: "left", marginLeft: "8px" }}>
+                    Recent Projects
+                  </h3>
                   {/*<i className="bx bx-plus"></i> */}
                   {/*<i className="bx bx-filter"></i> */}
                 </div>
