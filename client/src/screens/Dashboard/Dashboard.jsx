@@ -178,7 +178,7 @@ export default function Dashboard() {
             {selectedRow === 6 && (
               <>
                 {" "}
-                <FacultyAddPage />{" "}
+                <FacultyAddStudentPage />{" "}
               </>
             )}
 

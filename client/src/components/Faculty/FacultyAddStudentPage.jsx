@@ -11,7 +11,9 @@ import jwt_decode from "jwt-decode";
 import url from "../../../url";
 export default function FacultyAddPage() {
   const token = localStorage.getItem("token");
-
+  var decoded = jwt_decode(token);
+  console.log(decoded.role);
+  const role = decoded.role;
   const facultyData = [
     {
       name: "Prof. Rahul Sharma",
@@ -66,10 +68,17 @@ export default function FacultyAddPage() {
       };
     });
     console.log("Faculty Details: ", facultyDetails);
+    let endpoint= '';
+    switch(role){
+      case "SPOC": endpoint = "/api/v1/college/SPOC/addBulk"; break;
+      case "college_faculty": endpoint ="/api/v1/college/college_faculty/addBulk"; break;
+
+      default: endpoint ="/api/v1"; break;
+    }
     try {
       // Send a POST request to your Express endpoint to generate credentials
       const response = await axios.post(
-        `${url}/api/v1/college/SPOC/addBulk`,
+        `${url}${endpoint}`,
         {
           users: facultyDetails,
           role: "student",
