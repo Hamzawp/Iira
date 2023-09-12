@@ -1,3 +1,34 @@
+.head-title {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	grid-gap: 16px;
+	flex-wrap: wrap;
+}
+ .head-title .left h1 {
+	font-size: 36px;
+	font-weight: 600;
+	margin-bottom: 10px;
+	color: var(--dark);
+}
+ .head-title .left .breadcrumb {
+	display: flex;
+	align-items: center;
+	grid-gap: 16px;
+}
+.head-title .left .breadcrumb li {
+	color: var(--dark);
+	
+}
+ .head-title .left .breadcrumb li a {
+	color: var(--dark-grey);
+	pointer-events: none;
+}
+.head-title .left .breadcrumb li a.active {
+	color: var(--blue);
+	pointer-events: unset;
+}
+
 .table-data-pg {
 	display: flex;
 	flex-wrap: wrap;
@@ -114,6 +145,7 @@
 }
 
 #collegeTable{
+	margin-top: 2rem;
     transition: width 0.5s;
 }
 
@@ -138,7 +170,8 @@
 
 .right-tab-clicked{
     height: 100vh;
-    width: 30%;
+    width: 32%;
+	padding-bottom: 1rem;
 }
 
 .collegeName{
@@ -201,6 +234,7 @@
 }
 
 .container-scroll{
+	padding-bottom: 1rem;
 	display: flex;
     overflow-y: scroll;
     flex-direction: column;

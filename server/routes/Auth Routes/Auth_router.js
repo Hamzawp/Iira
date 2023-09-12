@@ -26,17 +26,20 @@ router.post("/setPassword", async (req, res) => {
 });
 
 //  get A User
-router.get("/getOne", async (req, res) => {
+router.get("/getOne/:user_id", async (req, res) => {
   try {
-    const { user_id } = req.body;
+    const { user_id } = req.params;
+    console.log(user_id);
     const user = await prisma.user.findUnique({
-      where: { user_id },
+      where: { user_id: Number(user_id) },
     });
+    console.log(user);
     if (!user) {
       return res.status(404).json({ error: "No such User exists" });
     }
     res.status(200).json({ ...user });
   } catch (err) {
+    console.log(err);
     res.status(500).json({ error: "Internal Server Error", message: err });
   }
 });

@@ -13,6 +13,7 @@ import './App.css'
 import Dashboard from './screens/Dashboard/Dashboard'
 
 import Login from './screens/Login/Login';
+import Reset from './screens/Reset/Reset';
 
 
 const router = createBrowserRouter([
@@ -24,6 +25,12 @@ const router = createBrowserRouter([
     path: "/",
 
     element: <Dashboard />,
+
+  },
+  {
+    path: "/registration/:id",
+
+    element: <Reset />,
 
   },
   

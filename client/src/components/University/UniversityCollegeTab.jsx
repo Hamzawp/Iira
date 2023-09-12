@@ -43,11 +43,16 @@ export default function UniversityCollegeTab() {
     <div>
       <div className="table-data-pg">
         <div className="order">
-          <div className="head">
-            <h3>Colleges Registered</h3>
-            {/*<i className="bx bx-search"></i> */}
-            {/*<i className="bx bx-filter"></i> */}
+        <div className="head-title">
+          <div className="left">
+            <h1>Colleges Registered</h1>
+            <ul className="breadcrumb">
+              <li>
+                <a href="#">University of Jharkand</a>
+              </li>
+            </ul>
           </div>
+        </div>
           <table id="collegeTable">
             <thead>
               <tr>
