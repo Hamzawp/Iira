@@ -7,7 +7,10 @@ import usericon from '../../assets/usericon.png'
 import CsvBtn from '../CsvButton/CsvButton'
 import './FacultyAddPage.css'
 import axios from 'axios';
+import jwt_decode from "jwt-decode";
 export default function FacultyAddPage() {
+
+const token = localStorage.getItem("token");
 
   const facultyData = [
   {
@@ -56,15 +59,21 @@ async function getCsvData(data) {
 }
 
 const generateCredentials = async () => {
-  // Extract faculty emails from your facultyData array
-  const facultyEmails = studentList.map((faculty) => faculty.email);
-
+  const facultyDetails = studentList.map((faculty) => {
+    return{
+    first_name: faculty['Faculty First Name'],
+    last_name: faculty['Faculty Last Name'],
+    email: faculty['Faculty Email'],
+    dob: faculty['Faculty DOB']
+  }
+  });
+   console.log("Faculty Details: ", facultyDetails);
   try {
     // Send a POST request to your Express endpoint to generate credentials
-    const response = await axios.post('/api/v1/college/college_faculty/addBulk', {
-      students: facultyEmails,
-      role: "student"
-    });
+    const response = await axios.post('/api/v1/college/SPOC/addBulk', {
+      students: facultyDetails,
+      role: "college_faculty"
+    }, { headers: { authToken: token,}});
 
     // Handle the response as needed, e.g., show a success message
     console.log(response.data.message);
