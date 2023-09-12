@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { FaUniversity } from "react-icons/fa";
 import { GiTeacher } from "react-icons/gi";
 import { AiFillProject } from "react-icons/ai";
+import {HiMiniBuildingLibrary} from "react-icons/hi2"
+import {RiFolderSettingsLine} from "react-icons/ri"
+import {PiStudentBold} from "react-icons/pi"
 import CsvBtn from "../CsvButton/CsvButton";
 import ProjectCard from "../ProjectCard/ProjectCard";
 import './UniversityDashboard.css'
@@ -46,48 +49,42 @@ export default function UniversityDashboard(props) {
       <main>
         <div className="head-title">
           <div className="left">
-            <h1>{uniName}</h1>
+            <h1>Welcome, {uniName}!</h1>
             <ul className="breadcrumb">
               <li>
-                <a href="#">Dashboard</a>
-              </li>
-              {/* <li> <BxChevronRight /> </li> */}
-              <li>
-                <a className="active" href="#">
-                  Home
-                </a>
+                <a href="#">University of Jharkand</a>
               </li>
             </ul>
           </div>
           <a href="#" className="btn-download">
             {/*<i className="bx bxs-cloud-download"></i> */}
-            <span className="text">Download PDF</span>
+            <span className="text">Add College +</span>
           </a>
         </div>
 
         <ul className="box-info">
           <li>
             {/*<i className="bx bxs-calendar-check"></i> */}
-            <FaUniversity className="bx bxs-calendar-check" />
-            <span className="text infodiv">
-              <h3>{registeredColl}</h3>
-              <p>Colleges Registered</p>
+            <HiMiniBuildingLibrary size="3em" color="#4B49AC" />
+            <span className="text">
+              <h3>07</h3>
+              <p>Faculties</p>
             </span>
           </li>
           <li>
             {/*<i className="bx bxs-group"></i> */}
-            <GiTeacher className="bx bxs-group" />
-            <span className="text infodiv">
-              <h3>{registeredFaculty}</h3>
-              <p>Faculty added</p>
+            <RiFolderSettingsLine size="3em" style={{"color":"#4B49AC"}} />
+            <span className="text">
+              <h3>24</h3>
+              <p>Projects</p>
             </span>
           </li>
           <li>
             {/*<i className="bx bxs-dollar-circle"></i> */}
-            <AiFillProject className="bx bxs-dollar-circle" />
-            <span className="text infodiv">
-              <h3>{registeredProjects}</h3>
-              <p>Projects Published</p>
+            <PiStudentBold size="3em" color="#4B49AC"/>
+            <span className="text">
+              <h3>73</h3>
+              <p>Students</p>
             </span>
           </li>
         </ul>
@@ -95,7 +92,7 @@ export default function UniversityDashboard(props) {
         <div className="table-data">
           <div className="order">
             <div className="head">
-              <h3>Colleges Registered</h3>
+              <h3>Colleges</h3>
               {/*<i className="bx bx-search"></i> */}
               {/*<i className="bx bx-filter"></i> */}
             </div>

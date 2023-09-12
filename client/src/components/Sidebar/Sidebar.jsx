@@ -5,6 +5,8 @@ import {AiOutlineTeam} from 'react-icons/ai'
 import {FiSettings} from 'react-icons/fi'
 import {RiUserAddFill} from 'react-icons/ri'
 import {HiUserGroup} from 'react-icons/hi'
+import {HiMiniBuildingLibrary} from "react-icons/hi2"
+import {BsBuildingFillAdd} from "react-icons/bs"
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
 import RateReviewIcon from '@mui/icons-material/RateReview';
@@ -103,7 +105,7 @@ export default function Sidebar(props) {
             onClick={() => handleRowClick(2)}
           >
             <a href="#">
-              <BiSolidDashboard className="custom-icons" />
+              <AccountCircleIcon className="custom-icons" />
               <span className="text">
                 {props.isSdbropen ? "University Profile" : ""}
               </span>
@@ -114,19 +116,8 @@ export default function Sidebar(props) {
             onClick={() => handleRowClick(3)}
           >
             <a href="#">
-              <BiSolidReport className="custom-icons" />
-              <span className="text">{props.isSdbropen ? "Colleges" : ""}</span>
-            </a>
-          </li>
-          <li
-            className={activeMenuItem === 4 ? "active" : ""}
-            onClick={() => handleRowClick(4)}
-          >
-            <a href="#">
-              <BiSolidReport className="custom-icons" />
-              <span className="text">
-                {props.isSdbropen ? "Add Colleges" : ""}
-              </span>
+              <HiMiniBuildingLibrary className="custom-icons" />
+              <span className="text">{props.isSdbropen ? "My Colleges" : ""}</span>
             </a>
           </li>
           <li
@@ -134,10 +125,22 @@ export default function Sidebar(props) {
             onClick={() => handleRowClick(5)}
           >
             <a href="#">
-              <BiHistory className="custom-icons" />
-              <span className="text">{props.isSdbropen ? "Projects" : ""}</span>
+              <BackupTableIcon className="custom-icons" />
+              <span className="text">{props.isSdbropen ? "My Projects" : ""}</span>
             </a>
           </li>
+          <li
+            className={activeMenuItem === 4 ? "active" : ""}
+            onClick={() => handleRowClick(4)}
+          >
+            <a href="#">
+              <BsBuildingFillAdd className="custom-icons" />
+              <span className="text">
+                {props.isSdbropen ? "Add Colleges" : ""}
+              </span>
+            </a>
+          </li>
+          
           {/* <li className={activeMenuItem === 6 ? "active" : ""}>
             <a href="#">
               <BiMessageAltDetail className="custom-icons" />
