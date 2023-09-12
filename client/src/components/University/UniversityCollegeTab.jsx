@@ -8,6 +8,25 @@ import url from "../../../url";
 // import {tsec} from '../../assets/tsec.webp'
 export default function UniversityCollegeTab() {
   let [collegeList, setCollegeList] = useState([]);
+
+// Get all the colleges name and spocs 
+  useEffect(() => {
+    const fetchData = async () => {
+      try{
+      const response = await axios.get(`${url}/api/v1/auth/getOne/${id}`);
+      if(response){
+        console.log(response.data);
+        // setEmail(response.data.email);
+        // setFirstName(response.data.first_name);
+        // setLastName(response.data.last_name);
+      }
+    }catch(error){
+      console.error(error);
+    }
+
+  }
+  fetchData();
+  }, [])
   let [rightBar, setRightBar] = useState(false);
   const [uni_name, setUni_name] = useState("University of Jharkhand");
 

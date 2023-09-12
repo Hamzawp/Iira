@@ -1,6 +1,8 @@
+
 import React, { useState, useEffect } from "react";
 import "../Login/Login.css";
 import { useNavigate, useParams } from "react-router-dom";
+
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import ForgotPasswordPopup from "../Login/ForgotPasswordPopup";
@@ -14,6 +16,7 @@ const defaultOption = options[0];
 const eye = <FaEye />;
 
 const Reset = () => {
+
   const {id} = useParams();
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -39,6 +42,7 @@ const Reset = () => {
   }
   fetchData();
   }, [])
+
 
   const Navigate = useNavigate();
   const [username, setUsername] = useState("");
@@ -69,6 +73,7 @@ const Reset = () => {
     e.preventDefault();
 
     const sendData = async () => {
+
       try{  
         const response = await axios.post(`${url}/api/v1/auth/setPassword`, {
           email: email,
@@ -84,6 +89,7 @@ const Reset = () => {
           alert("Invalid Credentials")
         }
         
+
       } catch (error) {
         console.log(error);
       }
@@ -138,8 +144,10 @@ const Reset = () => {
                     placeholder="Enter your email"
                     onFocus={handleFocus}
                     onBlur={handleBlur}
+
                     value={email}
                     disabled
+
                     onChange={(e) => setUsername(e.target.value)}
                   />
                 </div>
@@ -152,8 +160,10 @@ const Reset = () => {
                     placeholder="Enter your first name"
                     onFocus={handleFocus}
                     onBlur={handleBlur}
+
                     value={firstName}
                     disabled
+
                     onChange={(e) => setUsername(e.target.value)}
                   />
                 </div>
@@ -166,8 +176,10 @@ const Reset = () => {
                     placeholder="Enter your last name"
                     onFocus={handleFocus}
                     onBlur={handleBlur}
+
                     value={lastName}
                     disabled
+
                     onChange={(e) => setUsername(e.target.value)}
                   />
                 </div>
@@ -177,11 +189,13 @@ const Reset = () => {
                     type={passwordShown ? "text" : "password"}
                     id="password"
                     name="password"
+
                     placeholder="Enter your auto-generated password"
                     onFocus={handleFocus}
                     onBlur={handleBlur}
                     value={oldPassword}
                     onChange={(e) => setOldPassword(e.target.value)}
+
                   />
                   <i onClick={togglePasswordVisiblity}>{eye}</i>{" "}
                 </div>
@@ -194,8 +208,10 @@ const Reset = () => {
                     placeholder="Enter your new password"
                     onFocus={handleFocus}
                     onBlur={handleBlur}
+
                     value={newPassword}
                     onChange={(e) => setNewPassword(e.target.value)}
+
                   />
                   <i onClick={togglePasswordVisiblity}>{eye}</i>{" "}
                 </div>

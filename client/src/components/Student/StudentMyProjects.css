@@ -1,4 +1,4 @@
-.mainprocard{
+.card-fac {
     --main-color: #fff;
     --bg-color: #6463ce;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -20,8 +20,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    width: 100%;
     z-index: 1;
     cursor: pointer;
   }
@@ -62,7 +60,6 @@
   }
   
   .card__menu {
-    display: none;
     width: 40px;
     height: 40px;
     background: var(--bg-color);

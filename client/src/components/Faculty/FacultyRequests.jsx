@@ -6,7 +6,7 @@ import {PiStudentBold} from 'react-icons/pi'
 import usericon from '../../assets/usericon.png'
 import CsvBtn from '../CsvButton/CsvButton'
 import './FacultyRequests.css'
-export default function FacultyRequests() {
+export default function FacultyRequests(props) {
 
   const facultyData = [
   // {
@@ -69,7 +69,7 @@ const facultyDataLength = facultyData.length;
         <main>
         <div className="head-title">
           <div className="left">
-            <h1>Project Approval Panel</h1>
+          {(props.selectedrow === 8) ?<h1>Project Claim Panel</h1> : <h1>Project Approve Panel</h1>}
             <ul className="breadcrumb">
               <li>
                 <a href="#">Thadomal Shahani Engineering College</a>
@@ -103,7 +103,7 @@ const facultyDataLength = facultyData.length;
 
             <div class="approvebtn-container">
                 <a class="btn-content" href="#">
-                    <span class="btn-title">Approve</span>
+                    {(props.selectedrow === 8) ? <span class="btn-title">Claim</span>: <span class="btn-title">Approve</span>}
                     <span class="icon-arrow">
                     <svg width="56px" height="33px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <g id="arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
