@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Navbar.css";
-import { AiOutlineBell, AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineBell, AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
 import {BiMenu} from 'react-icons/bi'
 import Avatar from 'react-avatar';
 import { Menu, MenuItem, MenuButton, SubMenu } from '@szhsin/react-menu';
@@ -30,7 +30,7 @@ export default function Navbar(props) {
         <div className="form-input">
           <input type="search" placeholder="Search..." />
           <button type="submit" className="search-btn">
-            <i className="bx bx-search"></i>
+          <AiOutlineSearch/>
           </button>
         </div>
       </form>
