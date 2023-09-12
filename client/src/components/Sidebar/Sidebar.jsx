@@ -1,9 +1,11 @@
 import React,{useState} from 'react'
+import {useNavigate} from "react-router-dom"
 import './Sidebar.css'
 import {BiSolidDashboard,BiSolidReport,BiHistory,BiMessageAltDetail,BiLogOut} from 'react-icons/bi'
 import {AiOutlineTeam} from 'react-icons/ai'
 import {FiSettings} from 'react-icons/fi'
 import {RiUserAddFill} from 'react-icons/ri'
+import {PiQueueFill} from 'react-icons/pi'
 import {HiUserGroup} from 'react-icons/hi'
 import {HiMiniBuildingLibrary} from "react-icons/hi2"
 import {BsBuildingFillAdd} from "react-icons/bs"
@@ -27,6 +29,12 @@ export default function Sidebar(props) {
   const role = decoded.role;
   localStorage.setItem("role",role)
 
+  const Navigate = useNavigate();
+
+  const logoutUser = () => {
+    localStorage.clear();
+    Navigate("/login");
+  }
   // localStorage.setItem('role', 'UNIVERSITY');
   return (
     // {isSdbropen?}
@@ -70,6 +78,14 @@ export default function Sidebar(props) {
             <span className="text">{props.isSdbropen ? "Projects Review": ''}</span>
           </a>
         </li>
+        <li className={activeMenuItem === 8 ? 'active' : ''} onClick={() =>handleRowClick(8)}>
+                <a href="#">
+                  {/* <i className="bx bxs-shopping-bag-alt"></i> */}
+                  {/* <BiSolidReport className = "custom-icons"/> */}
+                  <PiQueueFill className = "custom-icons"/>
+                  <span className="text">{props.isSdbropen ? "Projects Queue": ''}</span>
+                </a>
+              </li>
         <li className={activeMenuItem === 5 ? 'active' : ''} onClick={() => handleRowClick(5)}>
           <a href="#">
             {/* <i className="bx bxs-doughnut-chart"></i> */}
@@ -189,6 +205,14 @@ export default function Sidebar(props) {
                   <span className="text">{props.isSdbropen ? "Projects Review": ''}</span>
                 </a>
               </li>
+              <li className={activeMenuItem === 8 ? 'active' : ''} onClick={() =>handleRowClick(8)}>
+                <a href="#">
+                  {/* <i className="bx bxs-shopping-bag-alt"></i> */}
+                  {/* <BiSolidReport className = "custom-icons"/> */}
+                  <PiQueueFill className = "custom-icons"/>
+                  <span className="text">{props.isSdbropen ? "Projects Queue": ''}</span>
+                </a>
+              </li>
               <li className={activeMenuItem === 5 ? 'active' : ''} onClick={() => handleRowClick(5)}>
                 <a href="#">
                   {/* <i className="bx bxs-doughnut-chart"></i> */}
@@ -288,7 +312,7 @@ export default function Sidebar(props) {
           </a>
         </li>
         <li>
-          <a href="#" className="logout">
+          <a href="#" className="logout" onClick={logoutUser}>
 
             <BiLogOut className="custom-icons" />
             <span className="text">{props.isSdbropen ? "Logout" : ""}</span>

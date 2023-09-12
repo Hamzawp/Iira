@@ -117,7 +117,7 @@ export default function FacultyAddPage() {
               </li>
             </ul>
           </div>
-          <a href="#" className="btn-adds">
+          <a href="#" className="btn-adds" style={{"display":"flex", "flex-direction": "row", "alignItems":"center", "columnGap":"1rem"}}>
             {/*<i className="bx bxs-cloud-download"></i> */}
             {/* <span className="texts" >
               Add Faculty +
@@ -137,6 +137,12 @@ export default function FacultyAddPage() {
                 </div>
               )}
             </div>
+            <a href="#" className="btn-add">
+            {/*<i className="bx bxs-cloud-download"></i> */}
+             <span className="text" >
+              Add Student +
+             </span> 
+            </a>
           </a>
         </div>
 

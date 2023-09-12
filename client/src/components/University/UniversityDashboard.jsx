@@ -118,7 +118,7 @@ export default function UniversityDashboard(props) {
                         </td>
                         <td className="spoctd">{college.spoc}</td>
                         <td style={{display:"flex"}}>
-                          <span className="status process">
+                          <span className="status pending">
                             {college.email}
                           </span>
                         </td>

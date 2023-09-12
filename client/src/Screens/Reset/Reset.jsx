@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
 import "../Login/Login.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import ForgotPasswordPopup from "../Login/ForgotPasswordPopup";
@@ -14,6 +16,34 @@ const defaultOption = options[0];
 const eye = <FaEye />;
 
 const Reset = () => {
+
+  const {id} = useParams();
+  const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [oldPassword, setOldPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+
+  // console.log(id);
+  useEffect(() => {
+    const fetchData = async () => {
+      try{
+      const response = await axios.get(`${url}/api/v1/auth/getOne/${id}`);
+      if(response){
+        console.log(response.data);
+        setEmail(response.data.email);
+        setFirstName(response.data.first_name);
+        setLastName(response.data.last_name);
+      }
+    }catch(error){
+      console.error(error);
+    }
+
+  }
+  fetchData();
+  }, [])
+
+
   const Navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -43,45 +73,23 @@ const Reset = () => {
     e.preventDefault();
 
     const sendData = async () => {
-      let endpoint = "";
-      try {
-        console.log(selectedOption.value);
-        // console.log(selectedOption);
-        // console.log(selectedOption)
-        switch (selectedOption.value) {
-          case "University":
-            endpoint = "/api/v1/university/login";
-            break;
-          case "SPOC":
-            endpoint = "/api/v1/college/SPOC/login";
-            break;
-          case "Faculty":
-            endpoint = "/api/v1/college/college_faculty/login";
-            break;
-          case "Student":
-            endpoint = "/api/v1/college/student/login";
-            break;  
-          case "Guest-User":
-            endpoint = "/api/v1/college/student/login";
-            break;
-          default:
-            endpoint = "/api/v1/";
-            break;
-        }
-        console.log(endpoint);
-        console.log("Sending request to:", `${endpoint}`);
-        console.log("Sending data:", { email: username, password: password });
 
-        const response = await axios.post(`${endpoint}`, {
-          email: username,
-          password: password,
+      try{  
+        const response = await axios.post(`${url}/api/v1/auth/setPassword`, {
+          email: email,
+          oldPassword: oldPassword,
+          newPassword: newPassword,
         });
-        // /api/v1/university/login
-        // /api/v1/college/college_faculty/login
-        // /api/v1/college/student/login
         console.log(response);
-        localStorage.setItem("token", response.data.token);
-        Navigate("/");
+        // localStorage.setItem("token", response.data.token);
+        if(response.status === 200){
+          Navigate("/login");
+        }
+        else{
+          alert("Invalid Credentials")
+        }
+        
+
       } catch (error) {
         console.log(error);
       }
@@ -136,7 +144,10 @@ const Reset = () => {
                     placeholder="Enter your email"
                     onFocus={handleFocus}
                     onBlur={handleBlur}
-                    value={username}
+
+                    value={email}
+                    disabled
+
                     onChange={(e) => setUsername(e.target.value)}
                   />
                 </div>
@@ -149,7 +160,10 @@ const Reset = () => {
                     placeholder="Enter your first name"
                     onFocus={handleFocus}
                     onBlur={handleBlur}
-                    value={username}
+
+                    value={firstName}
+                    disabled
+
                     onChange={(e) => setUsername(e.target.value)}
                   />
                 </div>
@@ -162,7 +176,10 @@ const Reset = () => {
                     placeholder="Enter your last name"
                     onFocus={handleFocus}
                     onBlur={handleBlur}
-                    value={username}
+
+                    value={lastName}
+                    disabled
+
                     onChange={(e) => setUsername(e.target.value)}
                   />
                 </div>
@@ -172,11 +189,13 @@ const Reset = () => {
                     type={passwordShown ? "text" : "password"}
                     id="password"
                     name="password"
-                    placeholder="Enter your old password"
+
+                    placeholder="Enter your auto-generated password"
                     onFocus={handleFocus}
                     onBlur={handleBlur}
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    value={oldPassword}
+                    onChange={(e) => setOldPassword(e.target.value)}
+
                   />
                   <i onClick={togglePasswordVisiblity}>{eye}</i>{" "}
                 </div>
@@ -189,8 +208,10 @@ const Reset = () => {
                     placeholder="Enter your new password"
                     onFocus={handleFocus}
                     onBlur={handleBlur}
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+
+                    value={newPassword}
+                    onChange={(e) => setNewPassword(e.target.value)}
+
                   />
                   <i onClick={togglePasswordVisiblity}>{eye}</i>{" "}
                 </div>
