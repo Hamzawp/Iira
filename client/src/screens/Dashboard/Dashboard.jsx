@@ -187,6 +187,12 @@ export default function Dashboard() {
 
               </>
             )}
+            {selectedRow === 8 && (
+              <>
+                {" "}
+                <FacultyRequests selectedrow={8} />{" "}
+              </>
+            )}
             {selectedRow === 5 && (
               <>
 

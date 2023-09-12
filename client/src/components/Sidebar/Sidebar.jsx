@@ -78,6 +78,14 @@ export default function Sidebar(props) {
             <span className="text">{props.isSdbropen ? "Projects Review": ''}</span>
           </a>
         </li>
+        <li className={activeMenuItem === 8 ? 'active' : ''} onClick={() =>handleRowClick(8)}>
+                <a href="#">
+                  {/* <i className="bx bxs-shopping-bag-alt"></i> */}
+                  {/* <BiSolidReport className = "custom-icons"/> */}
+                  <PiQueueFill className = "custom-icons"/>
+                  <span className="text">{props.isSdbropen ? "Projects Queue": ''}</span>
+                </a>
+              </li>
         <li className={activeMenuItem === 5 ? 'active' : ''} onClick={() => handleRowClick(5)}>
           <a href="#">
             {/* <i className="bx bxs-doughnut-chart"></i> */}
