@@ -49,7 +49,7 @@ export default function UniversityDashboard(props) {
       <main>
         <div className="head-title">
           <div className="left">
-            <h1>Welcome, {uniName}!</h1>
+            <h1>Welcome, {uniName}</h1>
             <ul className="breadcrumb">
               <li>
                 <a href="#">University of Jharkand</a>
@@ -68,7 +68,7 @@ export default function UniversityDashboard(props) {
             <HiMiniBuildingLibrary size="3em" color="#4B49AC" />
             <span className="text">
               <h3>07</h3>
-              <p>Faculties</p>
+              <p>Colleges</p>
             </span>
           </li>
           <li>
@@ -101,7 +101,7 @@ export default function UniversityDashboard(props) {
                 <tr>
                   <th>College Name</th>
                   <th>SPOC</th>
-                  <th>Projects Added</th>
+                  <th>SPOC Email</th>
                 </tr>
               </thead>
               <tbody>

@@ -14,6 +14,7 @@ import Dashboard from './screens/Dashboard/Dashboard'
 
 import Login from './screens/Login/Login';
 
+
 const router = createBrowserRouter([
   {
     path: "/login",
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
     element: <Dashboard />,
 
   },
+  
 ]);
 
 function App() {

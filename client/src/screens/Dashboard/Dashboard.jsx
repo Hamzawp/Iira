@@ -15,12 +15,14 @@ import UniversityCollegeTab from "../../components/University/UniversityCollegeT
 import UniversityAddPage from "../../components/University/UniversityAddPage";
 import UniversityMyProjects from "../../components/University/UniversityMyProjects";
 import UniversityProfile from "../../components/University/UniversityProfile";
-import { AiOutlineFundProjectionScreen } from "react-icons/ai";
-import { FaChalkboardTeacher } from "react-icons/fa";
-import { RiFolderSettingsLine } from "react-icons/ri";
-import { PiStudentBold } from "react-icons/pi";
 import StudentHome from "../../components/Student/StudentHome";
 import StudentDashboard from "../../components/Student/StudentDashboard";
+import {AiOutlineFundProjectionScreen} from 'react-icons/ai'
+import {FaChalkboardTeacher} from 'react-icons/fa'
+import {RiFolderSettingsLine} from 'react-icons/ri'
+import {PiStudentBold} from 'react-icons/pi'
+
+
 
 export default function Dashboard() {
   const token = localStorage.getItem("token");
@@ -198,6 +200,44 @@ export default function Dashboard() {
           </section>
         </>
       )}
+
+      {roleUser === "student" && (
+        <>
+          <Sidebar
+            isSdbropen={isSdbropen}
+            onItemClick={handleSidebarItemClick}
+          />
+          <section id="content">
+            <Navbar onClick={handleToggle} />
+            {selectedRow === 1 && (
+              <>
+                <StudentHome />
+              </>
+            )}
+            {selectedRow === 2 && (
+              <>
+                <StudentDashboard />
+              </>
+            )}
+            {selectedRow === 3 && (
+              <>
+                <UniversityCollegeTab />
+              </>
+            )}
+            {selectedRow === 4 && (
+              <>
+                <UniversityAddPage />
+              </>
+            )}
+            {selectedRow === 5 && (
+              <>
+                <UniversityMyProjects />
+              </>
+            )}
+          </section>
+        </>
+      )}
+
     </div>
   );
 }
