@@ -8,6 +8,7 @@ import FacultyProfile from "../../components/Faculty/FacultyProfile";
 import FacultyRequests from "../../components/Faculty/FacultyRequests";
 import FacultyProjectReview from "../../components/Faculty/FacultyProjectReview";
 import FacultyAddPage from "../../components/Faculty/FacultyAddPage";
+import FacultyAddStudentPage from "../../components/Faculty/FacultyAddStudentPage";
 import FacultyMyProjects from "../../components/Faculty/FacultyMyProjects";
 import UniversityDashboard from "../../components/University/UniversityDashboard";
 import UniversityCollegeTab from "../../components/University/UniversityCollegeTab";
@@ -38,6 +39,102 @@ export default function Dashboard() {
 
   return (
     <div>
+      {roleUser === "SPOC" && (
+        <>
+          <Sidebar
+            isSdbropen={isSdbropen}
+            onItemClick={handleSidebarItemClick}
+          />
+
+          <section id="content">
+            <Navbar onClick={handleToggle} />
+            {/* MAIN  */}
+            {selectedRow === 1 && (
+              <>
+                {" "}
+                <FacultyDashboard role={"SPOC"} />{" "}
+              </>
+            )}
+            {selectedRow === 2 && (
+              <>
+                {" "}
+                <FacultyProfile />{" "}
+              </>
+            )}
+            {selectedRow === 3 && (
+              <>
+                {" "}
+                <FacultyRequests />{" "}
+              </>
+            )}
+            {selectedRow === 4 && (
+              <>
+                {" "}
+                <FacultyProjectReview />{" "}
+              </>
+            )}
+            {selectedRow === 5 && (
+              <>
+                {" "}
+                <FacultyMyProjects />{" "}
+              </>
+            )}
+            {selectedRow === 6 && (
+              <>
+                {" "}
+                <FacultyAddPage />{" "}
+              </>
+            )}
+            {selectedRow === 7 && (
+              <>
+                {" "}
+                <FacultyAddStudentPage />{" "}
+              </>
+            )}
+
+            {/*  MAIN  */}
+          </section>
+        </>
+      )}
+
+      {roleUser === "university" && (
+        <>
+          <Sidebar
+            isSdbropen={isSdbropen}
+            onItemClick={handleSidebarItemClick}
+          />
+          <section id="content">
+            <Navbar onClick={handleToggle} />
+            {selectedRow === 1 && (
+              <>
+                <UniversityDashboard />
+              </>
+            )}
+            {selectedRow === 2 && (
+              <>
+                <UniversityProfile />
+              </>
+            )}
+            {selectedRow === 3 && (
+              <>
+                <UniversityCollegeTab />
+              </>
+            )}
+            {selectedRow === 4 && (
+              <>
+                <UniversityAddPage />
+              </>
+            )}
+            {selectedRow === 5 && (
+              <>
+                <UniversityMyProjects />
+              </>
+            )}
+          </section>
+        </>
+      )}
+
+
       {roleUser === "college_faculty" && (
         <>
           <Sidebar
@@ -51,7 +148,7 @@ export default function Dashboard() {
             {selectedRow === 1 && (
               <>
                 {" "}
-                <FacultyDashboard />{" "}
+                <FacultyDashboard role={"Faculty"}/>{" "}
               </>
             )}
             {selectedRow === 2 && (
@@ -86,42 +183,6 @@ export default function Dashboard() {
             )}
 
             {/*  MAIN  */}
-          </section>
-        </>
-      )}
-      {roleUser === "university" && (
-        <>
-          <Sidebar
-            isSdbropen={isSdbropen}
-            onItemClick={handleSidebarItemClick}
-          />
-          <section id="content">
-            <Navbar onClick={handleToggle} />
-            {selectedRow === 1 && (
-              <>
-                <UniversityDashboard />
-              </>
-            )}
-            {selectedRow === 2 && (
-              <>
-                <UniversityProfile />
-              </>
-            )}
-            {selectedRow === 3 && (
-              <>
-                <UniversityCollegeTab />
-              </>
-            )}
-            {selectedRow === 4 && (
-              <>
-                <UniversityAddPage />
-              </>
-            )}
-            {selectedRow === 5 && (
-              <>
-                <UniversityMyProjects />
-              </>
-            )}
           </section>
         </>
       )}

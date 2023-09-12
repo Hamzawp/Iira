@@ -59,10 +59,10 @@ export default function FacultyAddPage() {
   const generateCredentials = async () => {
     const facultyDetails = studentList.map((faculty) => {
       return {
-        first_name: faculty["Faculty First Name"],
-        last_name: faculty["Faculty Last Name"],
-        email: faculty["Faculty Email"],
-        dob: faculty["Faculty DOB"],
+        first_name: faculty["Student First Name"],
+        last_name: faculty["Student Last Name"],
+        email: faculty["Student Email"],
+        dob: faculty["Student DOB"],
       };
     });
     console.log("Faculty Details: ", facultyDetails);
@@ -72,7 +72,7 @@ export default function FacultyAddPage() {
         `${url}/api/v1/college/SPOC/addBulk`,
         {
           users: facultyDetails,
-          role: "college_faculty",
+          role: "student",
         },
         { headers: { authToken: token } }
       );
@@ -83,7 +83,6 @@ export default function FacultyAddPage() {
         alert("Email Sent successfully");
         setStudentList([]);
       }
-      
     } catch (error) {
       // Handle any errors that occur during the request
       console.error(error);
@@ -102,7 +101,7 @@ export default function FacultyAddPage() {
       <main>
         <div className="head-title">
           <div className="left">
-            <h1>Add Faculty Panel</h1>
+            <h1>Add Student Panel</h1>
             <ul className="breadcrumb">
               <li>
                 <a href="#">Thadomal Shahani Engineering College</a>
@@ -135,7 +134,7 @@ export default function FacultyAddPage() {
         <div className="table-data">
           <div className="order">
             <div className="head">
-              <h3>Faculties</h3>
+              <h3>Students</h3>
             </div>
 
             <table>
@@ -152,25 +151,25 @@ export default function FacultyAddPage() {
                 {studentList.length > 0 &&
                   studentList.map((faculty, index) => {
                     return (
-                      <tr key={faculty["Faculty First Name"]}>
+                      <tr key={faculty["Student First Name"]}>
                         <td style={{ width: "30%" }}>
                           {/* <img src={usericon} alt="User Icon" /> */}
                           {/* <p>{faculty.name}</p> */}
-                          <p>{faculty["Faculty First Name"]}</p>
+                          <p>{faculty["Student First Name"]}</p>
                         </td>
                         {/* <td>{faculty.department}</td> */}
                         <td style={{ width: "25%" }}>
-                          {faculty["Faculty Last Name"]}
+                          {faculty["Student Last Name"]}
                         </td>
                         <td style={{ width: "25%" }}>
                           <span className="status pending">
-                            {faculty["Faculty Email"]}
+                            {faculty["Student Email"]}
                           </span>
                         </td>
                         <td style={{ width: "25%" }}>
                           <span>
                             {/* {faculty.underReviewProjects} */}
-                            {faculty["Faculty DOB"]}
+                            {faculty["Student DOB"]}
                           </span>
                         </td>
                       </tr>
