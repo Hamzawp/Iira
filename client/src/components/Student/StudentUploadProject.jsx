@@ -1,10 +1,11 @@
 import React from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import "./StudentUploadProject.css";
-import { Uploader } from "uploader"; // Installed by "react-uploader".
-import { UploadButton } from "react-uploader";
+
+
 
 export default function StudentUploadProject() {
+
   return (
     <div className="stu-pro-container">
       <div className="stu-pro-heading">
@@ -51,7 +52,10 @@ export default function StudentUploadProject() {
             <div className="collaborators">
               <input className="inp-input" name="text" type="text" />
               <input className="inp-input" name="text" type="text" />
-              <AiOutlinePlus style={{"cursor":"pointer"}}/>
+              <AiOutlinePlus style={{ cursor: "pointer" }} />
+              <div className="inp-profile-div">
+             <input type="file" className="inp-profile" />
+             <p>Upload the Project Report</p></div>
             </div>
             <p>A project has one owner and can have multiple collaborators</p>
           </div>
