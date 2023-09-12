@@ -261,11 +261,11 @@ export default function Sidebar(props) {
             <a href="#">
               <BiSolidReport className="custom-icons" />
               <span className="text">
-                {props.isSdbropen ? "Add Colleges" : ""}
+                {props.isSdbropen ? "My Projects" : ""}
               </span>
             </a>
           </li>
-          <li
+          {/* <li
             className={activeMenuItem === 5 ? "active" : ""}
             onClick={() => handleRowClick(5)}
           >
@@ -273,7 +273,7 @@ export default function Sidebar(props) {
               <BiHistory className="custom-icons" />
               <span className="text">{props.isSdbropen ? "Projects" : ""}</span>
             </a>
-          </li>
+          </li> */}
         </ul>
           </>
         )
