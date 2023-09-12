@@ -9,8 +9,6 @@
 	left: 60px;
 }
 
-
-/*for university and spoc/faculty dashboard*/
 @media screen and (max-width: 768px) {
 	#sidebar {
 		width: 200px;

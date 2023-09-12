@@ -67,7 +67,7 @@ router.post("/addBulk", async (req, res) => {
     const createdStudents = await prisma.user.createMany({
       data: studentsWithPassword,
     });
-    // console.log(createdStudents);
+
     await studentsWithPassword.forEach(
       async (student) => await sendCollegeEmail(student)
     );

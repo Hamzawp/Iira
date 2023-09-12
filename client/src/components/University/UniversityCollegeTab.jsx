@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./UniversityCollegeTab.css";
 import { RxCross2 } from "react-icons/rx";
+import { BiLinkExternal } from "react-icons/bi";
+import ProjectCard from "../ProjectCard/ProjectCard";
 // import {tsec} from '../../assets/tsec.webp'
 export default function UniversityCollegeTab() {
   let [collegeList, setCollegeList] = useState([
@@ -114,9 +116,31 @@ export default function UniversityCollegeTab() {
             <div className="collegeDetails">
               <div className="collegeFaculty">
                 <h3 className="spoc">SPOC: Ms Aruna Patil</h3>
-                <div className="faculty"><span></span></div>
+                <div className="faculty">
+                  <span>Ms Tasneem Mirza</span>,
+                  <span>Mr Rakesh Khanna</span>
+                </div>
+              </div>
+              <div>
+                <BiLinkExternal className="visitCollege" />
               </div>
             </div>
+
+            <div className="todo">
+            <div className="head">
+              <h3 style={{"marginLeft": "20px"}}>Recent Projects</h3>
+              {/*<i className="bx bx-plus"></i> */}
+              {/*<i className="bx bx-filter"></i> */}
+            </div>
+            <div className="projectdiv">
+            <ProjectCard />
+            <ProjectCard />
+            <ProjectCard />
+            <ProjectCard />
+            <ProjectCard />
+            <ProjectCard />
+            </div>
+          </div>
           </>
         )}
       </div>
