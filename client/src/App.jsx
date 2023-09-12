@@ -14,6 +14,7 @@ import Dashboard from './screens/Dashboard/Dashboard'
 import Reset from './Screens/Reset/Reset';
 import Login from './screens/Login/Login';
 
+
 const router = createBrowserRouter([
   {
     path: "/login",
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
     path: "/reset",
     element: <Reset />,
   },
+  
 ]);
 
 function App() {
