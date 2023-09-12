@@ -5,6 +5,7 @@ import {BiSolidDashboard,BiSolidReport,BiHistory,BiMessageAltDetail,BiLogOut} fr
 import {AiOutlineTeam} from 'react-icons/ai'
 import {FiSettings} from 'react-icons/fi'
 import {RiUserAddFill} from 'react-icons/ri'
+import {PiQueueFill} from 'react-icons/pi'
 import {HiUserGroup} from 'react-icons/hi'
 import {HiMiniBuildingLibrary} from "react-icons/hi2"
 import {BsBuildingFillAdd} from "react-icons/bs"
@@ -194,6 +195,14 @@ export default function Sidebar(props) {
                   {/* <BiSolidReport className = "custom-icons"/> */}
                   <RateReviewIcon className = "custom-icons"/>
                   <span className="text">{props.isSdbropen ? "Projects Review": ''}</span>
+                </a>
+              </li>
+              <li className={activeMenuItem === 8 ? 'active' : ''} onClick={() =>handleRowClick(8)}>
+                <a href="#">
+                  {/* <i className="bx bxs-shopping-bag-alt"></i> */}
+                  {/* <BiSolidReport className = "custom-icons"/> */}
+                  <PiQueueFill className = "custom-icons"/>
+                  <span className="text">{props.isSdbropen ? "Projects Queue": ''}</span>
                 </a>
               </li>
               <li className={activeMenuItem === 5 ? 'active' : ''} onClick={() => handleRowClick(5)}>

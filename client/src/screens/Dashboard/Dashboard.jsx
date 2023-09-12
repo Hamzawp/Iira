@@ -71,6 +71,12 @@ export default function Dashboard() {
                 <FacultyRequests />{" "}
               </>
             )}
+            {selectedRow === 8 && (
+              <>
+                {" "}
+                <FacultyRequests selectedrow={8} />{" "}
+              </>
+            )}
             {selectedRow === 4 && (
               <>
                 {" "}

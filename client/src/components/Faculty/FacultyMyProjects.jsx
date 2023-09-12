@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { Menu, MenuItem, MenuButton, SubMenu } from '@szhsin/react-menu';
+import {BsThreeDotsVertical} from "react-icons/bs"
 import {AiOutlineFundProjectionScreen} from 'react-icons/ai'
 import {FaChalkboardTeacher} from 'react-icons/fa'
 import {RiFolderSettingsLine} from 'react-icons/ri'
@@ -116,8 +118,14 @@ export default function FacultyMyProjects() {
                        
                       </svg>
                     </div>
+                    <div>
+                      <Menu menuButton={<MenuButton style={{"border":"none"}}><BsThreeDotsVertical color='#fff'/></MenuButton>}>
+                        <MenuItem>Delete</MenuItem>
+                      </Menu>
+                      
+                    </div>
                   </div>
-                  <div className="card__menu">
+                  {/* <div className="card__menu">
                     <svg
                       fill="none"
                       height="20"
@@ -127,7 +135,7 @@ export default function FacultyMyProjects() {
                     >
                      
                     </svg>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="card__title">{project.project_title}</div>
                 <div className="card__subtitle">
