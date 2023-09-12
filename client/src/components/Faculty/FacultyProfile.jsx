@@ -107,7 +107,7 @@ const facultyDataLength = facultyData.length;
               </thead>
               <tbody>
 
-                {facultyDataLength === 0 ? ( <CsvBtn/>) : 
+                {/* {facultyDataLength === 0 ? ( <CsvBtn/>) : 
                   (
                     <>
                       {facultyData.map((faculty, index) => (
@@ -131,7 +131,7 @@ const facultyDataLength = facultyData.length;
                       ))}
                     </>
                   )
-                }
+                } */}
               </tbody>
             </table>
           </div>

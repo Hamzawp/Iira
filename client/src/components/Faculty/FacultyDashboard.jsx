@@ -7,7 +7,7 @@ import usericon from '../../assets/usericon.png'
 import CsvBtn from '../CsvButton/CsvButton'
 import './FacultyDashboard.css'
 
-export default function FacultyDashboard() {
+export default function FacultyDashboard(props) {
 
   const facultyData = [
   {
@@ -66,7 +66,7 @@ useEffect(() => {
         <main>
         <div className="head-title">
           <div className="left">
-            <h1>Welcome, {SPOC}!</h1>
+            <h1>Welcome, {props.role}!</h1>
             <ul className="breadcrumb">
               <li>
                 <a href="#">Thadomal Shahani Engineering College</a>
@@ -112,10 +112,10 @@ useEffect(() => {
           <div className="order">
             <div className="head">
               <h3>Faculties</h3>
-              {studentList.length == 0 && (
+              {/* {studentList.length == 0 && (
                   <CsvBtn  onDataReceived={getCsvData} />
                   
-                ) }
+                ) } */}
             </div>
            
             <table>

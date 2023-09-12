@@ -24,6 +24,7 @@ li {
 	--grey: #eee;
 	--dark-grey: #AAAAAA;
 	--dark: #342E37;
+	--secdark:#5b555e;
 	--red: #F3797E;
 	--yellow: #55ff26;
 	--light-yellow: #deffc6;
@@ -42,6 +43,7 @@ body.dark {
 	--light: #0C0C1E;
 	--grey: #060714;
 	--dark: #FBFBFB;
+	--secdark:#cac3cd;
 	--projectCardBgLight: #0C0C1E;
 	--projectCardHeadLight: #FBFBFB;
 	--projectCardRegLight: rgba(170, 222, 243, 0.721);

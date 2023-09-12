@@ -43,11 +43,16 @@ export default function UniversityCollegeTab() {
     <div>
       <div className="table-data-pg">
         <div className="order">
-          <div className="head">
-            <h3>Colleges Registered</h3>
-            {/*<i className="bx bx-search"></i> */}
-            {/*<i className="bx bx-filter"></i> */}
+        <div className="head-title">
+          <div className="left">
+            <h1>Colleges Registered</h1>
+            <ul className="breadcrumb">
+              <li>
+                <a href="#">University of Jharkand</a>
+              </li>
+            </ul>
           </div>
+        </div>
           <table id="collegeTable">
             <thead>
               <tr>
@@ -108,39 +113,40 @@ export default function UniversityCollegeTab() {
                 onClick={closeRightBar}
               />
             </div>
-            <img
-              className="collegeImg"
-              src="https://images.unsplash.com/flagged/photo-1554473675-d0904f3cbf38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-              alt=""
-            />
-            <div className="collegeDetails">
-              <div className="collegeFaculty">
-                <h3 className="spoc">SPOC: Ms Aruna Patil</h3>
-                <div className="faculty">
-                  <span>Ms Tasneem Mirza</span>,
-                  <span>Mr Rakesh Khanna</span>
+            <div className="container-scroll">
+              <img
+                className="collegeImg"
+                src="https://images.unsplash.com/flagged/photo-1554473675-d0904f3cbf38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                alt=""
+              />
+              <div className="collegeDetails">
+                <div className="collegeFaculty">
+                  <h3 className="spoc">SPOC: Ms Aruna Patil</h3>
+                  <div className="faculty">
+                    <span>Ms Tasneem Mirza</span>,<span>Mr Rakesh Khanna</span>
+                  </div>
+                </div>
+                <div>
+                  <BiLinkExternal className="visitCollege" />
                 </div>
               </div>
-              <div>
-                <BiLinkExternal className="visitCollege" />
+              <hr className="custom-hr"/>
+              <div className="todo">
+                <div className="head">
+                  <h3 style={{ textAlign:"left",marginLeft:"8px" }}>Recent Projects</h3>
+                  {/*<i className="bx bx-plus"></i> */}
+                  {/*<i className="bx bx-filter"></i> */}
+                </div>
+                <div className="projectdiv-college">
+                  <ProjectCard />
+                  <ProjectCard />
+                  <ProjectCard />
+                  <ProjectCard />
+                  <ProjectCard />
+                  <ProjectCard />
+                </div>
               </div>
             </div>
-
-            <div className="todo">
-            <div className="head">
-              <h3 style={{"marginLeft": "20px"}}>Recent Projects</h3>
-              {/*<i className="bx bx-plus"></i> */}
-              {/*<i className="bx bx-filter"></i> */}
-            </div>
-            <div className="projectdiv">
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
-            </div>
-          </div>
           </>
         )}
       </div>

@@ -1,3 +1,34 @@
+.head-title {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	grid-gap: 16px;
+	flex-wrap: wrap;
+}
+ .head-title .left h1 {
+	font-size: 36px;
+	font-weight: 600;
+	margin-bottom: 10px;
+	color: var(--dark);
+}
+ .head-title .left .breadcrumb {
+	display: flex;
+	align-items: center;
+	grid-gap: 16px;
+}
+.head-title .left .breadcrumb li {
+	color: var(--dark);
+	
+}
+ .head-title .left .breadcrumb li a {
+	color: var(--dark-grey);
+	pointer-events: none;
+}
+.head-title .left .breadcrumb li a.active {
+	color: var(--blue);
+	pointer-events: unset;
+}
+
 .table-data-pg {
 	display: flex;
 	flex-wrap: wrap;
@@ -114,6 +145,7 @@
 }
 
 #collegeTable{
+	margin-top: 2rem;
     transition: width 0.5s;
 }
 
@@ -138,7 +170,8 @@
 
 .right-tab-clicked{
     height: 100vh;
-    width: 30%;
+    width: 32%;
+	padding-bottom: 1rem;
 }
 
 .collegeName{
@@ -195,5 +228,46 @@
     justify-items: center;
     max-height: 293px;
     row-gap: 32px;
-	overflow-y: scroll;
+	/* overflow-y: scroll; */
+	column-gap: 14px;
+    margin-top: 24px;
 }
+
+.container-scroll{
+	padding-bottom: 1rem;
+	display: flex;
+    overflow-y: scroll;
+    flex-direction: column;
+    row-gap: 30px;
+    align-items: center;
+}
+/* Style the hr tag */
+hr.custom-hr {
+	height: 2px; /* Set the desired thickness of the line */
+	background-color: #000; /* Set the line color */
+	position: relative; /* Position the pseudo-elements relative to the hr tag */
+	width: 70%;
+  }
+  
+  /* Create a fading effect on the left side */
+  hr.custom-hr::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 10%; /* Adjust the width of the fade effect */
+	height: 100%;
+	background: linear-gradient(to right, transparent, #000); /* Fading effect from transparent to black */
+  }
+  
+  /* Create a fading effect on the right side */
+  hr.custom-hr::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 10%; /* Adjust the width of the fade effect */
+	height: 100%;
+	background: linear-gradient(to left, transparent, #000); /* Fading effect from transparent to black */
+  }
+  

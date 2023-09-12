@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import "./Login.css";
-import {useNavigate} from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import "../Login/Login.css";
+import { useNavigate, useParams } from "react-router-dom";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
-import ForgotPasswordPopup from "./ForgotPasswordPopup";
+import ForgotPasswordPopup from "../Login/ForgotPasswordPopup";
 import { FaEye } from "react-icons/fa";
 import url from "../../../url";
 import jwt_decode from "jwt-decode";
@@ -13,7 +13,33 @@ const defaultOption = options[0];
 
 const eye = <FaEye />;
 
-const Login = () => {
+const Reset = () => {
+  const {id} = useParams();
+  const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [oldPassword, setOldPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+
+  // console.log(id);
+  useEffect(() => {
+    const fetchData = async () => {
+      try{
+      const response = await axios.get(`${url}/api/v1/auth/getOne/${id}`);
+      if(response){
+        console.log(response.data);
+        setEmail(response.data.email);
+        setFirstName(response.data.first_name);
+        setLastName(response.data.last_name);
+      }
+    }catch(error){
+      console.error(error);
+    }
+
+  }
+  fetchData();
+  }, [])
+
   const Navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -43,50 +69,22 @@ const Login = () => {
     e.preventDefault();
 
     const sendData = async () => {
-      let endpoint = "";
-      try {
-        console.log(selectedOption.value);
-        // console.log(selectedOption);
-        // console.log(selectedOption)
-        switch (selectedOption.value) {
-          case "University":
-            endpoint = "/api/v1/university/login";
-            break;
-          case "SPOC":
-            endpoint = "/api/v1/college/SPOC/login";
-            break;
-          case "Faculty":
-            endpoint = "/api/v1/college/college_faculty/login";
-            break;
-          case "Student":
-            endpoint = "/api/v1/college/student/login";
-            break;  
-          case "Guest-User":
-            endpoint = "/api/v1/college/student/login";
-            break;
-          default:
-            endpoint = "/api/v1/";
-            break;
-        }
-        console.log(endpoint);
-        console.log("Sending request to:", `${url}${endpoint}`);
-        console.log("Sending data:", { email: username, password: password });
-
-        const response = await axios.post(`${url}${endpoint}`, {
-          email: username,
-          password: password,
+      try{  
+        const response = await axios.post(`${url}/api/v1/auth/setPassword`, {
+          email: email,
+          oldPassword: oldPassword,
+          newPassword: newPassword,
         });
-        // /api/v1/university/login
-        // /api/v1/college/college_faculty/login
-        // /api/v1/college/student/login
         console.log(response);
-
-        localStorage.setItem('token', response.data.token);
+        // localStorage.setItem("token", response.data.token);
+        if(response.status === 200){
+          Navigate("/login");
+        }
+        else{
+          alert("Invalid Credentials")
+        }
         
-        Navigate('/');
-      }
-      catch (error){
-
+      } catch (error) {
         console.log(error);
       }
     };
@@ -126,20 +124,11 @@ const Login = () => {
 
           <form className="form-section" onSubmit={handleSubmit}>
             <div className="form-wrapper">
-              <h2>WELCOME BACK! 👋🏻</h2>
+              <h2>Reset Password 👋🏻</h2>
               <p>Enter your credentials to access your account.</p>
 
               <div className="input-container">
-                <div className="dropDownDiv" >
-                  <Dropdown
-                    options={options}
-                    value={defaultOption}
-                    placeholder="Select an option"
-                    onChange={(selectedValue) =>
-                      handleDropdownChange(selectedValue)
-                    }
-                  />
-                </div>
+              
                 <div className="form-group">
                   <label for="email">Email</label>
                   <input
@@ -149,55 +138,78 @@ const Login = () => {
                     placeholder="Enter your email"
                     onFocus={handleFocus}
                     onBlur={handleBlur}
-                    value={username}
+                    value={email}
+                    disabled
                     onChange={(e) => setUsername(e.target.value)}
                   />
                 </div>
                 <div className="form-group">
-                  <label for="password">Password</label>
+                  <label for="email">First Name</label>
+                  <input
+                    type="email"
+                    id="email"
+                    autocomplete="off"
+                    placeholder="Enter your first name"
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
+                    value={firstName}
+                    disabled
+                    onChange={(e) => setUsername(e.target.value)}
+                  />
+                </div>
+                <div className="form-group">
+                  <label for="email">Last Name</label>
+                  <input
+                    type="email"
+                    id="email"
+                    autocomplete="off"
+                    placeholder="Enter your last name"
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
+                    value={lastName}
+                    disabled
+                    onChange={(e) => setUsername(e.target.value)}
+                  />
+                </div>
+                <div className="form-group">
+                  <label for="password">Old Password</label>
                   <input
                     type={passwordShown ? "text" : "password"}
                     id="password"
                     name="password"
-                    placeholder="Enter your password"
+                    placeholder="Enter your auto-generated password"
                     onFocus={handleFocus}
                     onBlur={handleBlur}
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}  
+                    value={oldPassword}
+                    onChange={(e) => setOldPassword(e.target.value)}
+                  />
+                  <i onClick={togglePasswordVisiblity}>{eye}</i>{" "}
+                </div>
+                <div className="form-group">
+                  <label for="password">New Password</label>
+                  <input
+                    type={passwordShown ? "text" : "password"}
+                    id="password"
+                    name="password"
+                    placeholder="Enter your new password"
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
+                    value={newPassword}
+                    onChange={(e) => setNewPassword(e.target.value)}
                   />
                   <i onClick={togglePasswordVisiblity}>{eye}</i>{" "}
                 </div>
               </div>
 
-              <div className="remember-forgot">
-                <div className="remember-me">
-                  <input type="checkbox" value="remember-me" id="remember-me" />
-                  <label for="remember-me">Remember me</label>
-                </div>
-
-                <a href="#" onClick={handleForgotPasswordClick}>
-                  Forgot password?
-                </a>
-              </div>
-
-              {/* <button className="login-btn">Log In</button> */}
               <div className="inputSubmitDiv">
-                <input type="submit" className="login-btn" value="LOGIN" />
+                <input type="submit" className="login-btn" value="RESET" />
               </div>
-              
-              
-
-              
             </div>
           </form>
         </section>
       </div>
-
-      {showForgotPasswordPopup && (
-        <ForgotPasswordPopup onClose={handleClosePopup} />
-      )}
     </>
   );
 };
 
-export default Login;
+export default Reset;

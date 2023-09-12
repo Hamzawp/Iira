@@ -52,10 +52,16 @@ const Login = () => {
           case "University":
             endpoint = "/api/v1/university/login";
             break;
+          case "SPOC":
+            endpoint = "/api/v1/college/SPOC/login";
+            break;
           case "Faculty":
             endpoint = "/api/v1/college/college_faculty/login";
             break;
           case "Student":
+            endpoint = "/api/v1/college/student/login";
+            break;  
+          case "Guest-User":
             endpoint = "/api/v1/college/student/login";
             break;
           default:
@@ -74,9 +80,13 @@ const Login = () => {
         // /api/v1/college/college_faculty/login
         // /api/v1/college/student/login
         console.log(response);
-        localStorage.setItem("token", response.data.token);
-        Navigate("/");
-      } catch (error) {
+
+        localStorage.setItem('token', response.data.token);
+        
+        Navigate('/');
+      }
+      catch (error){
+
         console.log(error);
       }
     };
@@ -86,7 +96,7 @@ const Login = () => {
 
   const handleDropdownChange = (selectedValue) => {
     setSelectedOption(selectedValue);
-    // console.log(selectedOption)
+    console.log(selectedOption)
   };
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePasswordVisiblity = () => {
