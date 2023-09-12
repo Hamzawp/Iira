@@ -69,10 +69,10 @@ const Login = () => {
             break;
         }
         console.log(endpoint);
-        console.log("Sending request to:", `${endpoint}`);
+        console.log("Sending request to:", `${url}${endpoint}`);
         console.log("Sending data:", { email: username, password: password });
 
-        const response = await axios.post(`${endpoint}`, {
+        const response = await axios.post(`${url}${endpoint}`, {
           email: username,
           password: password,
         });
