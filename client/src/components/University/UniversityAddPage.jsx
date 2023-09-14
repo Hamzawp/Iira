@@ -6,8 +6,11 @@ import { PiStudentBold } from "react-icons/pi";
 import usericon from "../../assets/usericon.png";
 import CsvBtn from "../CsvButton/CsvButton";
 import "./UniversityAddPage.css";
+import axios from "axios";
+import url from "../../../url";
 
 export default function UniversityAddPage() {
+  const token = localStorage.getItem("token");
   const facultyData = [
     {
       name: "Prof. Rahul Sharma",
@@ -57,30 +60,73 @@ export default function UniversityAddPage() {
     console.log(studentList);
   }, [studentList]);
 
+  const generateCredentials = async () => {
+    const facultyDetails = studentList.map((faculty) => {
+      return {
+        college_name: faculty["College Name"],
+        first_name: faculty["SPOC First Name"],
+        last_name: faculty["SPOC Last Name"],
+        email: faculty["SPOC Email"],
+      };
+    });
+    console.log("Faculty Details: ", facultyDetails);
+    try {
+      // Send a POST request to your Express endpoint to generate credentials
+      const response = await axios.post(
+        `${url}/api/v1/university/addBulk`,
+        {
+          spocs: facultyDetails,
+          role: "SPOC",
+        },
+        { headers: { authToken: token } }
+      );
+
+      // Handle the response as needed, e.g., show a success message
+      console.log(response.data.msg);
+      if(response.status === 200){
+        alert("Email Sent successfully");
+        setStudentList([]);
+      }
+      
+    } catch (error) {
+      // Handle any errors that occur during the request
+      console.error(error);
+      alert("Something went wrong");
+        setStudentList([]);
+    }
+  };
+
+
+
+
   return (
     <div>
       <main>
         <div className="head-title">
           <div className="left">
-            <h1>Add SPOC Panel</h1>
+            <h1>Add COLLEGE-SPOC Panel</h1>
             <ul className="breadcrumb">
               <li>
-                <a href="#">University of Jharkhand</a>
+                <a href="#">University of Southern California</a>
               </li>
             </ul>
           </div>
-          <a href="#" className="btn-adds">
+          <a href="#" className="btn-adds" style={{"display":"flex", "flex-direction": "row", "alignItems":"center", "columnGap":"1rem"}}>
             <div>
               {studentList.length == 0 ? (
                 <CsvBtn onDataReceived={getCsvData} />
               ) : (
                 <div className="generateCred">
-                  <button className="generatePass">
+                  <button className="generatePass" onClick={generateCredentials}>
                     Generate Credentials
                   </button>
                 </div>
               )}
             </div>
+            <a href="#" className="btn-download">
+            {/*<i className="bx bxs-cloud-download"></i> */}
+            <span className="text">Add College +</span>
+          </a>
           </a>
         </div>
 
@@ -94,9 +140,9 @@ export default function UniversityAddPage() {
               <thead>
                 <tr>
                   <th style={{ width: "32%",textAlign:"left" }}>College</th>
-                  <th style={{ width: "25%",textAlign:"left" }}>Name</th>
-                  <th style={{ width: "25%" }}>Email</th>
-                  <th style={{ width: "25%",textAlign:"left" }}>DOB</th>
+                  <th style={{ width: "25%",textAlign:"left" }}>SPOC First Name</th>
+                  <th style={{ width: "25%" }}>SPOC Last Name</th>
+                  <th style={{ width: "25%",textAlign:"left" }}>SPOC Email</th>
                 </tr>
               </thead>
               <tbody>
@@ -104,7 +150,7 @@ export default function UniversityAddPage() {
                 {studentList.length > 0 &&
                   studentList.map((faculty, index) => {
                     return (
-                      <tr key={faculty["Email"]}>
+                      <tr key={faculty["College Name"]}>
                         <td style={{ width: "30%" }}>
                           {/* <img src={usericon} alt="User Icon" /> */}
                           {/* <p>{faculty.name}</p> */}
@@ -112,17 +158,17 @@ export default function UniversityAddPage() {
                         </td>
                         {/* <td>{faculty.department}</td> */}
                         <td style={{ width: "25%",textAlign:"left" }}>
-                          {faculty["SPOC"]}
+                          {faculty["SPOC First Name"]}
                         </td>
                         <td style={{ width: "25%",display:"flex" }}>
-                          <span className="status pending">
-                            {faculty["Email"]}
+                          <span >
+                            {faculty["SPOC Last Name"]}
                           </span>
                         </td>
                         <td style={{ width: "25%",textAlign:"left" }}>
-                          <span>
+                          <span className="status pending">
                             {/* {faculty.underReviewProjects} */}
-                            {faculty["DOB"]}
+                            {faculty["SPOC Email"]}
                           </span>
                         </td>
                       </tr>

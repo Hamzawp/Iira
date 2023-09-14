@@ -2,6 +2,8 @@ const router = require("express").Router();
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 const jwt = require("jsonwebtoken");
+const { checkForUniversityFaculty } = require("../../middlewares/authMiddle");
+const { sendUniversityEmail } = require("../../utils/EmailHandler");
 
 // Uinverty login
 router.post("/login", async (req, res) => {
@@ -55,23 +57,84 @@ router.post("/addOne", async (req, res) => {
 });
 
 // Add SPOC to University in Bulk
-router.post("/addBulk", async (req, res) => {
+/**
+ * Schema for spocs
+ * spoocs = [
+ * {
+ *    email: "
+ *    first_name: "
+ *    last_name: "
+ *    dob: "
+ *    college_name: "
+ * }
+ * ]
+ */
+router.post("/addBulk", checkForUniversityFaculty, async (req, res) => {
   try {
+    // console.log(req.user);
     const { spocs } = req.body;
     const spocsWithPassword = spocs.map((spoc) => ({
       ...spoc,
       password: (Math.random() + 1).toString(36).substring(7),
     }));
-    const createdSpocs = await prisma.user.createMany({
-      data: spocsWithPassword,
-    });
-    createdSpocs.forEach((spoc) => sendUniversityEmail(spoc));
+
+    for (let i = 0; i < spocsWithPassword.length; i++) {
+      const college = await prisma.colleges.create({
+        data: {
+          // college_id: 11,
+          college_name: spocsWithPassword[i].college_name,
+          university_id: req.user.university_id,
+        },
+      });
+
+      // console.log(college);
+
+      const user = await prisma.user.create({
+        data: {
+          email: spocsWithPassword[i].email,
+          first_name: spocsWithPassword[i].first_name,
+          last_name: spocsWithPassword[i].last_name,
+          password: spocsWithPassword[i].password,
+          dob: new Date(),
+          role: "SPOC",
+          college_id: college.college_id,
+        },
+      });
+
+      sendUniversityEmail({
+        ...user,
+        college_name: college.college_name,
+      });
+    }
     res.status(200).json({ msg: "Emails sent to all SPOCs" });
   } catch (error) {
     console.log(error);
     res
       .status(500)
       .json({ error: "Internal Server Error", message: error.message });
+  }
+});
+
+router.get("/allColleges", checkForUniversityFaculty, async (req, res) => {
+  try {
+    // console.log(req.user);
+    const colleges = await prisma.colleges.findMany({
+      where: { university_id: req.user.university_id },
+    });
+    for (let i = 0; i < colleges.length; i++) {
+      // console.log(colleges[i].college_id);
+      colleges[i].spoc = await prisma.user.findFirst({
+        where: { college_id: Number(colleges[i].college_id), role: "SPOC" },
+      });
+    }
+    // console.log(colleges);
+    const university = await prisma.universities.findUnique({
+      where: { uni_id: req.user.university_id },
+    });
+    res.json({ colleges, ...university });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "Internal Server Error", message: err });
   }
 });
 

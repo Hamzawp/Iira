@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import {AiOutlineFundProjectionScreen} from 'react-icons/ai'
+import {BsThreeDotsVertical} from 'react-icons/bs'
+import { Menu, MenuItem, MenuButton, SubMenu } from '@szhsin/react-menu';
 import {FaChalkboardTeacher} from 'react-icons/fa'
 import {RiFolderSettingsLine} from 'react-icons/ri'
 import {PiStudentBold} from 'react-icons/pi'
@@ -84,7 +85,7 @@ export default function FacultyMyProjects() {
               <h1>Projects Published</h1>
               <ul className="breadcrumb">
                 <li>
-                  <a href="#">Thadomal Shahani Engineering College</a>
+                  <a href="#">University of Southern California</a>
                 </li>
               </ul>
             </div>
@@ -97,9 +98,11 @@ export default function FacultyMyProjects() {
           {projects.map((project, index) => (
             <li key={index}>
               <div className="mainprocard">
+              
                 <div className="card__wrapper">
                   <div className="card___wrapper-acounts">
                     <div className="card__score">+3</div>
+                    
                     <div className="card__acounts">
                       <svg
                         viewBox="0 0 128 128"
@@ -115,9 +118,15 @@ export default function FacultyMyProjects() {
                       >
                        
                       </svg>
+                    </div>
+                    <div>
+                      <Menu menuButton={<MenuButton style={{"border":"none"}}><BsThreeDotsVertical color='#fff'/></MenuButton>}>
+                        <MenuItem>Delete</MenuItem>
+                      </Menu>
+                      
                     </div>
                   </div>
-                  <div className="card__menu">
+                  {/* <div className="card__menu">
                     <svg
                       fill="none"
                       height="20"
@@ -127,7 +136,7 @@ export default function FacultyMyProjects() {
                     >
                      
                     </svg>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="card__title">{project.project_title}</div>
                 <div className="card__subtitle">

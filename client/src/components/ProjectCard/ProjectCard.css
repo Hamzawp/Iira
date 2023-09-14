@@ -1,5 +1,5 @@
 .card {
-    width: 230px;
+    width: 200px;
     border-radius: 20px;
     background: var(--projectCardBgLight);
     padding: 5px;
@@ -14,7 +14,7 @@
   }
   
   .card .top-section {
-    height: 150px;
+    height: 120px;
     border-radius: 15px;
     display: flex;
     flex-direction: column;

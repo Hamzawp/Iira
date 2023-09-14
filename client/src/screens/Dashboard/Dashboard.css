@@ -1,4 +1,5 @@
 #content {
+	font-family: 'Poppins';
 	position: relative;
 	width: calc(100% - 280px);
 	left: 280px;
@@ -9,8 +10,6 @@
 	left: 60px;
 }
 
-
-/*for university and spoc/faculty dashboard*/
 @media screen and (max-width: 768px) {
 	#sidebar {
 		width: 200px;

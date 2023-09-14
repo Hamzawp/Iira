@@ -36,9 +36,9 @@
 	pointer-events: unset;
 }
 #content main .head-title .btn-download {
-	height: 36px;
-	padding: 0 16px;
-	border-radius: 36px;
+	/* height: 36px; */
+	padding: 12px 20px;
+	border-radius: 5px;
 	background: var(--blue);
 	color: var(--light);
 	display: flex;
@@ -130,10 +130,12 @@
 
 #content main .table-data .order {
 	flex-grow: 1;
+	max-height: 400px !important;
 	flex-basis: 500px;
 }
 #content main .table-data .order table {
 	width: 100%;
+	
 	border-collapse: collapse;
 }
 #content main .table-data .order table th {
@@ -246,6 +248,15 @@
 .projectdiv::-webkit-scrollbar-thumb {
     background-color: var(--blue); /* Set the scrollbar thumb color to blue */
   }
+::-webkit-scrollbar {
+    width:4px !important; /* Adjust the width as per your preference */
+    color: var(--blue) !important;
+  }
+  
+::-webkit-scrollbar-thumb {
+    background-color: var(--blue); /* Set the scrollbar thumb color to blue */
+  }
+
 
 
 

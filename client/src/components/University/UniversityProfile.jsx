@@ -49,7 +49,7 @@ const facultyDataLength = facultyData.length;
         <main>
         <div className="head-title">
           <div className="left">
-            <h1>Welcome, {SPOC}!</h1>
+            <h1>Welcome, University!</h1>
             <ul className="breadcrumb">
               <li>
                 <a href="#">Thadomal Shahani Engineering College</a>
