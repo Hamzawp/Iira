@@ -16,7 +16,7 @@ exports.sendCollegeEmail = async (user) => {
     const mailOptions = {
       from: process.env.EMAIL_USERNAME,
       to: user.email,
-      subject: `Welcome to ${college.college_name}`,
+      subject: `Welcome to ${user.college_name}`,
       html: `
         <h1>Welcome ${user.first_name},</h1>
         <p>You have been registered as a ${user.role} in our college.</p>
@@ -32,7 +32,7 @@ exports.sendCollegeEmail = async (user) => {
         <p>Thank you for joining us.</p>
 
         <p>Regards,</p>
-        <p>${college.college_name}</p>
+        <p>${user.college_name}</p>
       `,
     };
 

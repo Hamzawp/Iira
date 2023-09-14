@@ -130,10 +130,10 @@ export default function UniversityDashboard(props) {
                       >
                         <p>{college.college_name}</p>
                       </td>
-                      <td className="spoctd">{`${college.spoc.first_name} ${college.spoc.last_name}`}</td>
+                      <td className="spoctd">{`${college.spoc && college.spoc.first_name} ${college.spoc && college.spoc.last_name}`}</td>
                       <td style={{ display: "flex" }}>
                         <span className="status process">
-                          {college.spoc.email}
+                          {college.spoc && college.spoc.email}
                         </span>
                       </td>
                     </tr>

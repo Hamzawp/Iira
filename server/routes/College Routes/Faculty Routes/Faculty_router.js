@@ -73,9 +73,26 @@ router.post("/addBulk", checkForCollegeFaculty, async (req, res) => {
       data: usersWithPassword,
     });
 
-    await usersWithPassword.forEach(
-      async (student) => await sendCollegeEmail(student)
-    );
+    for(let i=0; i<usersWithPassword.length; i++){
+
+      const user = await prisma.user.create({
+        data:{
+          ...usersWithPassword[i]
+        }
+      })
+
+      const college = await prisma.colleges.findUnique({
+        where:{
+          college_id: req.user.college_id
+        }
+      })
+
+      // console.log(college)
+
+      sendCollegeEmail({
+        ...user, college_name: college.college_name
+      })
+    }
     res.status(200).json({ msg: "Emails sent to users" });
   } catch (error) {
     console.log(error);
