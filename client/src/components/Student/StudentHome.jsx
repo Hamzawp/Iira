@@ -68,6 +68,11 @@ export default function StudentHome() {
 
       <div className="secprojectdiv">
       <SecondaryProjectCard />
+      <SecondaryProjectCard />
+      <SecondaryProjectCard />
+      <SecondaryProjectCard />
+      <SecondaryProjectCard />
+      <SecondaryProjectCard />
       </div>
     </div>
   );

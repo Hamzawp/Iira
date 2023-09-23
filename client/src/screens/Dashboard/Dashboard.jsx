@@ -25,8 +25,6 @@ import StudentProfile from "../../components/Student/StudentProfile";
 import StudentMyProjects from "../../components/Student/StudentMyProjects";
 import StudentUploadProject from "../../components/Student/StudentUploadProject";
 
-
-
 export default function Dashboard() {
   const token = localStorage.getItem("token");
   var decoded = jwt_decode(token);
@@ -244,6 +242,7 @@ export default function Dashboard() {
                 <StudentMyProjects />
               </>
             )}
+
           </section>
         </>
       )}
