@@ -78,13 +78,13 @@ export default function StudentProfile() {
               <p>Total Projects</p>
             </span>
           </li>
-          {/* <li>
+          <li>
             <PiStudentBold size="3em" color="#4B49AC" />
             <span className="text">
               <h3>73</h3>
-              <p>Students</p>
+              <p>Badges</p>
             </span>
-          </li> */}
+          </li>
         </ul>
 
         <div className="table-data">

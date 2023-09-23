@@ -24,6 +24,7 @@ import {PiStudentBold} from 'react-icons/pi'
 import StudentProfile from "../../components/Student/StudentProfile";
 import StudentMyProjects from "../../components/Student/StudentMyProjects";
 import StudentUploadProject from "../../components/Student/StudentUploadProject";
+import Badge from "../Badge/Badge";
 
 
 
@@ -244,6 +245,12 @@ export default function Dashboard() {
                 <StudentMyProjects />
               </>
             )}
+             {selectedRow === 5 && (
+              <>
+                <Badge />
+              </>
+            )}
+            
           </section>
         </>
       )}
