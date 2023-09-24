@@ -259,6 +259,17 @@ export default function Sidebar(props) {
             </a>
           </li>
           <li
+            className={activeMenuItem === 5 ? "active" : ""}
+            onClick={() => handleRowClick(5)}
+          >
+            <a href="#">
+              <BiSolidDashboard className="custom-icons" />
+              <span className="text">
+                {props.isSdbropen ? "Single Project" : ""}
+              </span>
+            </a>
+          </li>
+          <li
             className={activeMenuItem === 2 ? "active" : ""}
             onClick={() => handleRowClick(2)}
           >
