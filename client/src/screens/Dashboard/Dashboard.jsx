@@ -224,7 +224,7 @@ export default function Dashboard() {
             <Navbar onClick={handleToggle} />
             {selectedRow === 1 && (
               <>
-                <StudentHome />
+                <StudentHome onItemClick={handleSidebarItemClick} />
               </>
             )}
             {selectedRow === 2 && (

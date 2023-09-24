@@ -3,6 +3,7 @@
   display: flex;
   align-items: center;
   padding-bottom:10vh ;
+  flex-direction: column;
 }
 
 .stu-pro-heading {
@@ -11,6 +12,7 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 80px 80px 10px 80px;
+  align-items: center;
 }
 
 .stu-pro-heading h1 {

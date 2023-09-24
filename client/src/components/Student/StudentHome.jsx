@@ -3,7 +3,14 @@ import "./StudentHome.css";
 import { AiOutlinePlus } from "react-icons/ai";
 import {BsFilter} from 'react-icons/bs'
 import SecondaryProjectCard from '../SecondaryProjectCard/SecondaryProjectCard'
-export default function StudentHome() {
+export default function StudentHome(props) {
+  const {onItemClick} = props;
+
+  function handleCreate(rowId){
+    props.onItemClick(rowId); 
+
+  }
+
   return (
     <div>
       <div className="heading">
@@ -13,7 +20,7 @@ export default function StudentHome() {
           world.
         </p>
         <div className="upload-btn">
-          <button className="upload">
+          <button onClick={()=>handleCreate(3)} className="upload">
             {" "}
             <span
               style={{

@@ -22,7 +22,7 @@ export default function Sidebar(props) {
   // const [role, setRole] = useState(localStorage.getItem("role"));
   const handleRowClick = (rowId) => {
     setActiveMenuItem(rowId);
-    props.onItemClick(rowId); // Pass the rowId to the parent
+    props.onItemClick(rowId); 
   };
   const token = localStorage.getItem("token");
   var decoded = jwt_decode(token);
