@@ -3,6 +3,7 @@ import "./FolderPage.css";
 import File from "./File";
 import { BiArrowBack } from "react-icons/bi";
 import { AiOutlineFolderAdd } from "react-icons/ai";
+import { AiOutlinePlus } from "react-icons/ai";
 
 export default function FolderPage() {
   const folder = {
@@ -11,12 +12,10 @@ export default function FolderPage() {
     address: [0],
     files: [
       {
-        id: 0,
-        fileName: "photo.jpg",
+        fileName: "Calculator.py",
       },
       {
-        id: 1,
-        fileName: "file.pdf",
+        fileName: "Casio.jpg",
       },
     ],
     folders: [
@@ -27,7 +26,7 @@ export default function FolderPage() {
         address: [0, 0],
         files: [
           {
-            fileName: "photo2.jpg",
+            fileName: "Calculator.py",
           },
           {
             fileName: "file2.pdf",
@@ -138,15 +137,34 @@ export default function FolderPage() {
         ],
         folders: [],
       },
+      {
+        id: "4",
+        name: "Code",
+        level: 1,
+        address: [0, 3],
+        files: [
+          {
+            id: 0,
+            fileName: "photssso.jpg",
+          },
+          {
+            id: 1,
+            fileName: "file.pdf",
+          },
+        ],
+        folders: [],
+      },
     ],
   };
-  const [folders, setFolders] = useState(folder.folders);
-  const [files, setFiles] = useState(folder.files);
+  console.log(folder)
+  const [folders, setFolders] = useState([]);
+  const [folderStruct,setFolderStruct] = useState(folder);
+  const [files, setFiles] = useState([]);
   const [level, setLevel] = useState(0);
-  const [folderInput,setFolderInput] = useState(false)
+  const [folderInput, setFolderInput] = useState(false);
+  const [folderName,setFolderName] = useState("")
 
   function handleNestedFolder(folderId, folderLevel) {
-    const folderString = "";
     const clickedFolder = folder.folders.find(
       (folder) => folder.id === folderId
     );
@@ -162,85 +180,48 @@ export default function FolderPage() {
     setFolders(folder.folders);
   }
 
-  function addFolder(){
-    setFolderInput(!folderInput)
-    // const folderObj = {
-    //   id: "0",
-    //   name: "Description",
-    //   level: 1,
-    //   address: [0, 0],
-    //   files: [
-    //     {
-    //       fileName: "photo2.jpg",
-    //     },
-    //     {
-    //       fileName: "file2.pdf",
-    //     },
-    //   ],
-    //   folders: [
-    //     {
-    //       id: "1",
-    //       name: "Assets",
-    //       level: 1,
-    //       address: [0, 0, 0],
-    //       files: [
-    //         {
-    //           id: 0,
-    //           fileName: "photo.jpg",
-    //         },
-    //         {
-    //           id: 1,
-    //           fileName: "file.pdf",
-    //         },
-    //       ],
-    //       folders: [],
-    //     },
-    //     {
-    //       id: "2",
-    //       name: "Client",
-    //       level: 1,
-    //       address: [0, 0, 1],
-    //       files: [
-    //         {
-    //           id: 0,
-    //           fileName: "photo.jpg",
-    //         },
-    //         {
-    //           id: 1,
-    //           fileName: "file.pdf",
-    //         },
-    //       ],
-    //       folders: [],
-    //     },
-    //     {
-    //       id: "3",
-    //       name: "Server",
-    //       level: 1,
-    //       address: [0, 0, 2],
-    //       files: [
-    //         {
-    //           id: 0,
-    //           fileName: "photo.jpg",
-    //         },
-    //         {
-    //           id: 1,
-    //           fileName: "file.pdf",
-    //         },
-    //       ],
-    //       folders: [],
-    //     },
-    //   ],
-    // };
+  function addFolder() {
+    setFolderInput(!folderInput);
+  }
+
+  function createFolder(){
+
+    const folderObj = {
+      id: "4",
+      name: folderName,
+      level: 1,
+      address: [0,4],
+      files: [ {
+        id: 0,
+        fileName: "photo.jpg",
+      }],
+      folders: [],
+    }
+    folder.folders.push(folderObj)
+    setFolders((prevFolder)=>[...prevFolder,folderObj])
+    // folder.folders[4].id = 5
+    // setFolders(folder.folders)
+    console.log(folders)
+  }
+
+  function handleFolderName(event){
+    setFolderName(event.target.value)
   }
 
   console.log(folder.files);
   //   const folders = folder.folders;
+  function handlePyUpload(){
+    setFolders(folder.folders);
+    setFiles(folder.files)
+  }
 
   return (
     <div className="folderPagediv">
       <div className="folderBtnDiv">
         <div className="folderBtns">
-          <button className="fileBtn">
+        <input type="file" style={{"display":"none"}} onChange={handlePyUpload} id="fileUpload" multiple accept="application/pdf,image/png" />
+        <label htmlFor="fileUpload">
+          <button className="fileBtn" onClick={() => document.getElementById("fileUpload").click()}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -266,23 +247,27 @@ export default function FolderPage() {
             </svg>
             ADD FILE
           </button>
+         </label>
           <button className="fileBtn" onClick={addFolder}>
             <AiOutlineFolderAdd />
             ADD FOLDER
           </button>
-          {folderInput && 
-          <>
-          <div style={{"marginBottom":"none !important"}} className="inp-container">
-              <div className="inp-inpanddiv">
-                <input className="inp-input" name="text" type="text" />
+          {folderInput && (
+            <>
+              <div
+                style={{ marginBottom: "none !important" }}
+                className="inp-container"
+              >
+                <div style={{ margin: "0px" }} className="inp-inpanddiv">
+                  <input className="inp-input" style={{"marginTop":"30px"}} onChange={handleFolderName}  value={folderName} name="text" type="text" />
+                </div>
               </div>
-            </div>
-            <button class="animated-button">
-  <span>Hover me</span>
-  <span></span>
-</button>
-
-            </>}
+              <button class="createBtn" onClick={createFolder}>
+                <AiOutlinePlus style={{ color: "var(--light)" }} />
+                <span class="tooltip">Create</span>
+              </button>
+            </>
+          )}
         </div>
         <div>
           {level != 0 && (
