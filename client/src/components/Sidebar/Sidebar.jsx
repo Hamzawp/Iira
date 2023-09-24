@@ -295,7 +295,7 @@ export default function Sidebar(props) {
           >
             <a href="#">
               <BiHistory className="custom-icons" />
-              <span className="text">{props.isSdbropen ? "Project Discovery" : ""}</span>
+              <span className="text">{props.isSdbropen ? "Discover" : ""}</span>
             </a>
           </li>
         </ul>

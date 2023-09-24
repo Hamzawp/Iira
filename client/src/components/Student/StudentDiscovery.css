@@ -110,6 +110,30 @@
     transition: width 0.3s ease; /* Smooth transition animation */
   }
 
+  .text-area-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* Adjust the height as needed */
+  }
+  
+  .centered-textarea {
+    width: 80%; /* Adjust the width as needed */
+    height: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+  }
+  .button-content {
+    display: flex; /* Use Flexbox */
+    gap: 10px;
+    align-items: center; /* Vertically align items */
+    color: #38549b;
+  }
+  .button-content:hover{
+    color: #6463ce;
+  }
   /* ---------------------------------------------------------------------------------------------------------------------------------- */
 
   
