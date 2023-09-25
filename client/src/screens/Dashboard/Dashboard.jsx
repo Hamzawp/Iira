@@ -26,7 +26,7 @@ import StudentMyProjects from "../../components/Student/StudentMyProjects";
 import StudentUploadProject from "../../components/Student/StudentUploadProject";
 
 import Badge from "../Badge/Badge";
-import Approval from '../../components/Approval/Modal'
+// import Approval from '../../components/Approval/Modal'
 import StudentDiscovery from "../../components/Student/StudentDiscovery";
 
 
@@ -251,12 +251,12 @@ export default function Dashboard() {
                 <StudentMyProjects />
               </>
             )}
-             {selectedRow === 5 && (
+             {/* {selectedRow === 5 && (
               <>
                 <Approval />
               </>
-            )}
-            {selectedRow === 6 && (
+            )} */}
+            {selectedRow === 5 && (
               <>
                 <StudentDiscovery />
               </>
