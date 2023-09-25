@@ -24,8 +24,14 @@ import {PiStudentBold} from 'react-icons/pi'
 import StudentProfile from "../../components/Student/StudentProfile";
 import StudentMyProjects from "../../components/Student/StudentMyProjects";
 import StudentUploadProject from "../../components/Student/StudentUploadProject";
+
 import Badge from "../Badge/Badge";
 import Approval from '../../components/Approval/Modal'
+import StudentDiscovery from "../../components/Student/StudentDiscovery";
+
+
+
+
 
 
 export default function Dashboard() {
@@ -250,7 +256,11 @@ export default function Dashboard() {
                 <Approval />
               </>
             )}
-            
+            {selectedRow === 6 && (
+              <>
+                <StudentDiscovery />
+              </>
+            )}
           </section>
         </>
       )}
