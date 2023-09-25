@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import "./StudentUploadProject.css";
 import FolderPage from "../FolderUpload/FolderPage";
+import CompleteUpload from "../FolderUpload/CompleteUpload";
 
 export default function StudentUploadProject() {
   const [stage, setStage] = useState(1);
@@ -13,11 +14,13 @@ export default function StudentUploadProject() {
   return (
     <div className="stu-pro-container">
       <div className="stu-pro-heading">
-        <h1>Create a new Project Repository</h1>
-        <p>
+        {stage==3?<h1>Project Preview</h1>:
+        <><h1>Create a new Project Repository</h1><p>
           A repository contains all project files, including the revision
           history.
         </p>
+        </>}
+        
       </div>
 
       {/* stage 1 of upload */}
@@ -97,6 +100,13 @@ export default function StudentUploadProject() {
         <FolderPage />
       )}
 
+      {/* stage 3, final preview stage */}
+      {stage == 3 && (
+        <>
+          <CompleteUpload />
+        </>
+      )}
+
 
       {/* buttons for all stages */}
       {stage == 1 && (
@@ -116,7 +126,7 @@ export default function StudentUploadProject() {
         </button>
       )}
       {stage == 2 && (
-        <button class="continue-application">
+        <button onClick={()=>handleStage(2)} class="continue-application">
           <div>
             <div class="pencil"></div>
             <div class="folder">
