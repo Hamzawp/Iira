@@ -9,7 +9,7 @@ import {
   BiLogOut,
   BiBadge
 } from "react-icons/bi";
-import { AiOutlineTeam } from "react-icons/ai";
+import { AiOutlinePlus, AiOutlineTeam } from "react-icons/ai";
 import { FiSettings } from "react-icons/fi";
 import { RiUserAddFill } from "react-icons/ri";
 import { PiQueueFill } from "react-icons/pi";
@@ -283,8 +283,8 @@ export default function Sidebar(props) {
             onClick={() => handleRowClick(3)}
           >
             <a href="#">
-              <BiSolidReport className="custom-icons" />
-              <span className="text">{props.isSdbropen ? "Add Project" : ""}</span>
+              <AiOutlinePlus className="custom-icons" />
+              <span className="text">{props.isSdbropen ? "Create Project" : ""}</span>
             </a>
           </li>
           <li
