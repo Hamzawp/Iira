@@ -1,0 +1,17 @@
+.fileCard {
+    width: 260px;
+    height: 221px;
+    background: var(--light-blue);
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    row-gap: 24px;
+    padding-top: 20px;
+    flex-direction: column;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.fileCard p{
+  color: #5b555e;
+}
