@@ -1,45 +1,51 @@
-import React,{useState} from 'react'
-import {useNavigate} from "react-router-dom"
-import './Sidebar.css'
-import {BiSolidDashboard,BiSolidReport,BiHistory,BiMessageAltDetail,BiLogOut} from 'react-icons/bi'
-import {AiOutlineTeam} from 'react-icons/ai'
-import {FiSettings} from 'react-icons/fi'
-import {RiUserAddFill} from 'react-icons/ri'
-import {PiQueueFill} from 'react-icons/pi'
-import {HiUserGroup} from 'react-icons/hi'
-import {HiMiniBuildingLibrary} from "react-icons/hi2"
-import {BsBuildingFillAdd} from "react-icons/bs"
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import FactCheckIcon from '@mui/icons-material/FactCheck';
-import RateReviewIcon from '@mui/icons-material/RateReview';
-import BackupTableIcon from '@mui/icons-material/BackupTable';
-import GroupAddIcon from '@mui/icons-material/GroupAdd';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Sidebar.css";
+import {
+  BiSolidDashboard,
+  BiSolidReport,
+  BiHistory,
+  BiMessageAltDetail,
+  BiLogOut,
+  BiBadge
+} from "react-icons/bi";
+import { AiOutlinePlus, AiOutlineTeam } from "react-icons/ai";
+import { FiSettings } from "react-icons/fi";
+import { RiUserAddFill } from "react-icons/ri";
+import { PiQueueFill } from "react-icons/pi";
+import { HiUserGroup } from "react-icons/hi";
+import { HiMiniBuildingLibrary } from "react-icons/hi2";
+import { BsBuildingFillAdd } from "react-icons/bs";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import FactCheckIcon from "@mui/icons-material/FactCheck";
+import RateReviewIcon from "@mui/icons-material/RateReview";
+import BackupTableIcon from "@mui/icons-material/BackupTable";
+import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import jwt_decode from "jwt-decode";
 export default function Sidebar(props) {
   const [activeMenuItem, setActiveMenuItem] = useState(1);
   // const [role, setRole] = useState(localStorage.getItem("role"));
   const handleRowClick = (rowId) => {
     setActiveMenuItem(rowId);
-    props.onItemClick(rowId); // Pass the rowId to the parent
+    props.onItemClick(rowId); 
   };
   const token = localStorage.getItem("token");
   var decoded = jwt_decode(token);
 
   // console.log(decoded.role);
   const role = decoded.role;
-  localStorage.setItem("role",role)
+  localStorage.setItem("role", role);
 
   const Navigate = useNavigate();
 
   const logoutUser = () => {
     localStorage.clear();
     Navigate("/login");
-  }
+  };
   // localStorage.setItem('role', 'UNIVERSITY');
   return (
-    // {isSdbropen?}
-    <section id="sidebar" className={props.isSdbropen ? "show" : "hide"}>
 
+    <section id="sidebar" className={props.isSdbropen ? "show" : "hide"}>
       <a href="#" className="brand">
         <i className="bx bxs-smile"></i>
         <span className="text">Aztec</span>
@@ -105,7 +111,6 @@ export default function Sidebar(props) {
         
       </ul>
       )}
-
       {role == "university" && (
         <ul className="side-menu top">
           <li
@@ -136,7 +141,9 @@ export default function Sidebar(props) {
           >
             <a href="#">
               <HiMiniBuildingLibrary className="custom-icons" />
-              <span className="text">{props.isSdbropen ? "My Colleges" : ""}</span>
+              <span className="text">
+                {props.isSdbropen ? "My Colleges" : ""}
+              </span>
             </a>
           </li>
           <li
@@ -145,7 +152,9 @@ export default function Sidebar(props) {
           >
             <a href="#">
               <BackupTableIcon className="custom-icons" />
-              <span className="text">{props.isSdbropen ? "My Projects" : ""}</span>
+              <span className="text">
+                {props.isSdbropen ? "My Projects" : ""}
+              </span>
             </a>
           </li>
           <li
@@ -159,7 +168,7 @@ export default function Sidebar(props) {
               </span>
             </a>
           </li>
-          
+
           {/* <li className={activeMenuItem === 6 ? "active" : ""}>
             <a href="#">
               <BiMessageAltDetail className="custom-icons" />
@@ -274,8 +283,8 @@ export default function Sidebar(props) {
             onClick={() => handleRowClick(3)}
           >
             <a href="#">
-              <BiSolidReport className="custom-icons" />
-              <span className="text">{props.isSdbropen ? "Add Project" : ""}</span>
+              <AiOutlinePlus className="custom-icons" />
+              <span className="text">{props.isSdbropen ? "Create Project" : ""}</span>
             </a>
           </li>
           <li
@@ -308,15 +317,12 @@ export default function Sidebar(props) {
           <a href="#">
             <FiSettings className="custom-icons" />
             <span className="text">{props.isSdbropen ? "Settings" : ""}</span>
-
           </a>
         </li>
         <li>
           <a href="#" className="logout" onClick={logoutUser}>
-
             <BiLogOut className="custom-icons" />
             <span className="text">{props.isSdbropen ? "Logout" : ""}</span>
-
           </a>
         </li>
       </ul>

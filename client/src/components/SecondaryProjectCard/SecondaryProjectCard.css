@@ -209,7 +209,10 @@
   right: 100px;
   z-index: 999;
 }
-
+.secprojectdiv{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
 
 /* .secprocontainer {
     width: 100%;
