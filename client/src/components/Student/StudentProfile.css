@@ -175,6 +175,9 @@
   text-align: right;
   color: #4b484c;
 }
+.p-email{
+  margin-bottom: 0 !important;
+}
 .dashboard .grid-container .profile .profile-more h5 {
   position: initial;
   cursor: pointer;

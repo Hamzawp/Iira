@@ -1,0 +1,9 @@
+.last-like-fac{
+    height: 16em !important;
+}
+.profile-fac{
+    height: 38em !important;
+}
+.grid-container-fac{
+    grid-template-rows: 1fr !important;
+}

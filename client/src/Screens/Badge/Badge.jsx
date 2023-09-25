@@ -22,7 +22,7 @@ const Badge = () => {
           <button className="BadgeBtn" onClick={handleBadgeClick}></button>
         </div>
       </div>
-      {isPopupVisible && <BadgePopup onClose={handleClosePopup} rank="Silver" />}
+      {isPopupVisible && <BadgePopup onClose={handleClosePopup} rank="Gold" />}
     </>
   );
 };

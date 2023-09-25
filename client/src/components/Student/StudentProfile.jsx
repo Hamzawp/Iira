@@ -46,99 +46,104 @@ export default function StudentProfile() {
 
   return (
     <>
-      <div class="body-container">
-        <div class="dashboard">
-          <div class="grid-container">
-            <div class="profile grid-area">
-              <div class="img">
-                <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80" />
+      <div className="body-container">
+        <div className="dashboard">
+          <div className="grid-container">
+            <div className="profile grid-area">
+              <div className="img">
+                <img src="https://media.istockphoto.com/id/1393750072/vector/flat-white-icon-man-for-web-design-silhouette-flat-illustration-vector-illustration-stock.jpg?s=612x612&w=0&k=20&c=s9hO4SpyvrDIfELozPpiB_WtzQV9KhoMUP9R9gVohoU=" />
                 <h3>John Doe</h3>
-                <h5 class="online">Thadomal Shahani Engineering College</h5>
-                <div class="button">
-                  <i class="fas fa-sliders-h"></i>
+                <h5 className="online">Thadomal Shahani Engineering College</h5>
+                <div className="button">
+                  <i className="fas fa-sliders-h"></i>
                 </div>
               </div>
-              <div class="profile-data">
-                <div class="data-details">
+              <div className="profile-data">
+                <div className="data-details">
                   <h5>Age</h5>
                   <h4>24</h4>
                 </div>
-                <div class="data-details">
+                <div className="data-details">
                   <h5>Location</h5>
                   <h4>Mumbai</h4>
                 </div>
-                <div class="data-details">
+                <div className="data-details">
                   <h5>Year</h5>
                   <h4>TE</h4>
                 </div>
               </div>
-              <div class="profile-more">
+              <div className="profile-more">
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat porro id eum labore iste nostrum eius est. Quae molestias distinctio magnam voluptatem dicta rem iure.</p>
               </div>
             </div>
 
-            <div class="last-view grid-area">
-              <h2>Collaborators</h2>
-              <div class="profiles-display">
-                <div class="one-profile online">
-                  <div class="img">
-                    <img src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" />
+            <div className="last-view grid-area">
+              <h2>Highly Rated Projects</h2>
+              <div className="profiles-display">
+                <div className="one-profile">
+                  <div className="img">
+                    <img src="https://images-platform.99static.com//MqY7pA4_33g4coyi5eokv0RspIo=/300x191:875x766/fit-in/500x500/99designs-contests-attachments/4/4330/attachment_4330512" />
                   </div>
-                  <h4>Alicia</h4>
+                  <h4>Project 1</h4>
                 </div>
-                <div class="one-profile">
-                  <div class="img">
-                    <img src="https://images.unsplash.com/photo-1495078065017-564723e7e3e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1300&q=80" />
+                <div className="one-profile">
+                  <div className="img">
+                    <img src="https://aemi.ie/wp-content/uploads/2021/10/Project-Arts-Centre-Logo-Black-1-scaled.jpg" />
                   </div>
-                  <h4>Dan</h4>
+                  <h4>Project 2</h4>
                 </div>
-                <div class="one-profile online">
-                  <div class="img">
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" />
+                <div className="one-profile">
+                  <div className="img">
+                    <img src="https://img.freepik.com/free-vector/project-management-design-concept-symbolizing-analysis-solving-problems-isometric-vector-illustration_1284-77122.jpg" />
                   </div>
-                  <h4>Lea</h4>
+                  <h4>Project 3</h4>
                 </div>
-
-                <div class="one-profile">
-                  <div class="img">
-                    <img src="https://images.unsplash.com/photo-1517935541300-19815e88fa63?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" />
+                <div className="one-profile">
+                  <div className="img">
+                    <img src="https://img.freepik.com/free-vector/teem-discussing-project-kanban-board_1262-19963.jpg" />
                   </div>
-                  <h4>John</h4>
+                  <h4>Project 4</h4>
                 </div>
-                <div class="one-profile">
-                  <div class="img">
-                    <img src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" />
+                <div className="one-profile">
+                  <div className="img">
+                    <img src="https://img.freepik.com/free-vector/creative-project-management-concept-flat-style_23-2147792531.jpg" />
                   </div>
-                  <h4>Christopher</h4>
+                  <h4>Project 5</h4>
+                </div>
+                <div className="one-profile">
+                  <div className="img">
+                    <img src="https://cdn-cashy-static-assets.lucidchart.com/marketing/blog/2017Q3/phases-project-management-lifecycle/phases-project-management-lifecycle-header.png" />
+                  </div>
+                  <h4>Project 6</h4>
                 </div>
               </div>
             </div>
 
-            <div class="last-like grid-area">
+            <div className="last-like grid-area">
               <h2>Badges</h2>
-              <div class="profiles-display">
-                <div class="one-profile online">
-                  <div class="img">
+              <div className="profiles-display">
+                <div className="one-profile online">
+                  <div className="img">
                     <img src="https://ribbonbadges.in/wp-content/uploads/2021/11/Single-Yellow.png" />
                   </div>
                 </div>
-                <div class="one-profile">
-                  <div class="img">
+                <div className="one-profile">
+                  <div className="img">
                     <img src="https://m.media-amazon.com/images/I/415Exprh6CL._SR600%2C315_PIWhiteStrip%2CBottomLeft%2C0%2C35_SCLZZZZZZZ_FMpng_BG255%2C255%2C255.jpg" />
                   </div>
                 </div>
-                <div class="one-profile">
-                  <div class="img">
+                <div className="one-profile">
+                  <div className="img">
                     <img src="https://5.imimg.com/data5/SELLER/Default/2022/11/TH/KW/OZ/654971/satin-ribbon-badge.jpg" />
                   </div>
                 </div>
-                <div class="one-profile">
-                  <div class="img">
+                <div className="one-profile">
+                  <div className="img">
                     <img src="https://m.media-amazon.com/images/I/312WP1YzbdL._SR600%2C315_PIWhiteStrip%2CBottomLeft%2C0%2C35_SCLZZZZZZZ_FMpng_BG255%2C255%2C255.jpg" />
                   </div>
                 </div>
-                <div class="one-profile">
-                  <div class="img">
+                <div className="one-profile">
+                  <div className="img">
                     <img src="https://m.media-amazon.com/images/I/31j70ahD9rL._SR600%2C315_PIWhiteStrip%2CBottomLeft%2C0%2C35_SCLZZZZZZZ_FMpng_BG255%2C255%2C255.jpg" />
                   </div>
                 </div>
@@ -149,60 +154,60 @@ export default function StudentProfile() {
               </div>
             </div>
 
-            <div class="edit-profile grid-area">
-              <div class="header">
+            <div className="edit-profile grid-area">
+              <div className="header">
                 <h1>Edit your profile</h1>
               </div>
-              <div class="profile-picture">
-                <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80" />
+              <div className="profile-picture">
+                <img src="https://media.istockphoto.com/id/1393750072/vector/flat-white-icon-man-for-web-design-silhouette-flat-illustration-vector-illustration-stock.jpg?s=612x612&w=0&k=20&c=s9hO4SpyvrDIfELozPpiB_WtzQV9KhoMUP9R9gVohoU=" />
               </div>
               <h1>John Doe</h1>
-              <div class="edit-infos">
+              <div className="edit-infos">
                 <h3>
-                  Personal information<i class="fas fa-pen"></i>
+                  Personal information<i className="fas fa-pen"></i>
                 </h3>
-                <div class="profile-data">
-                  <div class="data-details">
+                <div className="profile-data">
+                  <div className="data-details">
                     <h5>Age</h5>
                     <h4>24</h4>
                   </div>
-                  <div class="data-details">
+                  <div className="data-details">
                     <h5>Gender</h5>
-                    <h4>Men</h4>
+                    <h4>M</h4>
                   </div>
-                  <div class="data-details">
+                  <div className="data-details">
                     <h5>Location</h5>
                     <h4>Mumbai</h4>
                   </div>
                 </div>
               </div>
-              <div class="edit-interest">
+              <div className="edit-interest">
                 <h3>
-                  College Name<i class="fas fa-pen"></i>
+                  College Name<i className="fas fa-pen"></i>
                 </h3>
-                <p class="p-small">Thadomal Shahani Engineering College</p>
+                <p className="p-small">Thadomal Shahani Engineering College</p>
               </div>
-              <div class="edit-interest">
+              <div className="edit-interest">
                 <h3>
-                  Course Enrolled<i class="fas fa-pen"></i>
+                  Course Enrolled<i className="fas fa-pen"></i>
                 </h3>
-                <p class="p-small">50</p>
+                <p className="p-small">50</p>
               </div>
-              <div class="edit-interest">
+              <div className="edit-interest">
                 <h3>
-                  Number of Projects Enrolled<i class="fas fa-pen"></i>
+                  Number of Projects Enrolled<i className="fas fa-pen"></i>
                 </h3>
-                <p class="p-small">25</p>
+                <p className="p-small">25</p>
               </div>
-              <div class="edit-interest">
+              <div className="edit-interest">
                 <h3>
-                  Number of Projects Published<i class="fas fa-pen"></i>
+                  Number of Projects Published<i className="fas fa-pen"></i>
                 </h3>
-                <p class="p-small">22</p>
+                <p className="p-small">22</p>
               </div>
-              <div class="edit-interest">
+              <div className="edit-interest">
                 <h3>
-                  Bio<i class="fas fa-pen"></i>
+                  Bio<i className="fas fa-pen"></i>
                 </h3>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
@@ -213,123 +218,78 @@ export default function StudentProfile() {
                   laoreet.
                 </p>
               </div>
-              <div class="edit-interest">
+              <div className="edit-interest">
                 <h3>
-                  Your interests <i class="fas fa-pen"></i>
+                  Your interests <i className="fas fa-pen"></i>
                 </h3>
                 <p>
                   #traveling #cooking #summer #jazz #friends #art #walk #dogs
                   #design #architecture #photo #nature #fun{" "}
                 </p>
               </div>
-              {/* <div class="edit-picture">
-                <div class="picture">
+              {/* <div className="edit-picture">
+                <div className="picture">
                   <img src="https://images.unsplash.com/photo-1540218660726-95c6764dd7ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" />
                 </div>
-                <div class="picture">
+                <div className="picture">
                   <img src="https://images.unsplash.com/photo-1467020421390-2fb2647a413e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1235&q=80" />
                 </div>
-                <div class="picture">
+                <div className="picture">
                   <img src="https://images.unsplash.com/photo-1488751045188-3c55bbf9a3fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" />
                 </div>
-                <div class="picture-add">
-                  <i class="fas fa-plus"></i>
+                <div className="picture-add">
+                  <i className="fas fa-plus"></i>
                 </div>
               </div> */}
             </div>
 
-            <div class="matchs grid-area">
-              <div class="header">
-                <h1>Your Matchs</h1>
+            <div className="matchs grid-area">
+              <div className="header">
+                <h1>Your Peers</h1>
               </div>
-              <div class="display-matchs">
-                <div class="one-match">
-                  <div class="one-match-content">
-                    <img src="https://images.unsplash.com/photo-1517935541300-19815e88fa63?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" />
-                    <div class="match-info">
-                      <h4>John, 30</h4>
+              <div className="display-matchs">
+                <div className="one-match">
+                  <div className="one-match-content">
+                    <img src="https://assets.stickpng.com/thumbs/585e4beacb11b227491c3399.png" />
+                    <div className="match-info">
+                      <h4>Ajay Sharma</h4>
                       <h5>Last seen 2d ago</h5>
                     </div>
                   </div>
                 </div>
-                <div class="one-match">
-                  <div class="one-match-content">
-                    <img src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" />
-                    <div class="match-info">
-                      <h4>Alicia, 23</h4>
-                      <h5 class="online">Online</h5>
+                <div className="one-match">
+                  <div className="one-match-content">
+                    <img src="https://t3.ftcdn.net/jpg/05/17/79/88/360_F_517798849_WuXhHTpg2djTbfNf0FQAjzFEoluHpnct.jpg" />
+                    <div className="match-info">
+                      <h4>Mansi Varma</h4>
+                      <h5 className="online">Online</h5>
                     </div>
                   </div>
                 </div>
-                <div class="one-match">
-                  <div class="one-match-content">
-                    <img src="https://images.unsplash.com/photo-1495078065017-564723e7e3e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1300&q=80" />
-                    <div class="match-info">
-                      <h4>Dan, 49</h4>
+                <div className="one-match">
+                  <div className="one-match-content">
+                    <img src="https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg" />
+                    <div className="match-info">
+                      <h4>Vaibhav Shinde</h4>
                       <h5>Last seen 15h ago</h5>
                     </div>
                   </div>
                 </div>
-                <div class="one-match">
-                  <div class="one-match-content">
-                    <img src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" />
-                    <div class="match-info">
-                      <h4>Christopher, 27</h4>
-                      <h5>Last seen 1w ago</h5>
+                <div className="one-match">
+                  <div className="one-match-content">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" />
+                    <div className="match-info">
+                      <h4>Jay Pandey</h4>
+                      <h5 className="online">Online</h5>
                     </div>
                   </div>
                 </div>
-                <div class="one-match">
-                  <div class="one-match-content">
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" />
-                    <div class="match-info">
-                      <h4>Lea, 25</h4>
-                      <h5 class="online">Online</h5>
-                    </div>
-                  </div>
-                </div>
-                <div class="one-match">
-                  <div class="one-match-content">
-                    <img src="https://images.unsplash.com/photo-1517935541300-19815e88fa63?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" />
-                    <div class="match-info">
-                      <h4>John, 30</h4>
-                      <h5>Last seen 2d ago</h5>
-                    </div>
-                  </div>
-                </div>
-                <div class="one-match">
-                  <div class="one-match-content">
-                    <img src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" />
-                    <div class="match-info">
-                      <h4>Alicia, 23</h4>
-                      <h5 class="online">Online</h5>
-                    </div>
-                  </div>
-                </div>
-                <div class="one-match">
-                  <div class="one-match-content">
-                    <img src="https://images.unsplash.com/photo-1495078065017-564723e7e3e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1300&q=80" />
-                    <div class="match-info">
-                      <h4>Dan, 49</h4>
-                      <h5>Last seen 15h ago</h5>
-                    </div>
-                  </div>
-                </div>
-                <div class="one-match">
-                  <div class="one-match-content">
-                    <img src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" />
-                    <div class="match-info">
-                      <h4>Christopher, 27</h4>
-                      <h5>Last seen 1w ago</h5>
-                    </div>
-                  </div>
-                </div>
-                <div class="one-match">
-                  <div class="one-match-content">
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" />
-                    <div class="match-info">
-                      <h4>Lea, 25</h4>
-                      <h5 class="online">Online</h5>
+                <div className="one-match">
+                  <div className="one-match-content">
+                    <img src="https://www.pngkit.com/png/detail/281-2812821_user-account-management-logo-user-icon-png.png" />
+                    <div className="match-info">
+                      <h4>Harsh Mehta</h4>
+                      <h5 className="online">Online</h5>
                     </div>
                   </div>
                 </div>
