@@ -289,15 +289,15 @@ export default function Sidebar(props) {
               </span>
             </a>
           </li>
-          {/* <li
+          <li
             className={activeMenuItem === 5 ? "active" : ""}
             onClick={() => handleRowClick(5)}
           >
             <a href="#">
               <BiHistory className="custom-icons" />
-              <span className="text">{props.isSdbropen ? "Projects" : ""}</span>
+              <span className="text">{props.isSdbropen ? "Discover" : ""}</span>
             </a>
-          </li> */}
+          </li>
         </ul>
           </>
         )
