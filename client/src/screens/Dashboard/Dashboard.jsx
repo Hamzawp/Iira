@@ -26,6 +26,13 @@ import StudentMyProjects from "../../components/Student/StudentMyProjects";
 import StudentUploadProject from "../../components/Student/StudentUploadProject";
 import StudentSingleProject from "../../components/Student/StudentSingleProject";
 
+import Badge from "../Badge/Badge";
+// import Approval from '../../components/Approval/Modal'
+import StudentDiscovery from "../../components/Student/StudentDiscovery";
+
+
+
+
 
 
 export default function Dashboard() {
@@ -245,9 +252,18 @@ export default function Dashboard() {
                 <StudentMyProjects />
               </>
             )}
+{/*To be added after uploading project judagg!!*/}
+//             {selectedRow === 5 && (
+//               <>
+//                 <StudentSingleProject />
+             {/* {selectedRow === 5 && (
+              <>
+                <Approval />
+              </>
+            )} */}
             {selectedRow === 5 && (
               <>
-                <StudentSingleProject />
+                <StudentDiscovery />
               </>
             )}
           </section>

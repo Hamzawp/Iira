@@ -1,16 +1,30 @@
 import React, { useState } from 'react'
 import { Menu, MenuItem, MenuButton, SubMenu } from '@szhsin/react-menu';
-import {BsThreeDotsVertical} from "react-icons/bs"
-import {AiOutlineFundProjectionScreen} from 'react-icons/ai'
-import {FaChalkboardTeacher} from 'react-icons/fa'
-import {RiFolderSettingsLine} from 'react-icons/ri'
-import {PiStudentBold} from 'react-icons/pi'
-import usericon from '../../assets/usericon.png'
-import CsvBtn from '../CsvButton/CsvButton'
+import { BsThreeDotsVertical } from "react-icons/bs"
 import './FacultyProjectReview.css'
-export default function FacultyProjectReview() {
+import Dropdown from "react-dropdown";
+import "./Modal.css";
+const options = ["Approve", "Rollback"];
+const defaultOption = options[0];
 
-    const facultyData = [
+export default function FacultyProjectReview() {
+  const [modal, setModal] = useState(false);
+  const [selectedOption, setSelectedOption] = useState("Approve");
+  const [remarks, setRemarks] = useState("");
+
+  const toggleModal = () => {
+    setModal(!modal);
+  };
+
+  const handleChange = (e) => {
+    setRemarks(e.target.value);
+  };
+
+  if (modal) {
+    document.body.classList.add('active-modal')
+  } else {
+    document.body.classList.remove('active-modal')
+  } const facultyData = [
     // {
     //   name: "Prof. Rahul Sharma",
     //   department: "CSE",
@@ -43,71 +57,75 @@ export default function FacultyProjectReview() {
     // },
   ];
   const projects = [
-      {
-        project_title: "Project A",
-        project_desc: "Lorem ipsum uinm jhtuh jywnm fgretf unm ipsum uinm jhtuh",
-        
-      },
-      {
-        project_title: "Project B",
-        project_desc: "Lorem ipsum uinm jhtuh jywnm fgretf unm ipsum uinm jhtuh",
-        
-      },
-      {
-        project_title: "Project C",
-        project_desc: "Lorem ipsum uinm jhtuh jywnm fgretf unm ipsum uinm jhtuh",
-        
-      },
-      {
-        project_title: "Project D",
-        project_desc: "Lorem ipsum uinm jhtuh jywnm fgretf unm ipsum uinm jhtuh",
-        
-      },
-      {
-        project_title: "Project E",
-        project_desc: "Lorem ipsum uinm jhtuh jywnm fgretf unm ipsum uinm jhtuh",
-        
-      },
-      {
-        project_title: "Project F",
-        project_desc: "Lorem ipsum uinm jhtuh jywnm fgretf unm ipsum uinm jhtuh",
-        
-      }
-    ];
-  let SPOC ="SPOC";
-  
+    {
+      project_title: "Project A",
+      project_desc: "Lorem ipsum uinm jhtuh jywnm fgretf unm ipsum uinm jhtuh",
+
+    },
+    {
+      project_title: "Project B",
+      project_desc: "Lorem ipsum uinm jhtuh jywnm fgretf unm ipsum uinm jhtuh",
+
+    },
+    {
+      project_title: "Project C",
+      project_desc: "Lorem ipsum uinm jhtuh jywnm fgretf unm ipsum uinm jhtuh",
+
+    },
+  ];
+  let SPOC = "SPOC";
+
   const facultyDataLength = facultyData.length;
-  
-    return (
-      <div>
-          <main>
-          <div className="head-title">
-            <div className="left">
-              <h1>Projects Under Review</h1>
-              <ul className="breadcrumb">
-                <li>
-                  <a href="#">Thadomal Shahani Engineering College</a>
-                </li>
-              </ul>
-            </div>
-            <a href="#" className="btn-add">
-               <span className="text">Approve All ✔</span> 
-            </a>
+
+  return (
+    <div>
+      {modal && (
+        <div className="modal">
+          <div onClick={toggleModal} className="overlay"></div>
+          <div className="modal-content">
+            <h2>Approve/ Rollback</h2>
+            <Dropdown
+              options={options}
+              value={defaultOption}
+              placeholder="Select an option"
+              onChange={(e) => setSelectedOption(e.value)}
+            />
+            <input className="modal-input" type="text" placeholder="Enter Remarks" onChange={handleChange} />
+            <input type="submit" className="approval-btn" value="Submit" />
+            <button className="close-modal" onClick={toggleModal}>
+              X
+            </button>
           </div>
-  
-          <ul className="box-info-projRev">
+        </div>
+      )}
+      <main>
+        <div className="head-title">
+          <div className="left">
+            <h1>Projects Under Review</h1>
+            <ul className="breadcrumb">
+              <li>
+                <a href="#">Thadomal Shahani Engineering College</a>
+              </li>
+            </ul>
+          </div>
+          <a href="#" className="btn-add">
+            <span className="text">Approve All ✔</span>
+          </a>
+        </div>
+
+        <ul className="box-info-projRev">
           {projects.map((project, index) => (
             <li key={index}>
               <div className="card-fac">
                 <div className="card__wrapper">
                   <div className="card___wrapper-acounts">
-                    <div className="card__score">+3</div>
+                    <div className="card__score" style={{ "zIndex": "-5" }}>+3</div>
                     <div className="card__acounts">
                       <svg
                         viewBox="0 0 128 128"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                       
+
                       </svg>
                     </div>
                     <div className="card__acounts">
@@ -115,29 +133,18 @@ export default function FacultyProjectReview() {
                         viewBox="0 0 128 128"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                       
+
                       </svg>
                     </div>
                     <div>
-                      <Menu menuButton={<MenuButton style={{"border":"none"}}><BsThreeDotsVertical color='#fff'/></MenuButton>}>
-                        <MenuItem>Rollback</MenuItem>
-                        <MenuItem>Accept</MenuItem>
+                      <Menu menuButton={<MenuButton style={{ "border": "none" }}><BsThreeDotsVertical color='#fff' /></MenuButton>}>
+                        <MenuItem onClick={toggleModal}>Rollback</MenuItem>
+                        <MenuItem onClick={toggleModal}>Accept</MenuItem>
                         <MenuItem>Decline</MenuItem>
                       </Menu>
-                      
+
                     </div>
                   </div>
-                  {/* <div className="card__menu">
-                    <svg
-                      fill="none"
-                      height="20"
-                      viewBox="0 0 4 20"
-                      width="4"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                     
-                    </svg>
-                  </div> */}
                 </div>
                 <div className="card__title">{project.project_title}</div>
                 <div className="card__subtitle">
@@ -148,14 +155,13 @@ export default function FacultyProjectReview() {
                   <span className="card__indicator-percentage">75%</span>
                 </div>
                 <div className="card__progress">
-                  <progress value="75" max="100"></progress>
+                  <progress value="50" max="100"></progress>
                 </div>
               </div>
             </li>))}
-          
-          </ul>
-          </main>
-      </div>
-    )
-  }
-  
+
+        </ul>
+      </main>
+    </div>
+  )
+}

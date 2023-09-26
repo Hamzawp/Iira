@@ -1,0 +1,259 @@
+/* StudentCreateProject.css */
+
+.quiz-container {
+    margin-top: 80px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .quiz-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .question {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #6778d8;
+  }
+  
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .option {
+    background-color: #4B49AC;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    margin: auto;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    font-size: 18px;
+    width: 50%;
+  }
+  
+  .option.selected {
+    background-color: #28277e; /* Darker purple for selected option */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .option:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
+  
+  .results {
+    margin-top: 40px;
+    font-size: 18px;
+    color: blueviolet;
+    width: 100%;
+    text-align: center; /* Center-align text in results section */
+  }
+  
+  .results ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .project-cards {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .project-card {
+    background-color: #fff;
+    padding: 16px;
+    border-radius: 8px;
+    flex: 1;
+    max-width: 300px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+  
+  .project-card h4 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: #6778d8;
+  }
+  
+  .project-card p {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  /* Progress Bar Styles */
+  .progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #ccc; /* Gray background for progress bar container */
+    border-radius: 5px;
+    margin-bottom: 20px;
+    overflow: hidden; /* Hide overflowing progress bar */
+  }
+  
+  .progress {
+    height: 100%;
+    background-color: #38549b; /* Blue color for the actual progress */
+    transition: width 0.3s ease; /* Smooth transition animation */
+  }
+
+  .text-area-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* Adjust the height as needed */
+  }
+  
+  .centered-textarea {
+    width: 80%; /* Adjust the width as needed */
+    height: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+  }
+  .button-content {
+    display: flex; /* Use Flexbox */
+    gap: 10px;
+    align-items: center; /* Vertically align items */
+    color: #38549b;
+  }
+  .button-content:hover{
+    color: #6463ce;
+  }
+  /* ---------------------------------------------------------------------------------------------------------------------------------- */
+
+  
+  .card-fac {
+    --main-color: #fff;
+    --bg-color: #6463ce;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 300px;
+    padding: 25px;
+    background: var(--bg-color);
+    border-radius: 20px;
+  }
+  
+  .card__wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .card___wrapper-acounts {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index: 1;
+    cursor: pointer;
+  }
+  
+  .card___wrapper-acounts > div:nth-child(2) {
+    position: absolute;
+    left: 25px;
+    z-index: -1;
+  }
+  
+  .card___wrapper-acounts > div:nth-child(3) {
+    position: absolute;
+    left: 50px;
+    z-index: -2;
+  }
+  
+  .card__score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--bg-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background: var(--main-color);
+  }
+  
+  .card__acounts {
+    width: 42px;
+    height: 42px;
+  }
+  
+  .card__acounts svg {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .card__menu {
+    width: 40px;
+    height: 40px;
+    background: var(--bg-color);
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .card__title {
+    margin-top: 50px;
+    font-weight: 900;
+    font-size: 25px;
+    color: var(--main-color);
+  }
+  
+  .card__subtitle {
+    margin-top: 15px;
+    font-weight: 400;
+    font-size: 15px;
+    color: var(--main-color);
+  }
+  
+  .card__indicator {
+    margin-top: 50px;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--main-color);
+  }
+  
+  .card__progress progress {
+    width: 100%;
+    height: 4px;
+    border-radius: 100px;
+  }
+  
+  .card__progress progress::-webkit-progress-bar {
+    background-color: #00000030;
+    border-radius: 100px;
+  }
+  
+  .card__progress progress::-webkit-progress-value {
+    background-color: var(--main-color);
+    border-radius: 100px;
+  }
+
+
+  .box-info-projRev{
+    padding-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjust the width as needed */
+  gap: 20px; /* Adjust the gap between cards as needed */
+  list-style-type: none;
+  /* padding: 0; */
+  }
+  
+  
