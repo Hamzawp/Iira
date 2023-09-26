@@ -7,7 +7,7 @@ import {
   BiHistory,
   BiMessageAltDetail,
   BiLogOut,
-  BiBadge
+  BiBadge,
 } from "react-icons/bi";
 import { AiOutlinePlus, AiOutlineTeam } from "react-icons/ai";
 import { FiSettings } from "react-icons/fi";
@@ -29,7 +29,7 @@ export default function Sidebar(props) {
   // const [role, setRole] = useState(localStorage.getItem("role"));
   const handleRowClick = (rowId) => {
     setActiveMenuItem(rowId);
-    props.onItemClick(rowId); 
+    props.onItemClick(rowId);
   };
   const token = localStorage.getItem("token");
   var decoded = jwt_decode(token);
@@ -53,66 +53,6 @@ export default function Sidebar(props) {
       </a>
 
       {role == "college_faculty" && (
-       <ul className="side-menu top">
-      <li className={activeMenuItem === 1 ? 'active' : ''} onClick={() => handleRowClick(1)}>
-          <a href="#">
-            {/* <i className="bx bxs-dashboard"></i> */}
-            <BiSolidDashboard className = "custom-icons"/>
-            <span className="text">{props.isSdbropen ? "Dashboard": ''}</span>
-          </a>
-        </li>
-        <li className={activeMenuItem === 2 ? 'active' : ''} onClick={() => handleRowClick(2)}>
-          <a href="#">
-            {/* <i className="bx bxs-dashboard"></i> */}
-            {/* <BiSolidDashboard className = "custom-icons"/> */}
-            <AccountCircleIcon className='custom-icons'/>
-            <span className="text">{props.isSdbropen ? "User Profile": ''}</span>
-          </a>
-        </li>
-        <li className={activeMenuItem === 3 ? 'active' : ''} onClick={() => handleRowClick(3)}>
-          <a href="#">
-            {/* <i className="bx bxs-shopping-bag-alt"></i> */}
-            {/* <BiSolidReport className = "custom-icons"/> */}
-            <FactCheckIcon className = "custom-icons"/>
-            <span className="text">{props.isSdbropen ? "Project Approval Panel": ''}</span>
-          </a>
-        </li>
-        <li className={activeMenuItem === 4 ? 'active' : ''} onClick={() =>handleRowClick(4)}>
-          <a href="#">
-            {/* <i className="bx bxs-shopping-bag-alt"></i> */}
-            {/* <BiSolidReport className = "custom-icons"/> */}
-            <RateReviewIcon className = "custom-icons"/>
-            <span className="text">{props.isSdbropen ? "Projects Review": ''}</span>
-          </a>
-        </li>
-        <li className={activeMenuItem === 8 ? 'active' : ''} onClick={() =>handleRowClick(8)}>
-                <a href="#">
-                  {/* <i className="bx bxs-shopping-bag-alt"></i> */}
-                  {/* <BiSolidReport className = "custom-icons"/> */}
-                  <PiQueueFill className = "custom-icons"/>
-                  <span className="text">{props.isSdbropen ? "Projects Queue": ''}</span>
-                </a>
-              </li>
-        <li className={activeMenuItem === 5 ? 'active' : ''} onClick={() => handleRowClick(5)}>
-          <a href="#">
-            {/* <i className="bx bxs-doughnut-chart"></i> */}
-            {/* <BiHistory className = "custom-icons"/> */}
-            <BackupTableIcon className="custom-icons"/>
-            <span className="text">{props.isSdbropen ? "My Projects": ''}</span>
-          </a>
-        </li>
-        <li className={activeMenuItem === 6 ? 'active' : ''} onClick={() => handleRowClick(6)}>
-          <a href="#">
-            {/* <i className="bx bxs-message-dots"></i> */}
-            {/* <BiMessageAltDetail className = "custom-icons"/> */}
-            <GroupAddIcon className="custom-icons"/>
-            <span className="text">{props.isSdbropen ? "Add Student": ''}</span>
-          </a>
-        </li>
-        
-      </ul>
-      )}
-      {role == "university" && (
         <ul className="side-menu top">
           <li
             className={activeMenuItem === 1 ? "active" : ""}
@@ -149,7 +89,6 @@ export default function Sidebar(props) {
               <FactCheckIcon className="custom-icons" />
               <span className="text">
                 {props.isSdbropen ? "Project Approval Panel" : ""}
-
               </span>
             </a>
           </li>
@@ -183,8 +122,6 @@ export default function Sidebar(props) {
             className={activeMenuItem === 5 ? "active" : ""}
             onClick={() => handleRowClick(5)}
           >
-
-          {/* <li className={activeMenuItem === 6 ? "active" : ""}>
             <a href="#">
               {/* <i className="bx bxs-doughnut-chart"></i> */}
               {/* <BiHistory className = "custom-icons"/> */}
@@ -208,6 +145,103 @@ export default function Sidebar(props) {
             </a>
           </li>
         </ul>
+      )}
+      {role == "university" && (
+        <>
+          <ul className="side-menu top">
+            <li
+              className={activeMenuItem === 1 ? "active" : ""}
+              onClick={() => handleRowClick(1)}
+            >
+              <a href="#">
+                {/* <i className="bx bxs-dashboard"></i> */}
+                <BiSolidDashboard className="custom-icons" />
+                <span className="text">
+                  {props.isSdbropen ? "Dashboard" : ""}
+                </span>
+              </a>
+            </li>
+            <li
+              className={activeMenuItem === 2 ? "active" : ""}
+              onClick={() => handleRowClick(2)}
+            >
+              <a href="#">
+                {/* <i className="bx bxs-dashboard"></i> */}
+                {/* <BiSolidDashboard className = "custom-icons"/> */}
+                <AccountCircleIcon className="custom-icons" />
+                <span className="text">
+                  {props.isSdbropen ? "User Profile" : ""}
+                </span>
+              </a>
+            </li>
+            <li
+              className={activeMenuItem === 3 ? "active" : ""}
+              onClick={() => handleRowClick(3)}
+            >
+              <a href="#">
+                {/* <i className="bx bxs-shopping-bag-alt"></i> */}
+                {/* <BiSolidReport className = "custom-icons"/> */}
+                <FactCheckIcon className="custom-icons" />
+                <span className="text">
+                  {props.isSdbropen ? "Project Approval Panel" : ""}
+                </span>
+              </a>
+            </li>
+            <li
+              className={activeMenuItem === 4 ? "active" : ""}
+              onClick={() => handleRowClick(4)}
+            >
+              <a href="#">
+                {/* <i className="bx bxs-shopping-bag-alt"></i> */}
+                {/* <BiSolidReport className = "custom-icons"/> */}
+                <RateReviewIcon className="custom-icons" />
+                <span className="text">
+                  {props.isSdbropen ? "Projects Review" : ""}
+                </span>
+              </a>
+            </li>
+            <li
+              className={activeMenuItem === 8 ? "active" : ""}
+              onClick={() => handleRowClick(8)}
+            >
+              <a href="#">
+                {/* <i className="bx bxs-shopping-bag-alt"></i> */}
+                {/* <BiSolidReport className = "custom-icons"/> */}
+                <PiQueueFill className="custom-icons" />
+                <span className="text">
+                  {props.isSdbropen ? "Projects Queue" : ""}
+                </span>
+              </a>
+            </li>
+            <li
+              className={activeMenuItem === 5 ? "active" : ""}
+              onClick={() => handleRowClick(5)}
+            >
+              {/* <li className={activeMenuItem === 6 ? "active" : ""}>
+              {/* <i className="bx bxs-doughnut-chart"></i> */}
+              {/* <BiHistory className = "custom-icons"/> */}
+              <a href="#">
+                <BackupTableIcon className="custom-icons" />
+                <span className="text">
+                  {props.isSdbropen ? "My Projects" : ""}
+                </span>
+              </a>
+            </li>
+            <li
+              className={activeMenuItem === 6 ? "active" : ""}
+              onClick={() => handleRowClick(6)}
+            >
+              <a href="#">
+                {/* <i className="bx bxs-message-dots"></i> */}
+                {/* <BiMessageAltDetail className = "custom-icons"/> */}
+                <GroupAddIcon className="custom-icons" />
+                <span className="text">
+                  {props.isSdbropen ? "Add Student" : ""}
+                </span>
+              </a>
+            </li>
+          </ul>
+        </>
       )}
 
       {role == "university" && (
@@ -254,7 +288,6 @@ export default function Sidebar(props) {
               <span className="text">
                 {props.isSdbropen ? "My Projects" : ""}
               </span>
-
             </a>
           </li>
           <li
@@ -307,19 +340,7 @@ export default function Sidebar(props) {
                 </span>
               </a>
             </li>
-            <li
-              className={activeMenuItem === 3 ? "active" : ""}
-              onClick={() => handleRowClick(3)}
-            >
-              <a href="#">
-                {/* <i className="bx bxs-shopping-bag-alt"></i> */}
-                {/* <BiSolidReport className = "custom-icons"/> */}
-                <FactCheckIcon className="custom-icons" />
-                <span className="text">
-                  {props.isSdbropen ? "Project Approval Panel" : ""}
-                </span>
-              </a>
-            </li>
+
             <li
               className={activeMenuItem === 4 ? "active" : ""}
               onClick={() => handleRowClick(4)}
@@ -410,7 +431,7 @@ export default function Sidebar(props) {
               <a href="#">
                 <BiSolidDashboard className="custom-icons" />
                 <span className="text">
-                  {props.isSdbropen ? t("Single Project") : ""}
+                  {props.isSdbropen ? t("Discover Projects") : ""}
                 </span>
               </a>
             </li>
@@ -461,7 +482,6 @@ export default function Sidebar(props) {
         </>
       )}
 
-
       <ul className="side-menu">
         <li>
           <a href="#">
@@ -475,7 +495,6 @@ export default function Sidebar(props) {
           <a href="#" className="logout" onClick={logoutUser}>
             <BiLogOut className="custom-icons" />
             <span className="text">{props.isSdbropen ? t("Logout") : ""}</span>
-
           </a>
         </li>
       </ul>

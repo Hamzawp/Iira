@@ -156,13 +156,13 @@ export default function FolderPage() {
       },
     ],
   };
-  console.log(folder)
+  console.log(folder);
   const [folders, setFolders] = useState([]);
-  const [folderStruct,setFolderStruct] = useState(folder);
+  const [folderStruct, setFolderStruct] = useState(folder);
   const [files, setFiles] = useState([]);
   const [level, setLevel] = useState(0);
   const [folderInput, setFolderInput] = useState(false);
-  const [folderName,setFolderName] = useState("")
+  const [folderName, setFolderName] = useState("");
 
   function handleNestedFolder(folderId, folderLevel) {
     const clickedFolder = folder.folders.find(
@@ -184,71 +184,84 @@ export default function FolderPage() {
     setFolderInput(!folderInput);
   }
 
-  function createFolder(){
-
+  function createFolder() {
     const folderObj = {
       id: "4",
       name: folderName,
       level: 1,
-      address: [0,4],
-      files: [ {
-        id: 0,
-        fileName: "photo.jpg",
-      }],
+      address: [0, 4],
+      files: [
+        {
+          id: 0,
+          fileName: "photo.jpg",
+        },
+      ],
       folders: [],
-    }
-    folder.folders.push(folderObj)
-    setFolders((prevFolder)=>[...prevFolder,folderObj])
+    };
+    folder.folders.push(folderObj);
+    setFolders((prevFolder) => [...prevFolder, folderObj]);
     // folder.folders[4].id = 5
     // setFolders(folder.folders)
-    console.log(folders)
+    console.log(folders);
   }
 
-  function handleFolderName(event){
-    setFolderName(event.target.value)
+  function handleFolderName(event) {
+    setFolderName(event.target.value);
   }
 
   console.log(folder.files);
   //   const folders = folder.folders;
-  function handlePyUpload(){
+  function handlePyUpload() {
     setFolders(folder.folders);
-    setFiles(folder.files)
+    setFiles(folder.files);
   }
 
   return (
     <div className="folderPagediv">
       <div className="folderBtnDiv">
         <div className="folderBtns">
-        <input type="file" style={{"display":"none"}} onChange={handlePyUpload} id="fileUpload" multiple accept="application/pdf,image/png" />
-        <label htmlFor="fileUpload">
-          <button className="fileBtn" onClick={() => document.getElementById("fileUpload").click()}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="2"
-              stroke="currentColor"
-              aria-hidden="true"
+          <input
+            type="file"
+            style={{ display: "none" }}
+            onChange={handlePyUpload}
+            id="fileUpload"
+            multiple
+          />
+          <label htmlFor="fileUpload">
+            <button
+              className="fileBtn"
+              onClick={() => document.getElementById("fileUpload").click()}
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M13.5 3H12H8C6.34315 3 5 4.34315 5 6V18C5 19.6569 6.34315 21 8 21H11M13.5 3L19 8.625M13.5 3V7.625C13.5 8.17728 13.9477 8.625 14.5 8.625H19M19 8.625V11.8125"
-                stroke="#fffffff"
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
                 stroke-width="2"
-              ></path>
-              <path
-                d="M17 15V18M17 21V18M17 18H14M17 18H20"
-                stroke="#fffffff"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></path>
-            </svg>
-            ADD FILE
-          </button>
-         </label>
-          <button className="fileBtn" onClick={addFolder}>
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13.5 3H12H8C6.34315 3 5 4.34315 5 6V18C5 19.6569 6.34315 21 8 21H11M13.5 3L19 8.625M13.5 3V7.625C13.5 8.17728 13.9477 8.625 14.5 8.625H19M19 8.625V11.8125"
+                  stroke="#fffffff"
+                  stroke-width="2"
+                ></path>
+                <path
+                  d="M17 15V18M17 21V18M17 18H14M17 18H20"
+                  stroke="#fffffff"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+              ADD FILE
+            </button>
+          </label>
+          <button
+            className="fileBtn"
+            onClick={() => document.getElementById("fileUpload").click()}
+          >
             <AiOutlineFolderAdd />
             ADD FOLDER
           </button>
@@ -259,7 +272,14 @@ export default function FolderPage() {
                 className="inp-container"
               >
                 <div style={{ margin: "0px" }} className="inp-inpanddiv">
-                  <input className="inp-input" style={{"marginTop":"30px"}} onChange={handleFolderName}  value={folderName} name="text" type="text" />
+                  <input
+                    className="inp-input"
+                    style={{ marginTop: "30px" }}
+                    onChange={handleFolderName}
+                    value={folderName}
+                    name="text"
+                    type="text"
+                  />
                 </div>
               </div>
               <button class="createBtn" onClick={createFolder}>
