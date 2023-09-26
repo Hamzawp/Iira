@@ -24,6 +24,7 @@ import {PiStudentBold} from 'react-icons/pi'
 import StudentProfile from "../../components/Student/StudentProfile";
 import StudentMyProjects from "../../components/Student/StudentMyProjects";
 import StudentUploadProject from "../../components/Student/StudentUploadProject";
+import StudentSingleProject from "../../components/Student/StudentSingleProject";
 
 import Badge from "../Badge/Badge";
 // import Approval from '../../components/Approval/Modal'
@@ -251,6 +252,10 @@ export default function Dashboard() {
                 <StudentMyProjects />
               </>
             )}
+{/*To be added after uploading project judagg!!*/}
+//             {selectedRow === 5 && (
+//               <>
+//                 <StudentSingleProject />
              {/* {selectedRow === 5 && (
               <>
                 <Approval />
