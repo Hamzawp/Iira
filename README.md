@@ -93,12 +93,28 @@ The architecture and workflow was built using smartdraw.
 
 <br />
 
-**Landing Page**
+**Student Panel**
 
 <p align="left">
-  <img src='./client/src/assets/Demo/student_panel.mp4' alt='Intro Screen' width="80%">
-  <img src='./client/src/assets/Demo/mult_language.mp4' alt='Intro Screen' width="80%">
-  <img src='./client/src/assets/Demo/SPOC_panel.mp4' alt='Intro Screen' width="80%">
+<video width="100%" controls>
+  <source src="./client/src/assets/Demo/student_panel.mp4" type="video/mp4">
+</video>
+</p>
+
+**SPOC Panel**
+
+<p align="left">
+<video width="100%" controls>
+  <source src="./client/src/assets/Demo/SPOC_panel.mp4" type="video/mp4">
+</video>
+</p>
+
+**Multi Languange Functionality**
+
+<p align="left">
+<video width="100%" controls>
+  <source src="./client/src/assets/Demo/mult_language.mp4" type="video/mp4">
+</video>
 </p>
 
 <br />
