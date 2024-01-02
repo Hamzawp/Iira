@@ -91,31 +91,18 @@ The architecture and workflow was built using smartdraw.
 
 ## Demonstration
 
-<br />
 
 **Student Panel**
 
-<p align="left">
-<video width="100%" controls>
-  <source src="./client/src/assets/Demo/student_panel.mp4" type="video/mp4">
-</video>
-</p>
+https://github.com/Hamzawp/SIH_2023/assets/95119784/f6594d11-3409-402d-9afe-a723d1b34d48
 
 **SPOC Panel**
 
-<p align="left">
-<video width="100%" controls>
-  <source src="./client/src/assets/Demo/SPOC_panel.mp4" type="video/mp4">
-</video>
-</p>
+https://github.com/Hamzawp/SIH_2023/assets/95119784/48db3a2b-7615-40b6-b629-62aba7267eb0
 
 **Multi Languange Functionality**
 
-<p align="left">
-<video width="100%" controls>
-  <source src="./client/src/assets/Demo/mult_language.mp4" type="video/mp4">
-</video>
-</p>
+https://github.com/Hamzawp/SIH_2023/assets/95119784/1aa04b56-f34b-49b0-a4a2-f2e468c94bdd
 
 <br />
 <br />
