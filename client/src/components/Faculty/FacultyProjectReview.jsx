@@ -1,13 +1,14 @@
-import React, { useState } from 'react'
-import { Menu, MenuItem, MenuButton, SubMenu } from '@szhsin/react-menu';
-import { BsThreeDotsVertical } from "react-icons/bs"
-import './FacultyProjectReview.css'
+import React, { useState } from "react";
+import { Menu, MenuItem, MenuButton, SubMenu } from "@szhsin/react-menu";
+import { BsThreeDotsVertical } from "react-icons/bs";
+import "./FacultyProjectReview.css";
 import Dropdown from "react-dropdown";
 import "./Modal.css";
 const options = ["Approve", "Rollback"];
 const defaultOption = options[0];
 
-export default function FacultyProjectReview() {
+export default function FacultyProjectReview(props) {
+  const { uploadBtn } = props;
   const [modal, setModal] = useState(false);
   const [selectedOption, setSelectedOption] = useState("Approve");
   const [remarks, setRemarks] = useState("");
@@ -21,10 +22,11 @@ export default function FacultyProjectReview() {
   };
 
   if (modal) {
-    document.body.classList.add('active-modal')
+    document.body.classList.add("active-modal");
   } else {
-    document.body.classList.remove('active-modal')
-  } const facultyData = [
+    document.body.classList.remove("active-modal");
+  }
+  const facultyData = [
     // {
     //   name: "Prof. Rahul Sharma",
     //   department: "CSE",
@@ -58,19 +60,34 @@ export default function FacultyProjectReview() {
   ];
   const projects = [
     {
-      project_title: "Project A",
-      project_desc: "Lorem ipsum uinm jhtuh jywnm fgretf unm ipsum uinm jhtuh",
-
+      project_title: "Barter X",
+      project_desc:
+        "BarterX is an innovative e-commerce platform designed to facilitate the trading and swapping of goods between individuals.",
+      plag_report: 7,
     },
     {
-      project_title: "Project B",
-      project_desc: "Lorem ipsum uinm jhtuh jywnm fgretf unm ipsum uinm jhtuh",
-
+      project_title: "MobiStore",
+      project_desc:
+        "A mobile-based ecommerce platform that allows retailers to create and manage their online store, and customers to shop from a wide range of products anytime, anywhere.",
+      plag_report: 26,
     },
     {
-      project_title: "Project C",
-      project_desc: "Lorem ipsum uinm jhtuh jywnm fgretf unm ipsum uinm jhtuh",
-
+      project_title: "HerbGarden",
+      project_desc:
+        "An online service that offers medicinal and culinary herbs in both seed and plant form. Customers can also get expert advice and support for their herb gardens.",
+      plag_report: 80,
+    },
+    {
+      project_title: "Artisan Bistro",
+      project_desc:
+        "A fine dining restaurant that sources its ingredients from local farmers and artisanal food producers. It also offers cooking classes and events for food lovers.",
+      plag_report: 18,
+    },
+    {
+      project_title: "BookLab",
+      project_desc:
+        "An online platform that provides access to the latest and greatest books from around the world. It offers personalized recommendations and reviews to help users discover new books.",
+      plag_report: 35,
     },
   ];
   let SPOC = "SPOC";
@@ -90,8 +107,19 @@ export default function FacultyProjectReview() {
               placeholder="Select an option"
               onChange={(e) => setSelectedOption(e.value)}
             />
-            <input className="modal-input" type="text" placeholder="Enter Remarks" onChange={handleChange} />
-            <input type="submit" className="approval-btn" value="Submit" />
+            <input
+              className="modal-input"
+              type="text"
+              placeholder="Enter Remarks"
+              onChange={handleChange}
+            />
+            <input
+              type="submit"
+              className="approval-btn"
+              value="Submit"
+              j
+              onClick={toggleModal}
+            />
             <button className="close-modal" onClick={toggleModal}>
               X
             </button>
@@ -119,49 +147,54 @@ export default function FacultyProjectReview() {
               <div className="card-fac">
                 <div className="card__wrapper">
                   <div className="card___wrapper-acounts">
-                    <div className="card__score" style={{ "zIndex": "-5" }}>+3</div>
+                    <div
+                      className="card__score"
+                      style={{ zIndex: "-5", background: "none" }}
+                    ></div>
                     <div className="card__acounts">
                       <svg
                         viewBox="0 0 128 128"
                         xmlns="http://www.w3.org/2000/svg"
-                      >
-
-                      </svg>
+                      ></svg>
                     </div>
                     <div className="card__acounts">
                       <svg
                         viewBox="0 0 128 128"
                         xmlns="http://www.w3.org/2000/svg"
-                      >
-
-                      </svg>
+                      ></svg>
                     </div>
                     <div>
-                      <Menu menuButton={<MenuButton style={{ "border": "none" }}><BsThreeDotsVertical color='#fff' /></MenuButton>}>
+                      <Menu
+                        menuButton={
+                          <MenuButton style={{ border: "none" }}>
+                            <BsThreeDotsVertical color="#fff" />
+                          </MenuButton>
+                        }
+                      >
+                        <MenuItem onClick={() => uploadBtn(10)}>View</MenuItem>
                         <MenuItem onClick={toggleModal}>Rollback</MenuItem>
                         <MenuItem onClick={toggleModal}>Accept</MenuItem>
                         <MenuItem>Decline</MenuItem>
                       </Menu>
-
                     </div>
                   </div>
                 </div>
                 <div className="card__title">{project.project_title}</div>
-                <div className="card__subtitle">
-                  {project.project_desc}
-                </div>
+                <div className="card__subtitle">{project.project_desc}</div>
                 <div className="card__indicator">
-                  <span className="card__indicator-amount"></span> Plagiarised |{' '}
-                  <span className="card__indicator-percentage">75%</span>
+                  <span className="card__indicator-amount"></span> Plagiarised |{" "}
+                  <span className="card__indicator-percentage">
+                    {project.plag_report}%
+                  </span>
                 </div>
                 <div className="card__progress">
-                  <progress value="50" max="100"></progress>
+                  <progress value={project.plag_report} max="100"></progress>
                 </div>
               </div>
-            </li>))}
-
+            </li>
+          ))}
         </ul>
       </main>
     </div>
-  )
+  );
 }

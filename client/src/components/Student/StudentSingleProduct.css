@@ -1,0 +1,337 @@
+.singleProjHeader{
+    display: flex;
+    flex-direction: row;
+    max-height: 250px;
+    padding: 20px;
+    column-gap: 1rem;
+    font-family: "Poppins", sans-serif;
+    align-items: center;
+}
+.iconProjHeader{
+    height: 100%;
+    /* padding: 12px 10px 10px 10px; */
+    object-fit: cover   ;
+    /* border: 1px solid #c3c3c3; */
+}
+.iconProjHeader img{
+    height: 120px;
+    width: 120px;
+}
+.titleProjHeader{
+    display: flex;
+    flex-direction: column;
+    /* row-gap: 0.3rem; */
+}
+.titleProjHeader h2{
+    font-size:2.5rem;
+    font-weight: 600;
+}
+.titleProjHeader p{
+    color: #7b7b7b;
+    padding: 0 0 0 10px;
+}
+.viewDiv{
+    padding: 10px 0 0 10px !important;
+    color: #7b7b7b;
+    align-items: center;
+    display: flex;
+}
+.views{
+    
+    font-size: 14px;
+}
+.otherIconsProjHeader{
+    margin-left: 200px;
+    display: flex;
+    column-gap: 1.5rem;
+    font-size:2rem;
+    color: var(--blue);
+}
+.vertical{
+    /* height: 100%; */
+    width: 1px;
+    background-color:var(--blue);
+}
+.hoverme:hover{
+    cursor: pointer;
+}
+.tabsDiv{
+    margin: 10px;
+    padding: 0 25px;
+}
+.tabList{
+    display: flex;
+    column-gap: 1rem;
+    margin: 10px 0;
+}
+.tabName{
+    padding: 10px 20px;
+    border: 1px solid var(--blue);
+    border-radius: 15px;
+    background-color: var(--light);
+}
+.tabName:hover{
+    background-color: var(--blue);
+    color: var(--light);
+    cursor: pointer;
+}
+.aboutDiv{
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px 20px;
+    width: 100%;
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    column-gap: 2rem;
+}
+.leftAboutDiv{
+    /* height: 100px; */
+    max-height: 390px;
+    overflow-x: hidden;
+  overflow-y: auto;
+  /* text-align: center; */
+    width: 80%;
+    padding: 10px 40px 10px 20px;
+    border-right: 2px solid var(--blue);
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    /* scroll-behavior: y-scroll; */
+}
+.leftAboutDiv p{
+    text-align: justify;
+}
+.rightAboutDiv{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 10px 0;
+    row-gap: 1.3rem;
+}
+.starsDiv, .watchingDiv, .downloadsDiv, .liveDiv{
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+.abstractInfo p, .deploymentsInfo p{
+    padding: 5px 0;
+}
+.links{
+    padding: 5px 0;
+}
+.links p{
+    padding: 2px !important;
+}
+/* .tabPanel{
+    padding: 15px;
+} */
+.ulList{
+    padding: 5px 0;
+}
+.react-tabs__tab--selected{
+    background-color: var(--blue);color: #fff;
+}
+
+.video{
+    padding: 15px 5px 5px 5px;
+    display: flex; 
+    column-gap: 1.5rem;
+}
+.descVideo p{
+    text-align:justify
+}
+.collab{
+    padding: 5px 30px;display: flex; 
+    column-gap: 1rem;
+    width: 100%;
+    justify-content: space-between;
+}
+.profileCard{
+    /* max-height: 450px; */
+    max-width: 350px;
+    background-color: #fff;
+    padding: 20px 20px;
+    text-align:center;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    /* row-gap: 0.5rem; */
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.imgCard{
+    border-radius:50%;
+}
+.imgCard img{
+    width:100px;
+    height: 100px;
+}
+.aboutCard{
+    text-align:justify;
+    padding: 10px 10px;
+}
+.aboutCard p{
+    font-size:0.7rem
+}
+.iconsSection{
+    padding: 10px 0;
+    display: flex;
+    column-gap: 1.5rem;
+    justify-content:center;
+}
+.buttonsConnect{
+    padding: 10px 0;
+    display: flex;
+    column-gap:1.5rem;
+    justify-content: center;
+}
+.buttonsConnect button{
+    padding: 5px 20px;
+    font-family: "Poppins", sans-serif;
+}
+.FollowMe{
+    border-radius:5px;
+    border: 2px solid var(--blue);
+    color: var(--blue);
+}
+.MessageMe{
+    border-radius:5px;
+    border: 2px solid var(--blue);
+    background-color: var(--blue);
+    color: #fff;
+}
+
+
+
+.forum{
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+    height: 380px;
+    width: 100%;
+    padding: 10px;
+}
+.replyComment{
+    padding: 0 50px !important;
+}
+.replyComment .commentPara{
+    width: 650px;
+    background-color: #cecece;
+    margin-left: 45px;
+    padding: 5px 15px;
+    border-radius: 15px;
+}
+.commentsSec{
+    background-color: var(--light);
+    max-height: 280px;
+    overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+.commentBody{
+    max-width: 500px;
+}
+.commentPara{
+    text-align:justify;
+    font-size:0.8rem;
+    padding: 5px 35px;
+}
+.commentHeader{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+.commentHeader img{
+    width: 25px;
+    height: 25px;
+}
+.writeComment{
+    padding: 0 20px;
+}
+.writeComment input{
+    width: 100%;
+    padding: 20px 20px;
+    font-size: 1rem;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    background: var(--blue);
+    color: #fff;
+}
+.writeComment input::placeholder{
+    color: #fff;
+}
+
+.report{
+    padding: 20px;
+    text-align: center;
+}
+.report h4{
+    text-align: center;
+    padding: 10px;
+}
+.report iframe{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+
+.pie-chart {
+	background:
+		radial-gradient(
+			circle closest-side,
+			transparent 60%,
+			white 0
+		),
+		conic-gradient(
+			from 11deg,
+			#4e79a7 0,
+			#4e79a7 38%,
+			#f28e2c 0,
+			#f28e2c 61%,
+			#e15759 0,
+			#e15759 77%,
+			#edc949 0,			
+			#edc949 100%
+	);
+	position: relative;
+	width: 100%;
+	min-height: 350px;
+	margin: 0;
+	outline: 1px solid #ccc;
+}
+.pie-chart h2 {
+	position: absolute;
+	margin: 1rem;
+}
+.pie-chart cite {
+	position: absolute;
+	bottom: 0;
+	font-size: 80%;
+	padding: 1rem;
+	color: gray;
+}
+.pie-chart figcaption {
+	position: absolute;
+	bottom: 1em;
+	right: 1em;
+	font-size: smaller;
+	text-align: right;
+}
+.pie-chart span:after {
+	display: inline-block;
+	content: "";
+	width: 0.8em;
+	height: 0.8em;
+	margin-left: 0.4em;
+	height: 0.8em;
+	border-radius: 0.2em;
+	background: currentColor;
+}
+
+.langsInfo h3{
+    padding: 5px ;
+}

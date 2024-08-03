@@ -8,12 +8,11 @@ function StudentDiscovery() {
   const [answers, setAnswers] = useState([]);
   const questions = [
     {
-      question:
-        "What kind of project are you looking for?",
+      question: "What kind of project are you looking for?",
       input: true,
-    }, {
-      question:
-        "What is the main goal of your project?",
+    },
+    {
+      question: "What is the main goal of your project?",
       input: true, // This indicates that it's a text input question
     },
     {
@@ -31,7 +30,13 @@ function StudentDiscovery() {
     },
     {
       question: "What is the main goal of your project?",
-      options: ["E-commerce", "Social Media", "Data Analysis", "Entertainment", "Miscellaneous"],
+      options: [
+        "E-commerce",
+        "Social Media",
+        "Data Analysis",
+        "Entertainment",
+        "Miscellaneous",
+      ],
     },
   ];
   // const progress = (currentQuestion / (questions.length - 1)) * 100;
@@ -83,43 +88,46 @@ function StudentDiscovery() {
       // Logic for generating project suggestions based on answers
       const projectSuggestions = [
         {
-          title: "Web Development Project",
+          title: "Handcrafted Haven",
           description:
-            "Build a modern web application using your chosen tech stack.",
+            "An ecommerce platform where local artisans and craftspeople can sell their handmade goods online to a global audience.",
+          score: 8.2,
+          read_count: 379,
         },
         {
-          title: "Mobile Application Project",
-          description: "Create a mobile app for iOS and Android devices.",
-        },
-        {
-          title: "Game Development Project",
-          description: "Develop an interactive game using Unity and C#.",
-        },
-        {
-          title: "UI/UX Design Project",
+          title: "NutriCare ",
           description:
-            "Create stunning user interfaces and experiences for websites or mobile apps.",
+            "A personalized nutrition service that offers customized meal plans and wellness recommendations based on individual dietary needs, health goals, and budget.",
+          score: 9.1,
+          read_count: 442,
         },
         {
-          title: "Machine Learning Project",
+          title: "GreenBox ",
           description:
-            "Develop machine learning models for tasks like image recognition or natural language processing.",
+            "A subscription box service that delivers eco-friendly products straight to your door, creating a sustainable lifestyle for you and the environment.",
+          score: 7.8,
+          read_count: 291,
         },
         {
-          title: "IoT (Internet of Things) Project",
+          title: "Roomful of Dreams",
           description:
-            "Connect physical devices to the internet and develop applications for them.",
+            "An ecommerce service that connects you with virtual interior designers who create custom room designs and provide all the necessary furniture and decor items to make it a reality.",
+          score: 8.7,
+          read_count: 513,
         },
         {
-          title: "Cybersecurity Project",
+          title: "Vintage Visions",
           description:
-            "Enhance the security of an application or network through ethical hacking and security measures.",
+            "An online marketplace for vintage and antique items, showcasing unique, high-quality products and providing secure payment options for customers.",
+          score: 9.3,
+          read_count: 680,
         },
-
         {
-          title: "UI/UX Design Project",
+          title: "The Entrepreneur Hub",
           description:
-            "Create stunning user interfaces and experiences for websites or mobile apps.",
+            "An online coaching and training service for entrepreneurs and business owners, offering tutorials on various business topics like marketing, finance, and leadership.",
+          score: 8.5,
+          read_count: 444,
         },
       ];
 
@@ -138,7 +146,7 @@ function StudentDiscovery() {
                   <div className="card-fac">
                     <div className="card__wrapper">
                       <div className="card___wrapper-acounts">
-                        <div className="card__score">+3</div>
+                        <div className="card__score">+{project.score}</div>
                         <div className="card__acounts">
                           <svg
                             viewBox="0 0 128 128"
@@ -167,7 +175,9 @@ function StudentDiscovery() {
                     <div className="card__indicator">
                       <span className="card__indicator-amount"></span> Read |{" "}
                       {""}
-                      <span className="card__indicator-percentage">75k</span>
+                      <span className="card__indicator-percentage">
+                        {project.read_count}
+                      </span>
                     </div>
                     {/* <div className="card__progress">
                     <progress value="75" max="100"></progress>
@@ -217,5 +227,3 @@ function StudentDiscovery() {
 }
 
 export default StudentDiscovery;
-
-

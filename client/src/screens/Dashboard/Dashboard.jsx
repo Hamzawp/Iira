@@ -17,22 +17,18 @@ import UniversityMyProjects from "../../components/University/UniversityMyProjec
 import UniversityProfile from "../../components/University/UniversityProfile";
 import StudentHome from "../../components/Student/StudentHome";
 import StudentDashboard from "../../components/Student/StudentDashboard";
-import {AiOutlineFundProjectionScreen} from 'react-icons/ai'
-import {FaChalkboardTeacher} from 'react-icons/fa'
-import {RiFolderSettingsLine} from 'react-icons/ri'
-import {PiStudentBold} from 'react-icons/pi'
+import { AiOutlineFundProjectionScreen } from "react-icons/ai";
+import { FaChalkboardTeacher } from "react-icons/fa";
+import { RiFolderSettingsLine } from "react-icons/ri";
+import { PiStudentBold } from "react-icons/pi";
 import StudentProfile from "../../components/Student/StudentProfile";
 import StudentMyProjects from "../../components/Student/StudentMyProjects";
 import StudentUploadProject from "../../components/Student/StudentUploadProject";
+import StudentSingleProject from "../../components/Student/StudentSingleProject";
 
 import Badge from "../Badge/Badge";
 // import Approval from '../../components/Approval/Modal'
 import StudentDiscovery from "../../components/Student/StudentDiscovery";
-
-
-
-
-
 
 export default function Dashboard() {
   const token = localStorage.getItem("token");
@@ -90,7 +86,7 @@ export default function Dashboard() {
             {selectedRow === 4 && (
               <>
                 {" "}
-                <FacultyProjectReview />{" "}
+                <FacultyProjectReview uploadBtn={setSelectedRow} />{" "}
               </>
             )}
             {selectedRow === 5 && (
@@ -111,7 +107,7 @@ export default function Dashboard() {
                 <FacultyAddStudentPage />{" "}
               </>
             )}
-
+            {selectedRow === 10 && <StudentSingleProject />}
             {/*  MAIN  */}
           </section>
         </>
@@ -155,13 +151,11 @@ export default function Dashboard() {
       )}
 
       {roleUser === "college_faculty" && (
-
         <>
           <Sidebar
             isSdbropen={isSdbropen}
             onItemClick={handleSidebarItemClick}
           />
-
 
           <section id="content">
             <Navbar onClick={handleToggle} />
@@ -169,32 +163,25 @@ export default function Dashboard() {
             {selectedRow === 1 && (
               <>
                 {" "}
-                <FacultyDashboard role={"Faculty"}/>{" "}
-
+                <FacultyDashboard role={"Faculty"} />{" "}
               </>
             )}
             {selectedRow === 2 && (
               <>
-
                 {" "}
                 <FacultyProfile />{" "}
-
               </>
             )}
             {selectedRow === 3 && (
               <>
-
                 {" "}
                 <FacultyRequests />{" "}
-
               </>
             )}
             {selectedRow === 4 && (
               <>
-
                 {" "}
                 <FacultyProjectReview />{" "}
-
               </>
             )}
             {selectedRow === 8 && (
@@ -205,7 +192,6 @@ export default function Dashboard() {
             )}
             {selectedRow === 5 && (
               <>
-
                 {" "}
                 <FacultyMyProjects />{" "}
               </>
@@ -218,7 +204,6 @@ export default function Dashboard() {
             )}
 
             {/*  MAIN  */}
-
           </section>
         </>
       )}
@@ -243,7 +228,7 @@ export default function Dashboard() {
             )}
             {selectedRow === 3 && (
               <>
-                <StudentUploadProject />
+                <StudentUploadProject uploadBtn={setSelectedRow} />
               </>
             )}
             {selectedRow === 4 && (
@@ -251,7 +236,11 @@ export default function Dashboard() {
                 <StudentMyProjects />
               </>
             )}
-             {/* {selectedRow === 5 && (
+            {/*To be added after uploading project judagg!!*/}
+            {/* {selectedRow === 5 && (
+             <>
+             <StudentSingleProject /> */}
+            {/* {selectedRow === 5 && (
               <>
                 <Approval />
               </>
@@ -261,10 +250,10 @@ export default function Dashboard() {
                 <StudentDiscovery />
               </>
             )}
+            {selectedRow === 6 && <StudentSingleProject />}
           </section>
         </>
       )}
-
     </div>
   );
 }

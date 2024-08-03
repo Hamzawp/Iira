@@ -4,23 +4,28 @@ import "./StudentUploadProject.css";
 import FolderPage from "../FolderUpload/FolderPage";
 import CompleteUpload from "../FolderUpload/CompleteUpload";
 
-export default function StudentUploadProject() {
+export default function StudentUploadProject(props) {
+  const { uploadBtn } = props;
   const [stage, setStage] = useState(1);
 
-  function handleStage(stage){
-    setStage(stage+1);
+  function handleStage(stage) {
+    setStage(stage + 1);
   }
 
   return (
     <div className="stu-pro-container">
       <div className="stu-pro-heading">
-        {stage==3?<h1>Project Preview</h1>:
-        <><h1>Create a new Project Repository</h1><p>
-          A repository contains all project files, including the revision
-          history.
-        </p>
-        </>}
-        
+        {stage == 3 ? (
+          <h1>Project Preview</h1>
+        ) : (
+          <>
+            <h1>Create a new Project Repository</h1>
+            <p>
+              A repository contains all project files, including the revision
+              history.
+            </p>
+          </>
+        )}
       </div>
 
       {/* stage 1 of upload */}
@@ -88,7 +93,7 @@ export default function StudentUploadProject() {
           <div className="inp-div-right">
             <div className="inp-profile-div">
               <h4>Project Report</h4>
-              <input type="file" className="inp-profile" />
+              <input type="file" className="inp-profile" multiple />
               <p style={{ color: "grey" }}>Upload the Project Report</p>
             </div>
           </div>
@@ -96,17 +101,14 @@ export default function StudentUploadProject() {
       )}
 
       {/* stage 2 of upload */}
-      {stage == 2 && (
-        <FolderPage />
-      )}
+      {stage == 2 && <FolderPage />}
 
       {/* stage 3, final preview stage */}
       {stage == 3 && (
         <>
-          <CompleteUpload />
+          <CompleteUpload uploadBtn={uploadBtn} />
         </>
       )}
-
 
       {/* buttons for all stages */}
       {stage == 1 && (
@@ -126,7 +128,7 @@ export default function StudentUploadProject() {
         </button>
       )}
       {stage == 2 && (
-        <button onClick={()=>handleStage(2)} class="continue-application">
+        <button onClick={() => handleStage(2)} class="continue-application">
           <div>
             <div class="pencil"></div>
             <div class="folder">
